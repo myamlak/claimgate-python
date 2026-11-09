@@ -556,6 +556,17 @@ def validate_book(data: dict[str, Any]) -> list[str]:
                 errors.append(
                     f"claim {cid}: names row {row_id!r}, but no registration of the claim cites it"
                 )
+        if claim.get("evidence_class") in ("proof", "certified_bound"):
+            row_classes = {
+                rows[row_id].get("evidence_class")
+                for row_id in claim.get("rows", []) if isinstance(claim.get("rows"), list)
+                if row_id in rows
+            }
+            if claim["evidence_class"] not in row_classes:
+                errors.append(
+                    f"claim {cid}: is registered as {claim['evidence_class']!r}, but no carrying "
+                    f"row carries that class (the rows carry {sorted(c for c in row_classes if c)})"
+                )
     for reg in registrations:
         if not isinstance(reg, dict):
             continue

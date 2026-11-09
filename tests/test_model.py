@@ -109,6 +109,11 @@ class ValidationErrorTest(unittest.TestCase):
         errors = self.errors(self.data)
         self.assertTrue(any("needs a reason" in error for error in errors))
 
+    def test_claim_evidence_class(self):
+        self.data["claims"][0]["evidence_class"] = "proof"
+        errors = self.errors(self.data)
+        self.assertTrue(any("no carrying row carries that class" in error for error in errors))
+
     def test_book_metadata(self):
         del self.data["book"]["title"]
         self.assertTrue(any("no title" in error for error in self.errors(self.data)))

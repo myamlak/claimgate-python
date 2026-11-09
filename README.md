@@ -239,6 +239,10 @@ row, a not-carried row and a not-judged row.  Its exit status is 1.
 ## What the tool does not do
 
 * It does not understand prose.  A human authors every registration.
+* The anchor check collapses whitespace runs.  It does not reconcile markup,
+  hyphenation or a sentence printed in a different form from the source's.
+* The CSV reader handles one record per line.  A field containing a quoted
+  newline is not supported.
 * It does not prove that an enumeration of a library's claims is complete.
   The book is a lower bound on the claims that were carried.
 * It does not certify beyond the evidence class.  A measured row is a
