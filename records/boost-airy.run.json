@@ -1,0 +1,320 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "boost-airy",
+    "title": "Boost.Math 1.92.0: the Airy relative-error sentence",
+    "path": "examples/boost-airy/book.json",
+    "sha256": "6fad5a71c1ad074ac6b4de8bc3a2d53793984cd3adb0f8eb4fb1bac61c885f2f"
+  },
+  "root": "examples/boost-airy",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "examples/boost-airy/book.json",
+    "--portable",
+    "--report",
+    "records/boost-airy.run.json"
+  ],
+  "started_utc": "2026-11-09T18:20:43+00:00",
+  "finished_utc": "2026-11-09T18:20:43+00:00",
+  "duration_s": 0.207564,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "examples/boost-airy/book.json",
+      "sha256": "6fad5a71c1ad074ac6b4de8bc3a2d53793984cd3adb0f8eb4fb1bac61c885f2f",
+      "bytes": 11235
+    },
+    {
+      "role": "data",
+      "path": "examples/boost-airy/data/boost_airy_reference.csv",
+      "sha256": "4efec9f2b07b712e577644f11d64267af544505aceaae1774ad3b686b84c4a16",
+      "bytes": 785603
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boost-airy/anchors/doc_excerpts.txt",
+      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
+      "bytes": 2881
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 1,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/doc_excerpts.txt",
+          "mode": "full-source",
+          "path": "examples/boost-airy/anchors/doc_excerpts.txt",
+          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 1,
+      "absent": 0,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 4,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "boost.airy.ai.a2_grid",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_ai over the audit's A2 grid, 65 linear points over [0.001, 100], within 100 epsilon of a 60-digit reference",
+      "subject": "airy_ai in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "epsilon",
+        "unit": "epsilon",
+        "epsilon": 2.220446049250313e-16
+      },
+      "bound": {
+        "value": 100,
+        "unit": "epsilon"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the audit's A2 grid: 65 linear points over [0.001, 100]",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'audit A2 grid i=0..64'"
+      },
+      "cells": 65,
+      "judged_cells": 65,
+      "failures": 25,
+      "vacuous_cells": 0,
+      "discriminating_cells": 65,
+      "worst": {
+        "value": 414.87895725321977,
+        "text": "414.87895725321977",
+        "cell": {
+          "data_row": 51,
+          "label": "audit A2 grid i=50",
+          "x": "78.12521875",
+          "input_bits": "4053880395810625",
+          "function": "airy_ai",
+          "metric": "414.87895725321977",
+          "measured": "1635cbed3a28cf03",
+          "reference": "1.11232433839355888728847712376e-201",
+          "measured_bits": "1635cbed3a28cf03"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 65 measured cell(s) and makes no statement between them",
+        "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
+      ],
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "path": "examples/boost-airy/data/boost_airy_reference.csv",
+        "comparison": "value_vs_reference",
+        "rows": 65
+      }
+    },
+    {
+      "id": "boost.airy.bi.a2_grid",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_bi over the audit's A2 grid, 65 linear points over [0.001, 100], within 100 epsilon of a 60-digit reference",
+      "subject": "airy_bi in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "epsilon",
+        "unit": "epsilon",
+        "epsilon": 2.220446049250313e-16
+      },
+      "bound": {
+        "value": 100,
+        "unit": "epsilon"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the audit's A2 grid: 65 linear points over [0.001, 100]",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'audit A2 grid i=0..64'"
+      },
+      "cells": 65,
+      "judged_cells": 65,
+      "failures": 23,
+      "vacuous_cells": 0,
+      "discriminating_cells": 65,
+      "worst": {
+        "value": 414.1108956228454,
+        "text": "414.11089562284541",
+        "cell": {
+          "data_row": 51,
+          "label": "audit A2 grid i=50",
+          "x": "78.12521875",
+          "input_bits": "4053880395810625",
+          "function": "airy_bi",
+          "metric": "414.11089562284541",
+          "measured": "694b11e28c737f82",
+          "reference": "1.61880005616375578780131223317e+199",
+          "measured_bits": "694b11e28c737f82"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 65 measured cell(s) and makes no statement between them",
+        "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
+      ],
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "path": "examples/boost-airy/data/boost_airy_reference.csv",
+        "comparison": "value_vs_reference",
+        "rows": 65
+      }
+    },
+    {
+      "id": "boost.airy.ai.named",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_ai at the paper's named witness x = 35.9 and its immediate neighbours, within 100 epsilon of a 60-digit reference",
+      "subject": "airy_ai in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "epsilon",
+        "unit": "epsilon",
+        "epsilon": 2.220446049250313e-16
+      },
+      "bound": {
+        "value": 100,
+        "unit": "epsilon"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x = 35.9 and its two immediate binary64 neighbours",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'named airy_ai witness (paper)'"
+      },
+      "cells": 3,
+      "judged_cells": 3,
+      "failures": 1,
+      "vacuous_cells": 0,
+      "discriminating_cells": 3,
+      "worst": {
+        "value": 121.39533957606638,
+        "text": "121.39533957606637",
+        "cell": {
+          "data_row": 2,
+          "label": "named airy_ai witness (paper)",
+          "x": "35.9",
+          "input_bits": "4041f33333333333",
+          "function": "airy_ai",
+          "metric": "121.39533957606637",
+          "measured": "32cffa5db1483540",
+          "reference": "6.07298381367682676012450295236e-64",
+          "measured_bits": "32cffa5db1483540"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 3 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "path": "examples/boost-airy/data/boost_airy_reference.csv",
+        "comparison": "value_vs_reference",
+        "rows": 3
+      }
+    },
+    {
+      "id": "boost.airy.bi.named",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_bi at the literal four-decimal double 78.1252 and its immediate neighbours, within 100 epsilon of a 60-digit reference",
+      "subject": "airy_bi in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "epsilon",
+        "unit": "epsilon",
+        "epsilon": 2.220446049250313e-16
+      },
+      "bound": {
+        "value": 100,
+        "unit": "epsilon"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x = 78.1252 (the literal double) and its two immediate binary64 neighbours",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'named airy_bi witness (paper)'"
+      },
+      "cells": 3,
+      "judged_cells": 3,
+      "failures": 2,
+      "vacuous_cells": 0,
+      "discriminating_cells": 3,
+      "worst": {
+        "value": 157.8189772685783,
+        "text": "157.81897726857830",
+        "cell": {
+          "data_row": 1,
+          "label": "named airy_bi witness (paper) neighbour -1 ulp",
+          "x": "78.12519999999999",
+          "input_bits": "4053880346dc5d63",
+          "function": "airy_bi",
+          "metric": "157.81897726857830",
+          "measured": "694b10bcab441bdf",
+          "reference": "1.61853189449202084909440190554e+199",
+          "measured_bits": "694b10bcab441bdf"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 3 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "path": "examples/boost-airy/data/boost_airy_reference.csv",
+        "comparison": "value_vs_reference",
+        "rows": 3
+      }
+    }
+  ],
+  "summary": {
+    "rows": 4,
+    "verified": 0,
+    "met_over_domain": 0,
+    "exceeded": 4,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 0,
+    "judged": 4
+  },
+  "exit_status": 1
+}

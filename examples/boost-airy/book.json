@@ -1,0 +1,246 @@
+{
+  "claimgate_book": 1,
+  "book": {
+    "id": "boost-airy",
+    "title": "Boost.Math 1.92.0: the Airy relative-error sentence",
+    "description": "The Airy sentence from the Boost.Math documentation, carried as measured rows over the deposited witness data. The sentence is hedged ('in general') and states a relative bound of 100 epsilon for x > 0. The data are the witness rerun's 60-digit mpmath reference and the MSVC binary64 evaluations; claimgate recomputes every error exactly from the raw measured bits and the reference decimal, and cross-checks its result against the deposited error_eps column.",
+    "library": {
+      "name": "Boost.Math",
+      "version": "1.92.0",
+      "tag": "boost-1.92.0",
+      "revision": "BOOST_VERSION 109200, BOOST_LIB_VERSION 1_92"
+    },
+    "created": "2026-11-09",
+    "provenance": {
+      "deposit": "papers-harness-repo/accuracy-claim-audit/witness-rerun/",
+      "data": "raw/boost_airy_reference.csv, copied unchanged; SHA-256 4efec9f2b07b712e577644f11d64267af544505aceaae1774ad3b686b84c4a16",
+      "anchor": "raw/doc_excerpts.txt, copied unchanged; SHA-256 3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
+      "upstream": "Boost 1.92.0 archive SHA-256 c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce; libs/math/doc/sf/airy.qbk lines 52-53 and 106-107",
+      "reference": "mpmath 1.4.1 at 60 significant decimal digits, evaluated at the exact binary64 input",
+      "measured": "MSVC 19.51.36260 x64, /O2 /fp:precise, header-only boost/math/special_functions/airy.hpp",
+      "note": "The audit's A1 grid (65 points over [0.001, 30]) is not in the deposit. The A2 grid (65 points over [0.001, 100]) and the named witness points are, and they carry the two breaches the paper reports."
+    }
+  },
+  "defaults": {"root": "."},
+  "claims": [
+    {
+      "id": "boost.math.airy.100eps",
+      "object": "boost::math::airy_ai and boost::math::airy_bi",
+      "domain": {
+        "description": "x > 0, the domain the sentence states; the sentence states no upper bound",
+        "scope": "stated",
+        "source": "libs/math/doc/sf/airy.qbk lines 52-53 (Ai) and 106-107 (Bi)"
+      },
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "epsilon", "unit": "epsilon", "epsilon": 2.220446049250313e-16},
+      "bound": {"value": 100, "unit": "epsilon", "quantifier": "uniform"},
+      "implementation": {
+        "name": "Boost.Math",
+        "version": "1.92.0",
+        "tag": "boost-1.92.0",
+        "revision": "BOOST_VERSION 109200"
+      },
+      "route": "double, header-only boost/math/special_functions/airy.hpp",
+      "assumptions": [
+        "binary64, round-to-nearest",
+        "x86-64, FLT_EVAL_METHOD=0",
+        "MSVC 19.51 /O2 /fp:precise",
+        "epsilon is the binary64 format epsilon, 2^-52",
+        "the reference is mpmath at 60 significant decimal digits evaluated at the exact input double"
+      ],
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [17, 18],
+        "document": "Boost.Math libs/math/doc/sf/airy.qbk lines 52-53 and 106-107; quoted in the witness-rerun excerpt"
+      },
+      "evidence_class": "measured_error",
+      "subject": "the relative error of the binary64 Airy functions",
+      "rows": [
+        "boost.airy.ai.a2_grid",
+        "boost.airy.bi.a2_grid",
+        "boost.airy.ai.named",
+        "boost.airy.bi.named"
+      ]
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.boost.airy.100eps",
+      "claim_id": "boost.math.airy.100eps",
+      "sentence": "In general though, the relative error is low (less than 100 [epsilon]) for /x > 0/ while only the absolute error is low for /x < 0/ as the following error plot illustrates:",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [17, 18],
+        "document": "libs/math/doc/sf/airy.qbk lines 52-53 (Ai) and 106-107 (Bi)"
+      },
+      "scope": "x > 0. 'In general' hedges the sentence; the plot it points to is drawn over [-20, 20] and does not show the witnesses.",
+      "figure": {"text": "100", "unit": "epsilon"},
+      "rows": [
+        "boost.airy.ai.a2_grid",
+        "boost.airy.bi.a2_grid",
+        "boost.airy.ai.named",
+        "boost.airy.bi.named"
+      ],
+      "version": "1.92.0",
+      "route": "double",
+      "assumptions": [
+        "the sentence's epsilon is binary64 epsilon 2^-52",
+        "the domain is read as x > 0, with no upper bound"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "boost.airy.ai.a2_grid",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_ai over the audit's A2 grid, 65 linear points over [0.001, 100], within 100 epsilon of a 60-digit reference",
+      "subject": "airy_ai in binary64",
+      "domain": {
+        "description": "the audit's A2 grid: 65 linear points over [0.001, 100]",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'audit A2 grid i=0..64'"
+      },
+      "metric": {"kind": "epsilon", "unit": "epsilon", "epsilon": 2.220446049250313e-16},
+      "bound": {"value": 100, "unit": "epsilon"},
+      "quantifier": "uniform",
+      "evidence_class": "measured_error",
+      "figure_bound": 100.0,
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {
+          "measured": "result",
+          "measured_bits": "result_bits",
+          "reference": "reference_60d",
+          "label": "label"
+        },
+        "filter": {
+          "all": [
+            {"column": "function", "equals": "airy_ai"},
+            {"column": "label", "startswith": "audit A2 grid"}
+          ]
+        },
+        "require_rows": 65,
+        "crosscheck": {"column": "error_eps", "tolerance": 1e-09}
+      },
+      "assumptions": ["binary64 evaluated at the exact input double"],
+      "notes": "This row extends the audit's A1 row beyond x = 30. The audit stopped A1 at 30 because its double reference underflowed; the deposited reference is 60-digit mpmath, so the whole A2 grid is measurable. The breach at 78.12521875 is outside the audit's A1 row and is a finding of this run, not a reprint of A1."
+    },
+    {
+      "id": "boost.airy.bi.a2_grid",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_bi over the audit's A2 grid, 65 linear points over [0.001, 100], within 100 epsilon of a 60-digit reference",
+      "subject": "airy_bi in binary64",
+      "domain": {
+        "description": "the audit's A2 grid: 65 linear points over [0.001, 100]",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'audit A2 grid i=0..64'"
+      },
+      "metric": {"kind": "epsilon", "unit": "epsilon", "epsilon": 2.220446049250313e-16},
+      "bound": {"value": 100, "unit": "epsilon"},
+      "quantifier": "uniform",
+      "evidence_class": "measured_error",
+      "figure_bound": 100.0,
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {
+          "measured": "result",
+          "measured_bits": "result_bits",
+          "reference": "reference_60d",
+          "label": "label"
+        },
+        "filter": {
+          "all": [
+            {"column": "function", "equals": "airy_bi"},
+            {"column": "label", "startswith": "audit A2 grid"}
+          ]
+        },
+        "require_rows": 65,
+        "crosscheck": {"column": "error_eps", "tolerance": 1e-09}
+      },
+      "assumptions": ["binary64 evaluated at the exact input double"],
+      "notes": "The audit's A2 row. The grid point i=50 is 78.12521875, printed as 78.1252; the measured error there is the paper's 414.111 epsilon witness."
+    },
+    {
+      "id": "boost.airy.ai.named",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_ai at the paper's named witness x = 35.9 and its immediate neighbours, within 100 epsilon of a 60-digit reference",
+      "subject": "airy_ai in binary64",
+      "domain": {
+        "description": "x = 35.9 and its two immediate binary64 neighbours",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'named airy_ai witness (paper)'"
+      },
+      "metric": {"kind": "epsilon", "unit": "epsilon", "epsilon": 2.220446049250313e-16},
+      "bound": {"value": 100, "unit": "epsilon"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 100.0,
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {
+          "measured": "result",
+          "measured_bits": "result_bits",
+          "reference": "reference_60d",
+          "label": "label"
+        },
+        "filter": {
+          "all": [
+            {"column": "function", "equals": "airy_ai"},
+            {"column": "label", "startswith": "named airy_ai witness (paper)"}
+          ]
+        },
+        "require_rows": 3,
+        "crosscheck": {"column": "error_eps", "tolerance": 1e-09}
+      },
+      "assumptions": ["binary64 evaluated at the exact input double"],
+      "notes": "The paper's 121.395 epsilon witness at x = 35.9. The neighbours are included so the row is not a single cherry-picked double."
+    },
+    {
+      "id": "boost.airy.bi.named",
+      "type": "reference_comparison",
+      "claim_id": "boost.math.airy.100eps",
+      "statement": "airy_bi at the literal four-decimal double 78.1252 and its immediate neighbours, within 100 epsilon of a 60-digit reference",
+      "subject": "airy_bi in binary64",
+      "domain": {
+        "description": "x = 78.1252 (the literal double) and its two immediate binary64 neighbours",
+        "scope": "whole",
+        "source": "witness-rerun raw/boost_airy_inputs_meta.csv, label 'named airy_bi witness (paper)'"
+      },
+      "metric": {"kind": "epsilon", "unit": "epsilon", "epsilon": 2.220446049250313e-16},
+      "bound": {"value": 100, "unit": "epsilon"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 100.0,
+      "data": {
+        "file": "data/boost_airy_reference.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {
+          "measured": "result",
+          "measured_bits": "result_bits",
+          "reference": "reference_60d",
+          "label": "label"
+        },
+        "filter": {
+          "all": [
+            {"column": "function", "equals": "airy_bi"},
+            {"column": "label", "startswith": "named airy_bi witness (paper)"}
+          ]
+        },
+        "require_rows": 3,
+        "crosscheck": {"column": "error_eps", "tolerance": 1e-09}
+      },
+      "assumptions": ["binary64 evaluated at the exact input double"],
+      "notes": "The literal 78.1252 double is 4053880346dc5d64, a different double from the A2 grid point 78.12521875 (4053880395810625); both breach the sentence. The paper's 414.111 is the grid point; this row records the literal label the paper prints."
+    }
+  ]
+}

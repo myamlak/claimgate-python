@@ -1,0 +1,32 @@
+{
+  "CONTRIBUTING.md": {
+    "file": "CONTRIBUTING.md.slices.json",
+    "sha256": "91387cd107a51d547cdf51b6dbc95ddf92146503c13c07e3680839bb0bd1349b",
+    "tag": "v5.3.1"
+  },
+  "README.md": {
+    "file": "README.md.slices.json",
+    "sha256": "3814c2c526100bc8be179bdf1e8cda551880c2dc373061dd74f300cfda5c51b0",
+    "tag": "v5.3.1"
+  },
+  "docs/lane-contract.md": {
+    "file": "docs__lane-contract.md.slices.json",
+    "sha256": "e37e1cfe0acdaa7effffe053ad87aee5820237484fc6192c54253f1aa41e67b1",
+    "tag": "v5.3.1"
+  },
+  "docs/mainpage.md": {
+    "file": "docs__mainpage.md.slices.json",
+    "sha256": "3e99f928e6a8c14771b3f9ece352d0105010c43d06061b17248b81dc0c299202",
+    "tag": "v5.3.1"
+  },
+  "include/boys/boys_decl.hpp": {
+    "file": "include__boys__boys_decl.hpp.slices.json",
+    "sha256": "1c15d22a7cd09f2b52d4eeca4829fe09993766a6071862d4c5bd32464b56f862",
+    "tag": "v5.3.1"
+  },
+  "src/boys_simd.cpp": {
+    "file": "src__boys_simd.cpp.slices.json",
+    "sha256": "7b71c4d416c8f5e0afa31827ed4439db8cf8f49a932f25b497c22792fe6b1ac8",
+    "tag": "v5.3.1"
+  }
+}

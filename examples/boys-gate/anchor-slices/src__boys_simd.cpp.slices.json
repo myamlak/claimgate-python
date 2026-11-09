@@ -1,0 +1,11 @@
+{
+ "source": "src/boys_simd.cpp",
+ "tag": "v5.3.1",
+ "sha256": "7b71c4d416c8f5e0afa31827ed4439db8cf8f49a932f25b497c22792fe6b1ac8",
+ "lines": {
+  "374": "// Region-partitioned 8-wide kernels shared by the fp16 and bf16 lanes. Their",
+  "375": "// scalar tails call the half-lane scalar entries; the vector bodies hold the",
+  "376": "// same documented bound as those entries but are not bit-identical to them (the",
+  "377": "// bodies run the fp32 fit at full degree where the scalar lane truncates it)."
+ }
+}

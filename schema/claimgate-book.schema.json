@@ -1,0 +1,410 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claimgate.invalid/schema/claimgate-book-1.json",
+  "title": "claimgate book",
+  "description": "A claims book: claims, registrations, rows, and the optional external run record a library already produces.",
+  "type": "object",
+  "required": ["claimgate_book", "book", "rows"],
+  "additionalProperties": false,
+  "properties": {
+    "claimgate_book": {"const": 1},
+    "book": {"$ref": "#/$defs/book"},
+    "defaults": {"$ref": "#/$defs/defaults"},
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+    "registrations": {"type": "array", "items": {"$ref": "#/$defs/registration"}},
+    "rows": {"type": "array", "items": {"$ref": "#/$defs/row"}},
+    "external_run": {"$ref": "#/$defs/externalRun"}
+  },
+  "$defs": {
+    "evidenceClass": {
+      "description": "What the evidence can establish. proof and certified_bound establish; conditional_bound establishes only under its stated hypotheses; measured_error and finite_grid_conformance can refute and establish conformance on the measured set only; empirical_allowance and proxy support but do not bound; vacuous, evidence_absent and not_carried do not support the claim.",
+      "enum": [
+        "proof",
+        "certified_bound",
+        "conditional_bound",
+        "measured_error",
+        "finite_grid_conformance",
+        "empirical_allowance",
+        "proxy",
+        "vacuous",
+        "evidence_absent",
+        "not_carried"
+      ]
+    },
+    "verdict": {
+      "description": "The seven operational verdicts of the boys gate, reused as one implementation of the evidence taxonomy. A verdict family is derived from the verdict: verified and met_over_domain are judged and met; exceeded, vacuous and evidence_absent are judged and unmet; not_carried and not_judged are not judged.",
+      "enum": [
+        "verified",
+        "met_over_domain",
+        "exceeded",
+        "vacuous",
+        "evidence_absent",
+        "not_carried",
+        "not_judged"
+      ]
+    },
+    "metricKind": {
+      "description": "The comparison a row computes. 'external' means the metric is the external run record's own and claimgate does not recompute it.",
+      "enum": ["absolute", "relative", "epsilon", "ulp", "bit_identity", "scaled", "exact", "external"]
+    },
+    "quantifier": {
+      "enum": ["pointwise", "uniform", "observed_maximum", "band_maximum"]
+    },
+    "scope": {
+      "enum": ["whole", "stated"]
+    },
+    "sourceRef": {
+      "type": "object",
+      "required": ["file", "lines"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "lines": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "integer", "minimum": 1},
+          "description": "Inclusive one-based first and last line."
+        },
+        "document": {"type": "string"}
+      }
+    },
+    "metric": {
+      "type": "object",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"$ref": "#/$defs/metricKind"},
+        "unit": {"type": "string"},
+        "epsilon": {
+          "description": "The quantum for the epsilon metric. Defaults to binary64 epsilon 2^-52.",
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "bound": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "description": "A bound in the stated unit. A string is read exactly: a decimal, a power of two such as 2^-22, or a sum of such terms separated by ' + '.",
+          "type": ["number", "string"]
+        },
+        "unit": {"type": "string"}
+      }
+    },
+    "domain": {
+      "type": "object",
+      "required": ["description"],
+      "additionalProperties": false,
+      "properties": {
+        "description": {"type": "string"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "source": {"type": "string"},
+        "interval": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lo": {"type": ["number", "string"]},
+            "hi": {"type": ["number", "string"]},
+            "lo_open": {"type": "boolean"},
+            "hi_open": {"type": "boolean"},
+            "unit": {"type": "string"}
+          }
+        }
+      }
+    },
+    "book": {
+      "type": "object",
+      "required": ["id", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Za-z0-9._/-]+$"},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "library": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": "string"},
+            "version": {"type": "string"},
+            "tag": {"type": "string"},
+            "revision": {"type": "string"},
+            "source": {"type": "string"}
+          }
+        },
+        "created": {"type": "string"},
+        "provenance": {"type": "object"},
+        "unregistered_rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["row", "treatment", "reason"],
+            "additionalProperties": false,
+            "properties": {
+              "row": {"type": "string"},
+              "treatment": {"enum": ["retained", "supporting", "external", "withdrawn"]},
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root": {"type": "string"},
+        "anchor_preference": {
+          "description": "'auto' reads a registration's source from the root when the file exists, else from the deposited slice; 'slices' always reads the deposited slice, so a consumer directory can hold a README of its own without shadowing an upstream README anchor.",
+          "enum": ["auto", "slices"]
+        },
+        "fail_on": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/verdict"}
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["id", "object", "domain", "output", "metric", "bound", "implementation", "route", "source", "evidence_class", "subject", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "object": {"type": "string", "minLength": 1},
+        "domain": {"$ref": "#/$defs/domain"},
+        "output": {
+          "type": "object",
+          "required": ["representation"],
+          "additionalProperties": false,
+          "properties": {
+            "representation": {"type": "string"},
+            "precision_bits": {"type": "integer", "minimum": 1}
+          }
+        },
+        "metric": {"$ref": "#/$defs/metric"},
+        "bound": {
+          "allOf": [
+            {"$ref": "#/$defs/bound"},
+            {
+              "type": "object",
+              "required": ["quantifier"],
+              "properties": {"quantifier": {"$ref": "#/$defs/quantifier"}}
+            }
+          ]
+        },
+        "implementation": {
+          "type": "object",
+          "required": ["name", "version"],
+          "additionalProperties": false,
+          "properties": {
+            "name": {"type": "string"},
+            "version": {"type": "string"},
+            "tag": {"type": "string"},
+            "revision": {"type": "string"}
+          }
+        },
+        "route": {"type": "string"},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "source": {"$ref": "#/$defs/sourceRef"},
+        "evidence_class": {"$ref": "#/$defs/evidenceClass"},
+        "subject": {"type": "string"},
+        "rows": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "registration": {
+      "type": "object",
+      "required": ["id", "claim_id", "sentence", "source", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "claim_id": {"type": "string", "minLength": 1},
+        "sentence": {
+          "description": "The documented sentence, verbatim. Whitespace runs are collapsed by the anchor check, not by the book author.",
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {"$ref": "#/$defs/sourceRef"},
+        "scope": {"type": "string"},
+        "figure": {
+          "type": "object",
+          "required": ["text"],
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "description": "The number the sentence states, as the document writes it: a decimal, 2^p, or a sum with ' + '.",
+              "type": "string",
+              "minLength": 1
+            },
+            "unit": {"type": "string"}
+          }
+        },
+        "rows": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "version": {"type": "string"},
+        "route": {"type": "string"},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "supporting": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["sentence", "source"],
+            "additionalProperties": false,
+            "properties": {
+              "sentence": {"type": "string", "minLength": 1},
+              "source": {"$ref": "#/$defs/sourceRef"}
+            }
+          }
+        }
+      }
+    },
+    "dataSpec": {
+      "type": "object",
+      "required": ["file", "format", "comparison"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "format": {"const": "csv"},
+        "comparison": {
+          "enum": ["value_vs_reference", "consistency", "bit_identity", "exact", "vacuous"]
+        },
+        "columns": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "measured": {"type": "string"},
+            "reference": {"type": "string"},
+            "measured_bits": {"type": "string"},
+            "reference_bits": {"type": "string"},
+            "expected_bits": {"type": "string"},
+            "expected": {"type": "string"},
+            "a": {"type": "string"},
+            "b": {"type": "string"},
+            "magnitude": {"type": "string"},
+            "band": {"type": "string"},
+            "scale": {"type": "string"},
+            "label": {"type": "string"}
+          }
+        },
+        "filter": {
+          "oneOf": [
+            {"$ref": "#/$defs/singleFilter"},
+            {
+              "type": "object",
+              "required": ["all"],
+              "additionalProperties": false,
+              "properties": {
+                "all": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/singleFilter"}}
+              }
+            }
+          ]
+        },
+        "require_rows": {"type": "integer", "minimum": 1},
+        "crosscheck": {
+          "type": "object",
+          "required": ["column", "tolerance"],
+          "additionalProperties": false,
+          "properties": {
+            "column": {"type": "string"},
+            "tolerance": {"type": "number", "exclusiveMinimum": 0}
+          }
+        },
+        "notes": {"type": "string"}
+      }
+    },
+    "singleFilter": {
+      "type": "object",
+      "required": ["column"],
+      "additionalProperties": false,
+      "properties": {
+        "column": {"type": "string"},
+        "equals": {"type": "string"},
+        "startswith": {"type": "string"}
+      }
+    },
+    "row": {
+      "type": "object",
+      "required": ["id", "type", "statement", "subject", "domain", "evidence_class"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": ["reference_comparison", "consistency", "exactness", "vacuity", "evidence_absent", "not_carried", "external_record"]
+        },
+        "claim_id": {"type": "string"},
+        "statement": {"type": "string", "minLength": 1},
+        "subject": {"type": "string", "minLength": 1},
+        "domain": {"$ref": "#/$defs/domain"},
+        "metric": {"$ref": "#/$defs/metric"},
+        "bound": {"$ref": "#/$defs/bound"},
+        "quantifier": {"$ref": "#/$defs/quantifier"},
+        "evidence_class": {"$ref": "#/$defs/evidenceClass"},
+        "figure_bound": {
+          "description": "The numeric bound the registration's stated figure is compared with to one ULP. Zero or absent where the row has no directly comparable bound.",
+          "type": "number",
+          "minimum": 0
+        },
+        "data": {"$ref": "#/$defs/dataSpec"},
+        "record": {
+          "type": "object",
+          "required": ["file", "row_index"],
+          "additionalProperties": false,
+          "properties": {
+            "file": {"type": "string", "minLength": 1},
+            "row_index": {"type": "integer", "minimum": 1},
+            "row_id": {"type": "string"},
+            "verdict": {"$ref": "#/$defs/verdict"}
+          }
+        },
+        "state": {
+          "description": "A declared state that withholds or supplies a verdict without measurement: not_carried, not_judged, or evidence_absent.",
+          "enum": ["not_carried", "not_judged", "evidence_absent"]
+        },
+        "reason": {"type": "string"},
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "reference_comparison"}}},
+          "then": {"required": ["metric", "bound", "quantifier", "data"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "consistency"}}},
+          "then": {"required": ["metric", "bound", "quantifier", "data"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "exactness"}}},
+          "then": {"required": ["metric", "bound", "data"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "vacuity"}}},
+          "then": {"required": ["metric", "bound", "quantifier", "data"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "external_record"}}},
+          "then": {"required": ["record"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "not_carried"}}},
+          "then": {"required": ["reason"]}
+        },
+        {
+          "if": {"properties": {"type": {"const": "evidence_absent"}}},
+          "then": {"required": ["reason"]}
+        }
+      ]
+    },
+    "externalRun": {
+      "type": "object",
+      "required": ["file"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {"type": "string", "minLength": 1},
+        "schema": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

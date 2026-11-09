@@ -1,0 +1,12 @@
+{
+ "source": "include/boys/boys_decl.hpp",
+ "tag": "v5.3.1",
+ "sha256": "1c15d22a7cd09f2b52d4eeca4829fe09993766a6071862d4c5bd32464b56f862",
+ "lines": {
+  "1992": "/// arithmetic stated absolutely. The bound is",
+  "1993": "/// claimed only over the arguments where |F_n(x16)| exceeds it, and no accuracy",
+  "1994": "/// is claimed past that ceiling: in f16 the return there is a subnormal number,",
+  "1995": "/// then exactly zero, with the bound met by the format's floor rather than by the",
+  "1996": "/// lane - see the contract table in the file preamble."
+ }
+}

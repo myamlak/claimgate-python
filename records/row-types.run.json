@@ -1,0 +1,483 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "row-types",
+    "title": "A constructed testbed for the six row types and the verdict rule",
+    "path": "examples/row-types/book.json",
+    "sha256": "10591fe7eaf51c3e912beec5c156b4984578de916a73a6e1276ab1473e0817c8"
+  },
+  "root": "examples/row-types",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "examples/row-types/book.json",
+    "--portable",
+    "--report",
+    "records/row-types.run.json"
+  ],
+  "started_utc": "2026-11-09T18:20:44+00:00",
+  "finished_utc": "2026-11-09T18:20:44+00:00",
+  "duration_s": 0.016046,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "examples/row-types/book.json",
+      "sha256": "10591fe7eaf51c3e912beec5c156b4984578de916a73a6e1276ab1473e0817c8",
+      "bytes": 15742
+    },
+    {
+      "role": "data",
+      "path": "examples/row-types/data/reference.csv",
+      "sha256": "b48d94fd0d46e2d60d51aa9423401ebcdc658c183474e05ce863499881beec41",
+      "bytes": 62
+    },
+    {
+      "role": "data",
+      "path": "examples/row-types/data/reference_pass.csv",
+      "sha256": "6138c33890bb5fc92b709fe8928b12826ddd54e63b4c9b5424dc9100c3ae02b1",
+      "bytes": 47
+    },
+    {
+      "role": "data",
+      "path": "examples/row-types/data/consistency.csv",
+      "sha256": "066e00cc196fcf44380925d83408eccbd1b94db0b21c9f2ac0ea3a23fb4d2584",
+      "bytes": 60
+    },
+    {
+      "role": "data",
+      "path": "examples/row-types/data/exact.csv",
+      "sha256": "21b29c2525da808649405b34cfed7ed90e024e0cd30a0828eec623d4b951c851",
+      "bytes": 30
+    },
+    {
+      "role": "data",
+      "path": "examples/row-types/data/vacuity.csv",
+      "sha256": "36e12e702262691b5a586959310e9499ecf49731bea2b6f274e5ba1caee5ec27",
+      "bytes": 28
+    },
+    {
+      "role": "anchor",
+      "path": "examples/row-types/anchors/row-types.md",
+      "sha256": "95c10c64d862efe8b31f6079df31239462391b6be0b916dc01dfec3448ab24a7",
+      "bytes": 917
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 8,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/row-types.md",
+          "mode": "full-source",
+          "path": "examples/row-types/anchors/row-types.md",
+          "sha256": "95c10c64d862efe8b31f6079df31239462391b6be0b916dc01dfec3448ab24a7"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 4,
+      "absent": 4,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 8,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "reference.whole",
+      "type": "reference_comparison",
+      "claim_id": "demo.reference",
+      "statement": "the constructed value is within 1e-6 relative of the reference on [0, 2]",
+      "subject": "a constructed measured value",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x in [0, 2]",
+        "scope": "whole"
+      },
+      "cells": 3,
+      "judged_cells": 3,
+      "failures": 1,
+      "vacuous_cells": 0,
+      "discriminating_cells": 3,
+      "worst": {
+        "value": 2e-06,
+        "text": "0.000002",
+        "cell": {
+          "data_row": 3,
+          "label": "2",
+          "x": "2",
+          "metric": "0.000002",
+          "measured": "2.000004",
+          "reference": "2.0"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 3 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/reference.csv",
+        "path": "examples/row-types/data/reference.csv",
+        "comparison": "value_vs_reference",
+        "rows": 3
+      }
+    },
+    {
+      "id": "reference.stated",
+      "type": "reference_comparison",
+      "claim_id": "demo.stated",
+      "statement": "the constructed value is within 1e-6 relative over the stated sub-domain [0, 1]",
+      "subject": "a constructed measured value over a stated sub-domain",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x in [0, 1], the stated sub-domain",
+        "scope": "stated"
+      },
+      "cells": 2,
+      "judged_cells": 2,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 2,
+      "worst": {
+        "value": 5e-07,
+        "text": "5e-7",
+        "cell": {
+          "data_row": 2,
+          "label": "1",
+          "x": "1",
+          "metric": "5e-7",
+          "measured": "1.0000005",
+          "reference": "1.0"
+        }
+      },
+      "establishes": "on the stated domain, the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 2 measured cell(s) and makes no statement between them",
+        "the claim is met over the domain the document states, not over the whole input domain"
+      ],
+      "data": {
+        "file": "data/reference_pass.csv",
+        "path": "examples/row-types/data/reference_pass.csv",
+        "comparison": "value_vs_reference",
+        "rows": 2
+      }
+    },
+    {
+      "id": "consistency.paths",
+      "type": "consistency",
+      "claim_id": "demo.consistency",
+      "statement": "the constructed fast path is within 1e-12 absolute of the scalar path",
+      "subject": "the difference of two constructed paths",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "absolute",
+        "unit": "absolute"
+      },
+      "bound": {
+        "value": "1e-12",
+        "unit": "absolute"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x in [0, 2]",
+        "scope": "whole"
+      },
+      "cells": 3,
+      "judged_cells": 3,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 3,
+      "worst": {
+        "value": 5e-13,
+        "text": "5e-13",
+        "cell": {
+          "data_row": 3,
+          "label": "2",
+          "x": "2",
+          "metric": "5e-13",
+          "measured": "2.0",
+          "reference": "2.0000000000005"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 3 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/consistency.csv",
+        "path": "examples/row-types/data/consistency.csv",
+        "comparison": "consistency",
+        "rows": 3
+      }
+    },
+    {
+      "id": "exact.zero",
+      "type": "exactness",
+      "claim_id": "demo.exactness",
+      "statement": "the constructed zero-argument return is exactly 1",
+      "subject": "an exact constructed return",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "exact",
+        "unit": "exactness"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "exactness"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x = 0",
+        "scope": "whole"
+      },
+      "cells": 1,
+      "judged_cells": 1,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 1,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "0",
+          "x": "0",
+          "metric": "0",
+          "measured": "1.0",
+          "reference": "1.0"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 1 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/exact.csv",
+        "path": "examples/row-types/data/exact.csv",
+        "comparison": "exact",
+        "rows": 1
+      }
+    },
+    {
+      "id": "vacuity.bound",
+      "type": "vacuity",
+      "claim_id": "demo.vacuity",
+      "statement": "the constructed absolute bound of 1e-2 is not vacuous on values of order 1e-3",
+      "subject": "a bound that cannot discriminate",
+      "verdict": "vacuous",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "vacuous",
+      "metric": {
+        "kind": "absolute",
+        "unit": "absolute"
+      },
+      "bound": {
+        "value": "1e-2",
+        "unit": "absolute"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x in [0, 1]",
+        "scope": "whole"
+      },
+      "cells": 2,
+      "judged_cells": 2,
+      "failures": 0,
+      "vacuous_cells": 2,
+      "discriminating_cells": 0,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "0",
+          "x": "0",
+          "metric": "0",
+          "measured": "0.001",
+          "reference": "0.001"
+        }
+      },
+      "establishes": "nothing: the bound cannot discriminate on these cells",
+      "limitations": [
+        "the bound is at least the value's own magnitude at every measured cell, so losing the value would still pass"
+      ],
+      "data": {
+        "file": "data/vacuity.csv",
+        "path": "examples/row-types/data/vacuity.csv",
+        "comparison": "vacuous",
+        "rows": 2
+      }
+    },
+    {
+      "id": "absent.sweep",
+      "type": "evidence_absent",
+      "claim_id": "demo.absent",
+      "statement": "the constructed sweep would measure the claim",
+      "subject": "an absent sweep",
+      "verdict": "evidence_absent",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "evidence_absent",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the absent sweep would cover",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "nothing: the evidence the row names was not produced",
+      "limitations": [
+        "the evidence named is absent: the sweep is not in this tree"
+      ],
+      "reason": "the sweep is not in this tree"
+    },
+    {
+      "id": "notcarried.seam",
+      "type": "not_carried",
+      "claim_id": "demo.notcarried",
+      "statement": "the constructed vector seam carries the claim",
+      "subject": "a subject this build does not carry",
+      "verdict": "not_carried",
+      "family": "not_judged",
+      "met": false,
+      "evidence_class": "not_carried",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the closed seam would admit",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "nothing: this build does not carry the claim's subject",
+      "limitations": [],
+      "reason": "the seam is closed in this build"
+    },
+    {
+      "id": "reference.notjudged",
+      "type": "reference_comparison",
+      "claim_id": "demo.notjudged",
+      "statement": "the constructed value is within 1e-6 relative, recorded but not judged",
+      "subject": "a measured value whose figure is withheld",
+      "verdict": "not_judged",
+      "family": "not_judged",
+      "met": null,
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "x in [0, 1]",
+        "scope": "whole"
+      },
+      "cells": 2,
+      "judged_cells": 2,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 2,
+      "worst": {
+        "value": 5e-07,
+        "text": "5e-7",
+        "cell": {
+          "data_row": 2,
+          "label": "1",
+          "x": "1",
+          "metric": "5e-7",
+          "measured": "1.0000005",
+          "reference": "1.0"
+        }
+      },
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict covers 2 measured cell(s) and makes no statement between them",
+        "the row's measurement is recorded but withheld from the verdict"
+      ],
+      "data": {
+        "file": "data/reference_pass.csv",
+        "path": "examples/row-types/data/reference_pass.csv",
+        "comparison": "value_vs_reference",
+        "rows": 2
+      },
+      "reason": "the figure is the shipped build's and this build's defaults are a replacement's"
+    }
+  ],
+  "summary": {
+    "rows": 8,
+    "verified": 2,
+    "met_over_domain": 1,
+    "exceeded": 1,
+    "vacuous": 1,
+    "evidence_absent": 1,
+    "not_carried": 1,
+    "not_judged": 1,
+    "met": 3,
+    "judged": 6
+  },
+  "exit_status": 1
+}

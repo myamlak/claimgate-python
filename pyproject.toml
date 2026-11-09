@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claimgate"
+version = "0.1.0"
+description = "A reference runner for documented numerical accuracy claims"
+requires-python = ">=3.10"
+license = {text = "BSD-3-Clause"}
+dependencies = []
+
+[project.scripts]
+claimgate = "claimgate.cli:main"
+
+[tool.setuptools]
+packages = ["claimgate"]

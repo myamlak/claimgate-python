@@ -1,0 +1,2961 @@
+{
+  "claimgate_book": 1,
+  "book": {
+    "id": "boys-gate-5.3.1",
+    "title": "The boys accuracy gate at v5.3.1: registration table and run record",
+    "description": "A faithful transcription of the boys accuracy gate's registration table and its captured v5.3.1 run, expressed as a claimgate book. The claims, rows and verdicts are the gate's; claimgate checks the registration anchors, the stated figures, the row bindings and the run record's structure. It does not re-measure the library.",
+    "library": {
+      "name": "boys",
+      "version": "5.3.1",
+      "tag": "v5.3.1",
+      "revision": "2f83e40a6504368b7b2f13682e29b4f24ab2a40c"
+    },
+    "created": "2026-11-09",
+    "provenance": {
+      "gate": "tests/boys_accuracy_gate.cpp at v5.3.1; SHA-256 857858ec87f9af0aa02804f7e0067cbea271c52d494825e161c488dd1150cea4",
+      "transcript": "04b-gate-run.log; SHA-256 426ab44e8db503084cc130314b31e392288b88caa7617ce1c356a92e534521bd",
+      "run": "papers-b-v5/papers/claims-as-rows/program-demo/gate-v5.3.1/",
+      "extraction": "python examples/boys-gate/extract.py --repo <boys> --tag v5.3.1 --transcript <04b-gate-run.log> --out examples/boys-gate",
+      "transcribed": "claim id, object, domain scope, route, rows, source and bound from the gate's registrations and rows",
+      "placeholder": "the claim metric is marked 'external'; the claim bound is the first carrying row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
+      "verdicts": "the seven verdicts are the transcript's, one per row, in book order",
+      "anchor_slices": "cut from the tagged source; the index records each full source's SHA-256"
+    },
+    "unregistered_rows": [
+      {
+        "row": "LC.half.no_scaling_past_38",
+        "treatment": "retained",
+        "reason": "no document states the scaling claim; the row stays measured and is registered by no claim"
+      },
+      {
+        "row": "LC.regionB.amplification",
+        "treatment": "retained",
+        "reason": "the amplification reading is the row's own; no enumerated claim states it"
+      },
+      {
+        "row": "LC.coeff.rounding",
+        "treatment": "retained",
+        "reason": "the coefficient-rounding reading is the row's own; no enumerated claim states it"
+      },
+      {
+        "row": "code.coverage.argument_range",
+        "treatment": "retained",
+        "reason": "the coverage count is the row's own; no enumerated claim states it"
+      },
+      {
+        "row": "LC.evidence.ctest",
+        "treatment": "retained",
+        "reason": "the ctest re-checkability sentence is the row's own; no enumerated claim states it"
+      },
+      {
+        "row": "code.half_simd_budget",
+        "treatment": "retained",
+        "reason": "the row is the pairwise-consistency check on the internal 1e-7 fit budgets; P09's individual claim is carried by code.half_simd_cells"
+      },
+      {
+        "row": "header.double.region_A_and_band",
+        "treatment": "supporting",
+        "reason": "the lane's composed bound, which no enumerated claim states; D02's row is placed against the 1e-15 fit bar beside it"
+      },
+      {
+        "row": "LC.half.vacuous_floor",
+        "treatment": "supporting",
+        "reason": "the counted-apart set behind the half claims, which no enumerated claim states on its own"
+      },
+      {
+        "row": "LC.packed.bound",
+        "treatment": "supporting",
+        "reason": "the packed representation-cost finding, now stated as claim P04 in LC.packed.representation_cost"
+      },
+      {
+        "row": "LC.regionC.domain",
+        "treatment": "supporting",
+        "reason": "the form's smoothness, now stated as claim A03 in LC.regionC.asym_relative"
+      }
+    ]
+  },
+  "defaults": {
+    "root": ".",
+    "anchor_preference": "slices"
+  },
+  "claims": [
+    {
+      "id": "D01",
+      "object": "README.double.single, README.double.batch",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-13,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "README.double.single, README.double.batch",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "README.md",
+        "lines": [
+          322,
+          324
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) - the accuracy contract's figure over the whole domain, the ladder's first rung being its wider arm wherever the order's own value is the smaller - which is what the four regions the report reads are each judged against. The figure is the shipped default build's: a build whose default rows are a replacement's records these cells and judges none of them, and its own figures are the option probe's report",
+      "rows": [
+        "README.double.single",
+        "README.double.batch"
+      ]
+    },
+    {
+      "id": "F01",
+      "object": "README.float",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.384185791015625e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "README.float",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "README.md",
+        "lines": [
+          346,
+          349
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "float single and batch: 2^-22 of F_n(x), or its 1.5e-7 floor where that is the larger, in every region, and 1e-7 beside it in the plain-reciprocal form - the lane's own bar, not 1e-13 scaled",
+      "rows": [
+        "README.float"
+      ]
+    },
+    {
+      "id": "H01",
+      "object": "README.half",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "README.half",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          219,
+          219
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "fp16 and bf16 store-half lanes: 1.5e-7 + one half-ULP, single and batch - the fp32 engine's arithmetic stated absolutely, which is the arithmetic these lanes run, plus the half-ULP term their store adds",
+      "rows": [
+        "README.half"
+      ]
+    },
+    {
+      "id": "D13",
+      "object": "LC.double.worst_cell",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-13,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.double.worst_cell",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          199,
+          202
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "in between the bound 1e-13 x F_0(x) permits 4.85 times the value at the worst cell, n = 32, x = 31 - 1e-13 x 0.15917105461020217 = 1.5917105461020217e-14 against the value 3.2822575294956117e-15 - and the delivered error there measured 1.40 times the value, 4.582e-15, 0.288 of the bound",
+      "rows": [
+        "LC.double.worst_cell"
+      ]
+    },
+    {
+      "id": "P02",
+      "object": "native.half.suite_worst",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 8.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.suite_worst",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          311,
+          312
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the native half lane is the one lane whose figure is not a fraction of the value: it is stated in ULP of the returned value, <= 8 ULP, measured at a worst of 4.3",
+      "rows": [
+        "native.half.suite_worst"
+      ]
+    },
+    {
+      "id": "D07",
+      "object": "LC.double.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.double.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          135,
+          137
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the stored coefficients are rounded to double precision and hold only the sixteen or so significant digits a double can hold, so nothing below about 1e-16 is reachable however the evaluation is arranged - the fit's own truncation, 5e-19, sits under that floor and is not a second bound",
+      "rows": [
+        "LC.double.ceiling"
+      ]
+    },
+    {
+      "id": "F02",
+      "object": "LC.float.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.384185791015625e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.float.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          491,
+          496
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is the format: a 32-bit float carries about seven significant digits, about 6e-8 relative, and the lane's relative arm is 4.0 times that digit (2^-22 / 6e-8), so the two are within a factor of a few of each other; at F_n(x) = 1e-3 the relative arm is 2.4e-10, far below the 1.5e-7 the lane can hold there, and the plain-reciprocal form adds its 1e-7 term to the larger of the two",
+      "rows": [
+        "LC.float.ceiling"
+      ]
+    },
+    {
+      "id": "D02",
+      "object": "LC.region_A.fit_bar",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-15,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.region_A.fit_bar",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          124,
+          126
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the stored fits' 1e-15 bar bounds only the arguments below that edge, where the seed is a per-order fit read at 1e-15 under a reachable gain of at most 2.171050",
+      "rows": [
+        "LC.region_A.fit_bar"
+      ]
+    },
+    {
+      "id": "X01",
+      "object": "transform.fp64.bound",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-15,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.fp64.bound",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          574,
+          574
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the region-A transform's fp64 mode: |F_hat - F| <= 1e-15 over region A - the double single lane's region-A budget, both bands, every order, every argument",
+      "rows": [
+        "transform.fp64.bound"
+      ]
+    },
+    {
+      "id": "X02",
+      "object": "transform.fp64.delivered",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.fp64.delivered",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          578,
+          579
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the fp64 mode's delivered worst over region A is 1.110e-16 - the per-order fits' own truncation, which the product adds nothing measurable to",
+      "rows": [
+        "transform.fp64.delivered"
+      ]
+    },
+    {
+      "id": "X03",
+      "object": "transform.tf32x3.bound",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.50000001e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.tf32x3.bound",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          575,
+          575
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the region-A transform's 3xTF32 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "rows": [
+        "transform.tf32x3.bound"
+      ]
+    },
+    {
+      "id": "X05",
+      "object": "transform.bf16x6.bound",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.50000001e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.bf16x6.bound",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          576,
+          576
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the region-A transform's bf16x6 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "rows": [
+        "transform.bf16x6.bound"
+      ]
+    },
+    {
+      "id": "X04",
+      "object": "transform.tf32x3.delivered",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.tf32x3.delivered",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the 3xTF32 mode's delivered worst over region A is 1.916e-07 - its 32-bit accumulator's floor, not the operand split's - which the prose rounds to 1.92e-07",
+      "rows": [
+        "transform.tf32x3.delivered"
+      ]
+    },
+    {
+      "id": "X06",
+      "object": "transform.bf16x6.delivered",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "transform.bf16x6.delivered",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the bf16x6 mode's delivered worst over region A is 1.946e-07 - its 32-bit accumulator's floor - which the prose rounds to 1.95e-07",
+      "rows": [
+        "transform.bf16x6.delivered"
+      ]
+    },
+    {
+      "id": "H02b",
+      "object": "LC.half.budget",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.half.budget",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "CONTRIBUTING.md",
+        "lines": [
+          22,
+          23
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the half lane stays inside 1e-7 plus one half-ULP at every order tested - the bar the suite asserts, which is tighter than the 1.5e-7 plus one half-ULP those lanes publish",
+      "rows": [
+        "LC.half.budget"
+      ]
+    },
+    {
+      "id": "H04",
+      "object": "LC.half.worst_cell",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.half.worst_cell",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          642,
+          649
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "both formats' worst cells were measured against a 45-digit reference over every argument either format can represent and every order - a 16-bit input is a finite set, so that sweep is exhaustive rather than dense: 0.9993 of the bound for the 16-bit format, a margin of 0.07 per cent, and 0.99992 for the 16-bit brain-float format, a margin of 0.008 per cent; a sparser grid understates them, the committed reference grid reading 0.999 and 0.9994",
+      "rows": [
+        "LC.half.worst_cell"
+      ]
+    },
+    {
+      "id": "H06",
+      "object": "LC.half.representation_share",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.half.representation_share",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          649,
+          650
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "at the worst cell the representation term is very nearly the whole bound, and the arithmetic term has almost nothing left to spend",
+      "rows": [
+        "LC.half.representation_share"
+      ]
+    },
+    {
+      "id": "H07",
+      "object": "LC.half.returned_value_floor",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1.5e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.half.returned_value_floor",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          658,
+          661
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "below a certain size the lane returns nothing usable: the bound holds only where the result is larger than 1.5e-7 plus half a representable digit, and the bound is claimed over those larger arguments and over no others - for the 16-bit format the return below that size is a subnormal 16-bit number and then exactly zero, while the brain-float format, whose exponent range is a 32-bit float's, keeps normal returns down to about 1e-38",
+      "rows": [
+        "LC.half.returned_value_floor"
+      ]
+    },
+    {
+      "id": "H08",
+      "object": "LC.half.range_from_order3",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.half.range_from_order3",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          663,
+          666
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "from order 3 upward on region C every unscaled return is a subnormal half or zero, and from order 6 upward every argument of the branch is past the ceiling, so no accuracy is claimed there. Orders 3, 4 and 5 are inside the range the lane does claim over: they still carry cells whose value exceeds the ceiling",
+      "rows": [
+        "LC.half.range_from_order3"
+      ]
+    },
+    {
+      "id": "P06",
+      "object": "LC.packed.rescale_exact",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.packed.rescale_exact",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          711,
+          712
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "a per-order power-of-two rescale does not repair the packed lane because the rescale is exact, leaving the scaled lane bit-identical to the unscaled one at every order",
+      "rows": [
+        "LC.packed.rescale_exact"
+      ]
+    },
+    {
+      "id": "P09",
+      "object": "code.half_simd_cells",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "code.half_simd_cells",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "src/boys_simd.cpp",
+        "lines": [
+          374,
+          377
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the 8-wide half-I/O region kernels hold the published half-lane budget (1.5e-7 plus one half-ULP) on the region each documents as its precondition",
+      "rows": [
+        "code.half_simd_cells"
+      ]
+    },
+    {
+      "id": "P01",
+      "object": "native.half.bound",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 8.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.bound",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          672,
+          673
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "packed half (two per register, one correctly rounded half operation per ladder step): |out[k] - 2^15 F_k(x)| <= 8 ULP of the returned value, region C only, over the arguments whose returned value is a normal half",
+      "rows": [
+        "native.half.bound"
+      ]
+    },
+    {
+      "id": "P11",
+      "object": "code.half_domain_stop",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "code.half_domain_stop",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "include/boys/boys_decl.hpp",
+        "lines": [
+          1992,
+          1996
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the fp16/bf16 budget is a claim only where the returned value exceeds it: below that ceiling the format's floor answers and no accuracy is claimed; in f16 the ceiling and the floor coincide, so every argument past it returns a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126",
+      "rows": [
+        "code.half_domain_stop"
+      ]
+    },
+    {
+      "id": "P07",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          712,
+          713
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08a",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          696,
+          696
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08b",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          697,
+          697
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08c",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          698,
+          698
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08d",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          699,
+          699
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08e",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          700,
+          700
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08f",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          701,
+          701
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08g",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          702,
+          702
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08h",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          703,
+          703
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P08i",
+      "object": "native.half.ceiling",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.ceiling",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          704,
+          708
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "P03",
+      "object": "native.half.packed",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "native.half.packed",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          685,
+          688
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the packing is real: every operation is correctly rounded to binary16 once per operation, both halves of one register, with no widening for the sequence as a whole",
+      "rows": [
+        "native.half.packed"
+      ]
+    },
+    {
+      "id": "P04",
+      "object": "LC.packed.representation_cost",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "stated"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.packed.representation_cost",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          679,
+          681
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "the worst cell this lane's own suite finds is 4.243 of those digits against the half-ULP the other lane budgets, which is 8.5 times its representation allowance",
+      "rows": [
+        "LC.packed.representation_cost"
+      ]
+    },
+    {
+      "id": "A03",
+      "object": "LC.regionC.asym_relative",
+      "domain": {
+        "description": "the domains of the gate's rows for this claim",
+        "scope": "whole"
+      },
+      "output": {
+        "representation": "the gate's declared output representation"
+      },
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "implementation": {
+        "name": "boys",
+        "version": "5.3.1",
+        "tag": "v5.3.1",
+        "revision": ""
+      },
+      "route": "LC.regionC.asym_relative",
+      "assumptions": [
+        "transcribed from the boys accuracy gate at v5.3.1",
+        "claimgate checks the registration, the anchor, the figure and the run record; it does not re-measure the rows"
+      ],
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          1420,
+          1423
+        ]
+      },
+      "evidence_class": "measured_error",
+      "subject": "below about x = 16 the asymptotic form is outside the range where it is valid, and the error grows smoothly there, with no sudden jump - but the size of the error is real, and below that boundary it is stated relative to the function's own value: the largest such error is 5.6e4, at order 32 and x = 14.0468, and at x = 15.936 the same quantity is 5.6e3",
+      "rows": [
+        "LC.regionC.asym_relative"
+      ]
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.D01.01",
+      "claim_id": "D01",
+      "sentence": "For every `n <= 32` and every `x >= 0` the error of a returned value is at or below **`1e-13 \u00b7 F_0(x)`** \u2014 the ladder's first rung scaled by `1e-13`, not the value the caller asked for.",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          322,
+          324
+        ]
+      },
+      "scope": "lines 322-324, the bound's first paragraph",
+      "rows": [
+        "README.double.single"
+      ],
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.D01.02",
+      "claim_id": "D01",
+      "sentence": "For every `n <= 32` and every `x >= 0` the error of a returned value is at or below **`1e-13 \u00b7 F_0(x)`** \u2014 the ladder's first rung scaled by `1e-13`, not the value the caller asked for.",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          322,
+          324
+        ]
+      },
+      "scope": "lines 322-324, the bound's first paragraph",
+      "rows": [
+        "README.double.batch"
+      ],
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.F01.03",
+      "claim_id": "F01",
+      "sentence": "The float lane's figure carries a floor of its own for the same reason: binary32 arithmetic on values of order one leaves about `1e-7` behind whatever the value is, so that lane states the larger of `2^-22 \u00b7 F_n(x)` and the `1.5e-7` it already published, plus `1e-7` in the plain-reciprocal form.",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          346,
+          349
+        ]
+      },
+      "scope": "lines 346-349, the float lane's figure",
+      "rows": [
+        "README.float"
+      ],
+      "figure": {
+        "text": "2^-22"
+      }
+    },
+    {
+      "id": "reg.H01.04",
+      "claim_id": "H01",
+      "sentence": "| fp16 / bf16 | \u2264 1.5e-7 + \u00bd ULP, or \u2264 2.5e-7 + \u00bd ULP in the plain-reciprocal form \u2014 this lane's figure is the fp32 engine's arithmetic stated absolutely, and it is left as it was: it is already a term of the value's own digit beside a floor, and it is looser than the floor the float lane's figure keeps |",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          219,
+          219
+        ]
+      },
+      "scope": "lines 219-219, the lanes table",
+      "rows": [
+        "README.half"
+      ]
+    },
+    {
+      "id": "reg.D13.05",
+      "claim_id": "D13",
+      "sentence": "in between the bound `1e-13 \u00b7 F_0(x)` permits 4.85 times the value at the worst cell, `n = 32, x = 31`: 1e-13 \u00b7 0.15917105461020217 = 1.5917105461020217e-14 against the value 3.2822575294956117e-15, and the delivered error there measured 1.40 times the value, 4.582e-15, 0.288 of the bound.",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          199,
+          202
+        ]
+      },
+      "scope": "lines 199-202, the accuracy contract",
+      "rows": [
+        "LC.double.worst_cell"
+      ],
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.P02.06",
+      "claim_id": "P02",
+      "sentence": "The native half lane is the one lane whose figure is not a fraction of the value: it is stated in ULP of the returned value, \u2264 8 ULP, measured at a worst of 4.3.",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          311,
+          312
+        ]
+      },
+      "scope": "lines 311-312, the native half lane",
+      "rows": [
+        "native.half.suite_worst"
+      ],
+      "figure": {
+        "text": "8"
+      }
+    },
+    {
+      "id": "reg.D07.07",
+      "claim_id": "D07",
+      "sentence": "The stored coefficients are rounded to double precision and hold only the sixteen or so significant digits a double can hold, so nothing below about 1e-16 is reachable however the evaluation is arranged.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          135,
+          137
+        ]
+      },
+      "scope": "lines 135-137, the double lane",
+      "rows": [
+        "LC.double.ceiling"
+      ]
+    },
+    {
+      "id": "reg.F02.08",
+      "claim_id": "F02",
+      "sentence": "A 32-bit float carries about seven significant digits, which is about 6e-8 relative. The lane's relative arm is 4.0 times that digit (2^-22 / 6e-8), so the two are within a factor of a few of each other: the arm is the format's own size and not a budget with room in it. What the floor is for is small values: at F_n(x) = 1e-3 the relative arm is 2.4e-10, far below the 1.5e-7 the lane can hold there, and the plain-reciprocal form adds its 1e-7 term to the larger of the two.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          491,
+          496
+        ]
+      },
+      "scope": "lines 491-496, the float lane",
+      "rows": [
+        "LC.float.ceiling"
+      ],
+      "figure": {
+        "text": "2^-22"
+      }
+    },
+    {
+      "id": "reg.D02.09",
+      "claim_id": "D02",
+      "sentence": "the stored fits' 1e-15 bar bounds only the arguments below that edge, where the seed is a per-order fit read at 1e-15 under a reachable gain of at most 2.171050.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          124,
+          126
+        ]
+      },
+      "scope": "lines 124-126, the double lane, the batch row",
+      "rows": [
+        "LC.region_A.fit_bar"
+      ],
+      "figure": {
+        "text": "1e-15"
+      }
+    },
+    {
+      "id": "reg.X01.10",
+      "claim_id": "X01",
+      "sentence": "| fp64 | 64-bit | 64-bit | 1e-15 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          574,
+          574
+        ]
+      },
+      "scope": "lines 574-574, the transform table",
+      "rows": [
+        "transform.fp64.bound"
+      ],
+      "figure": {
+        "text": "1e-15"
+      }
+    },
+    {
+      "id": "reg.X02.11",
+      "claim_id": "X02",
+      "sentence": "The 64-bit mode delivers 1.11e-16, which is the fits' own truncation: the product adds nothing measurable to what the coefficients already cost.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          578,
+          579
+        ]
+      },
+      "scope": "lines 578-579, the transform table",
+      "rows": [
+        "transform.fp64.delivered"
+      ]
+    },
+    {
+      "id": "reg.X03.12",
+      "claim_id": "X03",
+      "sentence": "| 3xTF32 | 32-bit, as two 11-bit parts | 32-bit | 1e-15 + 2.5e-7 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          575,
+          575
+        ]
+      },
+      "scope": "lines 575-575, the transform table",
+      "rows": [
+        "transform.tf32x3.bound"
+      ],
+      "figure": {
+        "text": "1e-15 + 2.5e-7"
+      }
+    },
+    {
+      "id": "reg.X05.13",
+      "claim_id": "X05",
+      "sentence": "| bf16\u00d76 | 32-bit, as three 8-bit parts | 32-bit | 1e-15 + 2.5e-7 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          576,
+          576
+        ]
+      },
+      "scope": "lines 576-576, the transform table",
+      "rows": [
+        "transform.bf16x6.bound"
+      ],
+      "figure": {
+        "text": "1e-15 + 2.5e-7"
+      }
+    },
+    {
+      "id": "reg.X04.14",
+      "claim_id": "X04",
+      "sentence": "The other two deliver 1.92e-07 and 1.95e-07, which is their 32-bit accumulator's own floor.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "scope": "lines 579-580, the transform table",
+      "rows": [
+        "transform.tf32x3.delivered"
+      ]
+    },
+    {
+      "id": "reg.X06.15",
+      "claim_id": "X06",
+      "sentence": "The other two deliver 1.92e-07 and 1.95e-07, which is their 32-bit accumulator's own floor.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "scope": "lines 579-580, the transform table",
+      "rows": [
+        "transform.bf16x6.delivered"
+      ]
+    },
+    {
+      "id": "reg.H02b.16",
+      "claim_id": "H02b",
+      "sentence": "1e-7 plus one half-ULP for fp16 and bf16. This is the bar the suite asserts, and it is tighter than the 1.5e-7 plus one half-ULP those lanes publish;",
+      "source": {
+        "file": "CONTRIBUTING.md",
+        "lines": [
+          22,
+          23
+        ]
+      },
+      "scope": "lines 22-23, the ground rules",
+      "rows": [
+        "LC.half.budget"
+      ],
+      "figure": {
+        "text": "1e-7"
+      }
+    },
+    {
+      "id": "reg.H04.17",
+      "claim_id": "H04",
+      "sentence": "Both figures below were measured against a 45-digit reference, over every argument either format can represent and every order: a 16-bit input is a finite set, so that sweep is exhaustive rather than dense, and it is the instrument the two figures rest on. A sparser grid understates them \u2014 the committed reference grid reads 0.999 for the 16-bit format and 0.9994 for the brain-float one, and both figures here are worse. For the 16-bit format the worst case is **0.9993 of the bound**, a margin of 0.07 per cent. For the 16-bit brain-float format the worst case is **0.99992 of the bound**, a margin of 0.008 per cent, against the 16-bit format's 0.07.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          642,
+          649
+        ]
+      },
+      "scope": "lines 642-649, the half lane",
+      "rows": [
+        "LC.half.worst_cell"
+      ]
+    },
+    {
+      "id": "reg.H06.18",
+      "claim_id": "H06",
+      "sentence": "At that distance the representation term is very nearly the whole bound, and the arithmetic term has almost nothing left to spend.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          649,
+          650
+        ]
+      },
+      "scope": "lines 649-650, the half lane",
+      "rows": [
+        "LC.half.representation_share"
+      ]
+    },
+    {
+      "id": "reg.H07.19",
+      "claim_id": "H07",
+      "sentence": "**Below a certain size the lane returns nothing usable.** The bound holds only where the result is larger than `1.5e-7` plus half a representable digit. Smaller than that, the returned value becomes a subnormal 16-bit number, and then exactly zero. **The bound is claimed over those larger arguments and over no others.**",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          658,
+          661
+        ]
+      },
+      "scope": "lines 658-661, the half lane",
+      "rows": [
+        "LC.half.returned_value_floor"
+      ],
+      "figure": {
+        "text": "1.5e-7"
+      }
+    },
+    {
+      "id": "reg.H08.20",
+      "claim_id": "H08",
+      "sentence": "For 16-bit floats the point where the bound stops being useful is at arguments well inside the usable range, and it moves with the order. Orders 3, 4 and 5 still return usable values across the whole of the large-argument range; **the claim that every argument is past the threshold holds from order 6 upward**.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          663,
+          666
+        ]
+      },
+      "scope": "lines 663-666, the half lane",
+      "rows": [
+        "LC.half.range_from_order3"
+      ]
+    },
+    {
+      "id": "reg.P06.21",
+      "claim_id": "P06",
+      "sentence": "Rescaling each order buys range and no accuracy. The rescaling is exact, so a rescaled lane returns bit-identical results to an unscaled one.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          711,
+          712
+        ]
+      },
+      "scope": "lines 711-712, packed half",
+      "rows": [
+        "LC.packed.rescale_exact"
+      ]
+    },
+    {
+      "id": "reg.P09.22",
+      "claim_id": "P09",
+      "sentence": "Region-partitioned 8-wide kernels shared by the fp16 and bf16 lanes. Their // scalar tails call the half-lane scalar entries; the vector bodies hold the // same documented bound as those entries but are not bit-identical to them (the // bodies run the fp32 fit at full degree where the scalar lane truncates it).",
+      "source": {
+        "file": "src/boys_simd.cpp",
+        "lines": [
+          374,
+          377
+        ]
+      },
+      "scope": "lines 374-377, the comment above the region kernels",
+      "rows": [
+        "code.half_simd_cells"
+      ]
+    },
+    {
+      "id": "reg.P01.23",
+      "claim_id": "P01",
+      "sentence": "**Within 8 of the last representable digits of the returned value**, worst measured 4.243, for arguments at or above x = 28.984375.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          672,
+          673
+        ]
+      },
+      "scope": "lines 672-673, packed half",
+      "rows": [
+        "native.half.bound"
+      ],
+      "figure": {
+        "text": "8"
+      }
+    },
+    {
+      "id": "reg.P11.24",
+      "claim_id": "P11",
+      "sentence": "The bound is /// claimed only over the arguments where |F_n(x16)| exceeds it, and no accuracy /// is claimed past that ceiling: in f16 the return there is a subnormal number, /// then exactly zero, with the bound met by the format's floor rather than by the /// lane - see the contract table in the file preamble.",
+      "source": {
+        "file": "include/boys/boys_decl.hpp",
+        "lines": [
+          1992,
+          1996
+        ]
+      },
+      "scope": "lines 1992-1996, the half lanes' comment",
+      "rows": [
+        "code.half_domain_stop"
+      ]
+    },
+    {
+      "id": "reg.P07.25",
+      "claim_id": "P07",
+      "sentence": "No rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n, against a fixed exponent range.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          712,
+          713
+        ]
+      },
+      "scope": "lines 712-713, packed half, the exponent range",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08a.26",
+      "claim_id": "P08a",
+      "sentence": "| 0 and 1 | the whole 16-bit range, to 65504 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          696,
+          696
+        ]
+      },
+      "scope": "lines 696-696, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08b.27",
+      "claim_id": "P08b",
+      "sentence": "| 2 | to about 2636 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          697,
+          697
+        ]
+      },
+      "scope": "lines 697-697, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08c.28",
+      "claim_id": "P08c",
+      "sentence": "| 3 | to about 360 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          698,
+          698
+        ]
+      },
+      "scope": "lines 698-698, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08d.29",
+      "claim_id": "P08d",
+      "sentence": "| 4 | to about 129 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          699,
+          699
+        ]
+      },
+      "scope": "lines 699-699, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08e.30",
+      "claim_id": "P08e",
+      "sentence": "| 5 | to about 70 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          700,
+          700
+        ]
+      },
+      "scope": "lines 700-700, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08f.31",
+      "claim_id": "P08f",
+      "sentence": "| 6 | to about 47 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          701,
+          701
+        ]
+      },
+      "scope": "lines 701-701, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08g.32",
+      "claim_id": "P08g",
+      "sentence": "| 7 | to about 36 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          702,
+          702
+        ]
+      },
+      "scope": "lines 702-702, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08h.33",
+      "claim_id": "P08h",
+      "sentence": "| 8 | to about 30 |",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          703,
+          703
+        ]
+      },
+      "scope": "lines 703-703, packed half, the crossing table",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P08i.34",
+      "claim_id": "P08i",
+      "sentence": "| **9 to 32** | **none** | **Orders 9 and above have no argument at all at which this lane claims its bound**, because the function is already below 2^-29 at the smallest argument the lane accepts. Twenty-four of the thirty-three orders the library supports are in that position.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          704,
+          708
+        ]
+      },
+      "scope": "lines 704-708, packed half, the crossing table and the order count",
+      "rows": [
+        "native.half.ceiling"
+      ]
+    },
+    {
+      "id": "reg.P03.35",
+      "claim_id": "P03",
+      "sentence": "Each step is evaluated in double precision and rounded once to 16 bits, which gives the same correctly rounded result a native 16-bit instruction would. This library carries no native 16-bit backend, so what the lane delivers is 16-bit arithmetic's *results* rather than its *speed*. **No timing is claimed for it.**",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          685,
+          688
+        ]
+      },
+      "scope": "lines 685-688, packed half, the arithmetic",
+      "rows": [
+        "native.half.packed"
+      ]
+    },
+    {
+      "id": "reg.P04.36",
+      "claim_id": "P04",
+      "sentence": "the worst cell this lane's own suite finds is 4.243 of those digits against the half-ULP the other lane budgets, which is **8.5 times** its representation allowance.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          679,
+          681
+        ]
+      },
+      "scope": "lines 679-681, packed half",
+      "rows": [
+        "LC.packed.representation_cost"
+      ]
+    },
+    {
+      "id": "reg.A03.37",
+      "claim_id": "A03",
+      "sentence": "Below about x = 16 the asymptotic form is outside the range where it is valid, and the error grows smoothly there, with no sudden jump. But the size of the error is real, and below that boundary it is stated **relative to the function's own value**: the largest such error is **5.6e4**, at order 32 and x = 14.0468, and at x = 15.936 the same quantity is **5.6e3**.",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          1420,
+          1423
+        ]
+      },
+      "scope": "lines 1420-1423, region C, the boundary",
+      "rows": [
+        "LC.regionC.asym_relative"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "README.double.single",
+      "type": "external_record",
+      "statement": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) - the accuracy contract's figure over the whole domain, the ladder's first rung being its wider arm wherever the order's own value is the smaller - which is what the four regions the report reads are each judged against. The figure is the shipped default build's: a build whose default rows are a replacement's records these cells and judges none of them, and its own figures are the option probe's report",
+      "subject": "gate row README.double.single",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 1,
+        "row_id": "README.double.single",
+        "verdict": "verified"
+      },
+      "figure_bound": 1e-13
+    },
+    {
+      "id": "README.double.batch",
+      "type": "external_record",
+      "statement": "double batch: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in every region, all entries. The figure is the shipped default build's, on the same terms as the row above",
+      "subject": "gate row README.double.batch",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 2,
+        "row_id": "README.double.batch",
+        "verdict": "verified"
+      },
+      "figure_bound": 1e-13
+    },
+    {
+      "id": "README.float",
+      "type": "external_record",
+      "statement": "float single and batch: 2^-22 of F_n(x), or its 1.5e-7 floor where that is the larger, in every region, and 1e-7 beside it in the plain-reciprocal form - the lane's own bar, not 1e-13 scaled",
+      "subject": "gate row README.float",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 3,
+        "row_id": "README.float",
+        "verdict": "verified"
+      },
+      "figure_bound": 2.384185791015625e-07
+    },
+    {
+      "id": "README.half",
+      "type": "external_record",
+      "statement": "fp16 and bf16 store-half lanes: 1.5e-7 + one half-ULP, single and batch - the fp32 engine's arithmetic stated absolutely, which is the arithmetic these lanes run, plus the half-ULP term their store adds",
+      "subject": "gate row README.half",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 4,
+        "row_id": "README.half",
+        "verdict": "met_over_domain"
+      }
+    },
+    {
+      "id": "header.double.region_A_and_band",
+      "type": "external_record",
+      "statement": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in the region-A and extended-band cells the header's table keeps apart. The figure is the shipped default build's, on the same terms as README.double.single",
+      "subject": "gate row header.double.region_A_and_band",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 5,
+        "row_id": "header.double.region_A_and_band",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: %s. The record of what this row used to test: the same table read as a three-region one - a single region-A cell of 1e-15 with no band row, so 1e-15 across the whole of x < x0 - is not a bound the lane meets anywhere in the band. Measured over the same sweep it is exceeded by %.3g at (n=%d, x=%.6g), delivered %.4g against that withdrawn 1e-15. The reading is withdrawn and this row's verdict does not count it: the slot is kept, and measured, so the finding stays visible and re-runnable, and it is printed above and in the per-order table under lane \"double single\", region \"header x<x0\""
+    },
+    {
+      "id": "LC.double.ceiling",
+      "type": "external_record",
+      "statement": "the stored coefficients are rounded to double precision and hold only the sixteen or so significant digits a double can hold, so nothing below about 1e-16 is reachable however the evaluation is arranged - the fit's own truncation, 5e-19, sits under that floor and is not a second bound",
+      "subject": "gate row LC.double.ceiling",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 6,
+        "row_id": "LC.double.ceiling",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: tree command, run by the operator, not by this binary: `python tools/gen_boys_coefficients.py --check`"
+    },
+    {
+      "id": "LC.float.ceiling",
+      "type": "external_record",
+      "statement": "the ceiling is the format: a 32-bit float carries about seven significant digits, about 6e-8 relative, and the lane's relative arm is 4.0 times that digit (2^-22 / 6e-8), so the two are within a factor of a few of each other; at F_n(x) = 1e-3 the relative arm is 2.4e-10, far below the 1.5e-7 the lane can hold there, and the plain-reciprocal form adds its 1e-7 term to the larger of the two",
+      "subject": "gate row LC.float.ceiling",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 7,
+        "row_id": "LC.float.ceiling",
+        "verdict": "verified"
+      },
+      "figure_bound": 2.384185791015625e-07,
+      "notes": "the gate's evidence: measured floor: worst relative error of the float lane where |F| >= 0.5 is %.3g at (n=%d, x=%.6g); the ratio 2^-22 / 6e-8 = %.3g is the documented 'factor of a few', and 2^-22 * 1e-3 = %.3g is the relative arm at F_n(x) = 1e-3"
+    },
+    {
+      "id": "transform.fp64.bound",
+      "type": "external_record",
+      "statement": "the region-A transform's fp64 mode: |F_hat - F| <= 1e-15 over region A - the double single lane's region-A budget, both bands, every order, every argument",
+      "subject": "gate row transform.fp64.bound",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 8,
+        "row_id": "transform.fp64.bound",
+        "verdict": "verified"
+      },
+      "figure_bound": 1e-15,
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hpp, so no mode of the lane is measured here and none of its bounds is either confirmed or refuted"
+    },
+    {
+      "id": "transform.fp64.delivered",
+      "type": "external_record",
+      "statement": "the fp64 mode's delivered worst over region A is 1.110e-16 - the per-order fits' own truncation, which the product adds nothing measurable to",
+      "subject": "gate row transform.fp64.delivered",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 9,
+        "row_id": "transform.fp64.delivered",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hppthis gate's grid: worst %.6g at (n=%d, x=%.6g), which is the published figure at the %d figures the table states it to - the exact maximum is 2^-53 - against the mode's budget %.4g. The published figure is a swept maximum, over the committed reference grid and a dense sweep of the lower band's left end, so this row holds the code to it at the precision the document states and cannot re-find the maximum that produced it: a regression the four figures would carry - the fifth digit moving by one - is what this row is sized to catch"
+    },
+    {
+      "id": "transform.tf32x3.bound",
+      "type": "external_record",
+      "statement": "the region-A transform's 3xTF32 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "subject": "gate row transform.tf32x3.bound",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 10,
+        "row_id": "transform.tf32x3.bound",
+        "verdict": "verified"
+      },
+      "figure_bound": 2.50000001e-07,
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hpp"
+    },
+    {
+      "id": "transform.tf32x3.delivered",
+      "type": "external_record",
+      "statement": "the 3xTF32 mode's delivered worst over region A is 1.916e-07 - its 32-bit accumulator's floor, not the operand split's - which the prose rounds to 1.92e-07",
+      "subject": "gate row transform.tf32x3.delivered",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 11,
+        "row_id": "transform.tf32x3.delivered",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hppthis gate's grid: worst %.6g at (n=%d, x=%.6g), inside the published %.4g by %.3g and inside the mode's budget %.4g. The published figure is the maximum over the committed reference grid and a dense sweep of the lower band's left end, where these modes are worst, and the grid alone understates it - the lane's own preamble says so and gives the two grid samples - so this row holds the code to the published figure at every argument of the grid and cannot re-find the maximum that produced it: a regression narrower than the %.2g between the two would hide from it"
+    },
+    {
+      "id": "transform.bf16x6.bound",
+      "type": "external_record",
+      "statement": "the region-A transform's bf16x6 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "subject": "gate row transform.bf16x6.bound",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 12,
+        "row_id": "transform.bf16x6.bound",
+        "verdict": "verified"
+      },
+      "figure_bound": 2.50000001e-07,
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hpp"
+    },
+    {
+      "id": "transform.bf16x6.delivered",
+      "type": "external_record",
+      "statement": "the bf16x6 mode's delivered worst over region A is 1.946e-07 - its 32-bit accumulator's floor - which the prose rounds to 1.95e-07",
+      "subject": "gate row transform.bf16x6.delivered",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 13,
+        "row_id": "transform.bf16x6.delivered",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: this revision carries no boys/boys_transform.hppthis gate's grid: worst %.6g at (n=%d, x=%.6g), inside the published %.4g by %.3g and inside the mode's budget %.4g. The published figure is a swept maximum - over the committed reference grid and a dense sweep of the lower band's left end - so this row holds the code to it at every argument of the grid and cannot re-find the maximum that produced it: a regression narrower than the %.2g between the two would hide from it"
+    },
+    {
+      "id": "LC.half.budget",
+      "type": "external_record",
+      "statement": "the half lane stays inside 1e-7 plus one half-ULP at every order tested - the bar the suite asserts, which is tighter than the 1.5e-7 plus one half-ULP those lanes publish",
+      "subject": "gate row LC.half.budget",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 14,
+        "row_id": "LC.half.budget",
+        "verdict": "met_over_domain"
+      },
+      "figure_bound": 1e-07
+    },
+    {
+      "id": "LC.half.worst_cell",
+      "type": "external_record",
+      "statement": "both formats' worst cells were measured against a 45-digit reference over every argument either format can represent and every order - a 16-bit input is a finite set, so that sweep is exhaustive rather than dense: 0.9993 of the bound for the 16-bit format, a margin of 0.07 per cent, and 0.99992 for the 16-bit brain-float format, a margin of 0.008 per cent; a sparser grid understates them, the committed reference grid reading 0.999 and 0.9994",
+      "subject": "gate row LC.half.worst_cell",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 15,
+        "row_id": "LC.half.worst_cell",
+        "verdict": "verified"
+      }
+    },
+    {
+      "id": "LC.half.representation_share",
+      "type": "external_record",
+      "statement": "at the worst cell the representation term is very nearly the whole bound, and the arithmetic term has almost nothing left to spend",
+      "subject": "gate row LC.half.representation_share",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 16,
+        "row_id": "LC.half.representation_share",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: measured at the sweep's worst cell of each format: half a quantum of the returned value is %.6f of the bound for fp16 at (n=%d, x=%.6g), and %.6f for bf16 at (n=%d, x=%.6g), so the 1e-7 base is %.4g and %.4g of the bound there and the arithmetic has the remainder. The older x = 721 cell the sentence used to name reads %.6f; it is a magnitude the document no longer states, and the row now reads the worst cell the sweep actually finds"
+    },
+    {
+      "id": "LC.half.vacuous_floor",
+      "type": "external_record",
+      "statement": "the half lanes' ceiling is a domain restriction: past it no accuracy is claimed and the points are counted rather than passed; in f16 the ceiling and the floor coincide, so the return there is a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126",
+      "subject": "gate row LC.half.vacuous_floor",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 17,
+        "row_id": "LC.half.vacuous_floor",
+        "verdict": "met_over_domain"
+      },
+      "notes": "the gate's evidence: the counted side, per lane and region cell. Where the bound exceeds the value: fp16 single %zu of %zu swept points, %zu of those returning no usable value (largest discarded |F| = %.4g at n=%d, x=%.6g); fp16 batch %zu of %zu, %zu no value; bf16 single %zu of %zu, %zu no value - and the last of those is the difference the two formats' exponent ranges make, since %zu of bf16's bound-covered points return a normal bf16 and meet the bound by arithmetic. The binding side is the separate row code.half_domain_stop"
+    },
+    {
+      "id": "LC.half.range_from_order3",
+      "type": "external_record",
+      "statement": "from order 3 upward on region C every unscaled return is a subnormal half or zero, and from order 6 upward every argument of the branch is past the ceiling, so no accuracy is claimed there. Orders 3, 4 and 5 are inside the range the lane does claim over: they still carry cells whose value exceeds the ceiling",
+      "subject": "gate row LC.half.range_from_order3",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 18,
+        "row_id": "LC.half.range_from_order3",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: reference order 3 reaches the half type's normal range nowhere at or above region C's start x=%.6g (no such argument on the grid; the largest argument of the branch that is normal is %.6g at order 2 and %.6g at order 1), so no argument of the branch is normal unscaled; the lane's largest normal return is x=%.6g at order 2 and its largest nonzero return x=%.6g at order 6 (reference %.6g); at the branch's left edge, fp16(%.6g) = %.6g, order 3 has %.4g against the subnormal ceiling %.4g, 4 has %.4g, 5 has %.4g and 6 has %.4g, so the onset order is %d; delivered worst is %.3g of budget"
+    },
+    {
+      "id": "LC.half.no_scaling_past_38",
+      "type": "external_record",
+      "statement": "beyond about x ~ 35-38 no scaling reaches order 8 at all",
+      "subject": "gate row LC.half.no_scaling_past_38",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 19,
+        "row_id": "LC.half.no_scaling_past_38",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: computed from the reference, no prototype needed: the ladder span F_0/F_8 exceeds binary16's normal field at x=%.6g and its whole subnormal field at x=%.6g"
+    },
+    {
+      "id": "LC.packed.rescale_exact",
+      "type": "external_record",
+      "statement": "a per-order power-of-two rescale does not repair the packed lane because the rescale is exact, leaving the scaled lane bit-identical to the unscaled one at every order",
+      "subject": "gate row LC.packed.rescale_exact",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 20,
+        "row_id": "LC.packed.rescale_exact",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: %zu (value, power) pairs in binary16's normal range, %zu disagreements between rounding the scaled value and scaling the rounded value"
+    },
+    {
+      "id": "code.half_simd_budget",
+      "type": "external_record",
+      "statement": "the 8-wide half-I/O region kernels never drift from the certified scalar half lane by a value the internal 1e-7 fit budgets cannot absorb, on the x86_64 targets that carry those kernels",
+      "subject": "gate row code.half_simd_budget",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 21,
+        "row_id": "code.half_simd_budget",
+        "verdict": "verified"
+      }
+    },
+    {
+      "id": "code.half_simd_cells",
+      "type": "external_record",
+      "statement": "the 8-wide half-I/O region kernels hold the published half-lane budget (1.5e-7 plus one half-ULP) on the region each documents as its precondition",
+      "subject": "gate row code.half_simd_cells",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 22,
+        "row_id": "code.half_simd_cells",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: not measured: this target does not carry the 8-wide half-I/O region kernels - the AVX2 half tier is absent - so the claim has no subject here rather than a cell that passed"
+    },
+    {
+      "id": "code.half_domain_stop",
+      "type": "external_record",
+      "statement": "the fp16/bf16 budget is a claim only where the returned value exceeds it: below that ceiling the format's floor answers and no accuracy is claimed; in f16 the ceiling and the floor coincide, so every argument past it returns a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126",
+      "subject": "gate row code.half_domain_stop",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 23,
+        "row_id": "code.half_domain_stop",
+        "verdict": "verified"
+      }
+    },
+    {
+      "id": "native.half.bound",
+      "type": "external_record",
+      "statement": "packed half (two per register, one correctly rounded half operation per ladder step): |out[k] - 2^15 F_k(x)| <= 8 ULP of the returned value, region C only, over the arguments whose returned value is a normal half",
+      "subject": "gate row native.half.bound",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 24,
+        "row_id": "native.half.bound",
+        "verdict": "met_over_domain"
+      },
+      "figure_bound": 8.0,
+      "notes": "the gate's evidence: worst %.4g ULP at (n=%d, x=%.6g), over %zu cells of the packed entry and %zu of the count entry (the count entry's own worst is %.4g ULP); the lane's published worst is 4.243 ULP, a swept maximum and not a proof bound, and this sweep neither upgrades nor contradicts it. Counted apart: %zu cells of %zu where the return is a subnormal half and the claim is the ceiling's, not the bound's"
+    },
+    {
+      "id": "native.half.ceiling",
+      "type": "external_record",
+      "statement": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "subject": "gate row native.half.ceiling",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 25,
+        "row_id": "native.half.ceiling",
+        "verdict": "met_over_domain"
+      },
+      "notes": "the gate's evidence: the largest scaled value the sweep left unclaimed is %.6g (at n=%d, x=%.6g) against the smallest normal half %.6g, so every unclaimed cell is a cell where the scaling was meant to run out: %zu of %zu cells are past the ceiling and are counted here rather than passed. The crossings this sweep sees, as two measured edges - the largest argument whose return is still normal, and the smallest past the ceiling: x=%.6g/%.6g at order 2, %.6g/%.6g at order 3, %.6g/%.6g at order 4, %.6g/%.6g at order 5, %.6g/%.6g at order 6, %.6g/%.6g at order 7 and %.6g/%.6g at order 8. At orders 9 to 32 no swept argument returns a normal half at all (%d of the thirty-three orders), so the document's 'none' is what the sweep sees there, not an absence of cells. The document's approximations (2636, 360, 129, 70, 47, 36) are read against those brackets: each sits at or just past the largest normal argument, which is the direction 'to about' states. %zu cells returned a subnormal half for a value the scaling should have kept normal, which is the one thing this domain must not excuse"
+    },
+    {
+      "id": "native.half.packed",
+      "type": "external_record",
+      "statement": "the packing is real: every operation is correctly rounded to binary16 once per operation, both halves of one register, with no widening for the sequence as a whole",
+      "subject": "gate row native.half.packed",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 26,
+        "row_id": "native.half.packed",
+        "verdict": "met_over_domain"
+      },
+      "notes": "the gate's evidence: verified against the oracle only in part, and said so: this gate's reference can say what the value is, never how the arithmetic that produced it was arranged, so the packing is separated from the bound and tested two other ways. (1) The error distribution: %zu of %zu cells in the binding domain carry more than half a quantum of the true value and %zu carry more than a whole one, which is the accumulated signature of rounding inside the ladder - a lane that widened, evaluated at higher precision and rounded once at the end cannot leave more than half a quantum however it is arranged, and the wider engine contributes about 1e-16 relative on top. That refutes the widen-compute-round-once reading rather than confirming this one. (2) The two entries: the count entry disagrees with the packed entry at %zu of %zu paired cells, and the pair test runs two different arguments through one register, so a half that read its partner's lane would show up as a mismatch. What is not established here is the hardware claim - that a target's packed instructions are what these operations become - and that is the lane's own structural evidence, not this gate's"
+    },
+    {
+      "id": "LC.packed.bound",
+      "type": "external_record",
+      "statement": "packed half spends more than the half-quantum of representation the store-half budget leaves it (the prototype's finding, measured on the lane that is here)",
+      "subject": "gate row LC.packed.bound",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 27,
+        "row_id": "LC.packed.bound",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: the native packed lane's worst cell is %.4g ULP of the returned value at (n=%d, x=%.6g), which is %.4g times the 0.5 ULP the store-half budget leaves for representing the result - the prototype's 'above its budget' finding, on this lane's own numbers - and inside the lane's published ceiling of 4.243 ULP, a swept maximum and not a proof bound. The prototype's 2.39x at order 0 and 2.35x at order 1 are withdrawn with it: they were measured against the store-half budget at the prototype's own arguments, and that prototype is not in this tree"
+    },
+    {
+      "id": "LC.regionB.amplification",
+      "type": "external_record",
+      "statement": "[corrected this revision] region B's amplification is one plus 1.8e-17 at order 32 - above one, not at most one - and that is its maximum over the supported orders",
+      "subject": "gate row LC.regionB.amplification",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 28,
+        "row_id": "LC.regionB.amplification",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: the gain the band edge is chosen to make one, prod(2j-1)/(2 x0)^l with the shipped x0 = %.17g, is 1 + %.4g at l = 32 and that is its maximum over l <= 32 - evaluated in double-double, whose accumulated relative error ~1e-30 is thirteen orders under the excess it measures, and the independent oracle reaches the same 1.846e-17 by exact rational arithmetic. So the two sentences that said \"<= 1\" and \"below one\" are refuted, by 1.8e-17, and the consequence is bounded: %.3g of the tightest budget this library claims, so the sizing conclusion the bound supports - the order-0 seed degree is the one that bounds the whole batch - is unaffected. The same sentence's formula as written is a second finding: prod(j+1/2)/x0^l at l = 32 is %.6g, not 1, so read literally the sentence is wrong by a factor of 65 rather than by 1.8e-17, and the wording needs the normalisation it now carries"
+    },
+    {
+      "id": "LC.coeff.rounding",
+      "type": "external_record",
+      "statement": "[corrected this revision] rounding the coefficients to double contributes about 5.551e-17 - the half-ULP of the leading coefficient alone - and not 3e-17",
+      "subject": "gate row LC.coeff.rounding",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 29,
+        "row_id": "LC.coeff.rounding",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: the shipped table's leading coefficient is %.17g (include/boys/boys_coefficients.hpp, kCoeffs[0]); its binade is [0.5, 1), whose ULP is 2^-53, so a correctly rounded double there is off by at most half of one, %.6g = 2^-54. The figure the sentence carried, 3e-17, is the half-ULP of no double in that binade (the candidates are 2^-55 = %.6g and 2^-54 = %.6g); the independent oracle's exact arithmetic on the shipped coefficient gives 5.551e-17. The fit's own truncation is 5e-19, which the row LC.double.ceiling carries"
+    },
+    {
+      "id": "code.coverage.argument_range",
+      "type": "external_record",
+      "statement": "no lane's claim is unchecked at the top of its own argument range: the sweep reaches binary16's largest finite value for the half lanes and binary32's for the floats, and nothing above binary32's maximum is a range any lane of this library evaluates in",
+      "subject": "gate row code.coverage.argument_range",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 30,
+        "row_id": "code.coverage.argument_range",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: of the %zu arguments the sweep carries per order, %zu cast to a finite binary16 (%zu distinct fp16 values; the largest argument that does is %.6g, and the largest value reached is %.6g = the format's maximum), %zu are region-C arguments at or above kX1, and the largest argument of all is %.6g = binary32's maximum. The rule the generator applies, so a format added later does not reopen it: for every format narrower than binary64 the grid carries its largest finite value, a geometric ladder of that format's values from the old maximum up to it, and every value of the format in its last band when the spacing there leaves a band wider than a grid step - which is how 60672 to 65504 stopped being an unchecked seven per cent of the half range. Beyond binary32's maximum no narrower lane can receive an argument at all, and binary64 is never representation-limited, because the grid is a list of doubles"
+    },
+    {
+      "id": "LC.regionC.domain",
+      "type": "external_record",
+      "statement": "[corrected this revision] the branch's lower boundary is not a floor: through x = 16 the error varies smoothly, with no threshold and no step of orders of magnitude, growing continuously as x falls below the edge",
+      "subject": "gate row LC.regionC.domain",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 31,
+        "row_id": "LC.regionC.domain",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: the shape, on the form as coded, over the arguments below x = 16 - where the sentence puts the growth - at every order: %zu neighbouring pairs of relative error, %zu of them rising as x rises, so the curve is not monotone everywhere below the edge (%zu breaks), and the largest factor between neighbours anywhere below it is %.4g at (n=%d, x=%.6g). A threshold between two regimes - which is what a floor is - would put orders of magnitude between two adjacent arguments; %.4g is %.1f orders, so the boundary is a continuation of the branch's error rather than a step at it. At the top order, where the oracle's sentence and this row's size reading both sit: %zu pairs, %zu breaks, largest neighbouring factor %.4g. Its size, for the record: the largest error relative to the value just below the edge is %.4g, at (n=%d, x=%.6g), and at order 32 the same reading gives %.4g. The two readings of the old sentence are carried here rather than in a claim: crossing the edge the jump is %.4g to %.4g over one grid step and %.4g to %.4g over two-unit windows - %.1f to %.1f orders, below the five to eight it published - and, in the form the contract states, over the branch's own figure %.4g, which is the budget the other reading divides by, the same cells give %.4g to %.4g (%.1f to %.1f orders over orders 0..24). The branch is evaluated here through the library at every division form the axis carries: %zu region-C cell(s) over the three forms, %zu of them outside the branch's bound, the worst %.6g at (n=%d, x=%.17g); the shape above is the form's error and not the stored fit's on every host, which it was not before this revision - a host without AVX2 has no vector body to reach the form through, so the same call measured the region-B fit there and reported its smoothness as the form's"
+    },
+    {
+      "id": "LC.evidence.ctest",
+      "type": "external_record",
+      "statement": "the documented budgets are re-checkable with ctest",
+      "subject": "gate row LC.evidence.ctest",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 32,
+        "row_id": "LC.evidence.ctest",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: tree command, run by the operator, not by this binary: `ctest --test-dir build --output-on-failure`"
+    },
+    {
+      "id": "LC.double.worst_cell",
+      "type": "external_record",
+      "statement": "in between the bound 1e-13 x F_0(x) permits 4.85 times the value at the worst cell, n = 32, x = 31 - 1e-13 x 0.15917105461020217 = 1.5917105461020217e-14 against the value 3.2822575294956117e-15 - and the delivered error there measured 1.40 times the value, 4.582e-15, 0.288 of the bound",
+      "subject": "gate row LC.double.worst_cell",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 33,
+        "row_id": "LC.double.worst_cell",
+        "verdict": "verified"
+      },
+      "figure_bound": 1e-13,
+      "notes": "the gate's evidence: the documented cell is the grid argument x = %.17g, which prints as 31 at the six significant digits the documents use; it is the argument whose F_0 = %.17g and F_32 = %.17g are the two numbers the sentence writes. The bound 1e-13 F_0 = %.17g permits %.6f times the value (document 4.85). BoysSingle(32, x) delivers %.17g, an error of %.6g: %.6f times the value (document 1.40) and %.6f of the bound (document 0.288). The grid also carries the exact 31.0, a different argument one representable step away, where the same call lands %.3g of that cell's value from it - the asymptotic form reads differently at the two, and the sentence's own pair of figures names the cell above"
+    },
+    {
+      "id": "LC.region_A.fit_bar",
+      "type": "external_record",
+      "statement": "the stored fits' 1e-15 bar bounds only the arguments below that edge, where the seed is a per-order fit read at 1e-15 under a reachable gain of at most 2.171050",
+      "subject": "gate row LC.region_A.fit_bar",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 34,
+        "row_id": "LC.region_A.fit_bar",
+        "verdict": "verified"
+      },
+      "figure_bound": 1e-15,
+      "notes": "the gate's evidence: the default route's region-A seed row measures the per-order fits themselves, piece by piece (RegionAValue<ChebyshevFit<kDefaultEvalScheme, kDefaultFitGranularity>>), at every order and every argument of region A: %zu cells, worst %.6g at (n=%d, x=%.6g), which is %.3g of the 1e-15 bar. The row spans the per-order fits and the extended band together, so its worst bounds the fits' own from above. The document's reachable gain of 2.171050 belongs to the band's 3e-14 bar, which is the route row's own bar and not this fold's"
+    },
+    {
+      "id": "LC.half.returned_value_floor",
+      "type": "external_record",
+      "statement": "below a certain size the lane returns nothing usable: the bound holds only where the result is larger than 1.5e-7 plus half a representable digit, and the bound is claimed over those larger arguments and over no others - for the 16-bit format the return below that size is a subnormal 16-bit number and then exactly zero, while the brain-float format, whose exponent range is a 32-bit float's, keeps normal returns down to about 1e-38",
+      "subject": "gate row LC.half.returned_value_floor",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 35,
+        "row_id": "LC.half.returned_value_floor",
+        "verdict": "met_over_domain"
+      },
+      "figure_bound": 1.5e-07,
+      "notes": "the gate's evidence: not measured: the sweep is of the fp16 and bf16 store-half entries, and this build carries neither - its BoysFp16 seam is closed - so the returned value the sentence is about was never produced here. The claim is neither confirmed nor deniedread on the returned value, which is the sentence's object, and at the published 1.5e-7 base, which is not this book's 1e-7 suite bar: fp16 %zu cells, %zu returns above the threshold (the bound's domain; %zu of them subnormal yet inside it), %zu of those outside the bound, worst %.6g of the bound at (n=%d, x=%.6g); %zu returns at or below it, all the format's zero (%zu) or a subnormal half (%zu), so the sentence's descent holds there. bf16 %zu cells, %zu above (worst %.6g at n=%d, x=%.6g), %zu outside, and %zu below of which %zu are the format's zero and %zu are normal - the brain-float format's exponent range is a 32-bit float's, so a bf16 return under 1.5e-7 is not subnormal, which is the document's own qualification in the paragraph below. Cells whose true value exceeds the threshold while the return falls below it, and so outside the claimed domain: fp16 %zu (largest such value %.4g at n=%d, x=%.6g), bf16 %zu (largest %.4g at n=%d, x=%.6g). The sentence claims the bound over the larger returns and over no others; these cells are the ones the object's wording leaves unclaimed, counted rather than argued away"
+    },
+    {
+      "id": "native.half.suite_worst",
+      "type": "external_record",
+      "statement": "the native half lane is the one lane whose figure is not a fraction of the value: it is stated in ULP of the returned value, <= 8 ULP, measured at a worst of 4.3",
+      "subject": "gate row native.half.suite_worst",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 36,
+        "row_id": "native.half.suite_worst",
+        "verdict": "met_over_domain"
+      },
+      "figure_bound": 8.0,
+      "notes": "the gate's evidence: the packed lane over region C, x >= 28.984375: this gate's sweep finds %.4g ULP of the returned value at (n=%d, x=%.6g), %.4g of the 8 ULP bound, over %zu cells. The suite's published worst is 4.243 ULP, which the mainpage rounds to 4.3; this grid is the gate's and is not the suite's argument set, so the row reads lower than the published figure and neither upgrades nor contradicts it. What the row does pin is the sentence's shape: the figure is in ULP of the returned value, and the lane stays inside its 8 ULP bound wherever this grid reaches"
+    },
+    {
+      "id": "LC.packed.representation_cost",
+      "type": "external_record",
+      "statement": "the worst cell this lane's own suite finds is 4.243 of those digits against the half-ULP the other lane budgets, which is 8.5 times its representation allowance",
+      "subject": "gate row LC.packed.representation_cost",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 37,
+        "row_id": "LC.packed.representation_cost",
+        "verdict": "met_over_domain"
+      },
+      "notes": "the gate's evidence: on this gate's grid the packed lane's worst cell is %.4g ULP at (n=%d, x=%.6g), %.4g of the 8 ULP ceiling and %.4g times the 0.5 ULP the store-half budget leaves for representing the result. The suite's own worst, 4.243 ULP, is %.4g times that allowance (8.5 in the document's rounding), so the two instruments agree on the relation and differ in the figure, as a sparser grid must: the row carries the relation - the packed lane spends more than the half-quantum - and prints both readings rather than passing the suite's number off as this sweep's"
+    },
+    {
+      "id": "LC.regionC.asym_relative",
+      "type": "external_record",
+      "statement": "below about x = 16 the asymptotic form is outside the range where it is valid, and the error grows smoothly there, with no sudden jump - but the size of the error is real, and below that boundary it is stated relative to the function's own value: the largest such error is 5.6e4, at order 32 and x = 14.0468, and at x = 15.936 the same quantity is 5.6e3",
+      "subject": "gate row LC.regionC.asym_relative",
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "evidence_class": "measured_error",
+      "record": {
+        "file": "run-record.json",
+        "row_index": 38,
+        "row_id": "LC.regionC.asym_relative",
+        "verdict": "verified"
+      },
+      "notes": "the gate's evidence: measured on the form as coded, at the two cells the sentence names: at n=32, x=%.17g the form reads %.6g against the reference's %.17g, a relative error of %.6g (the document states 5.6e4); at n=32, x=%.17g it reads %.6g against %.17g, a relative error of %.6g (document 5.6e3). The largest below-edge relative error this gate's whole sweep finds is %.6g at (n=%d, x=%.6g), the same cell and figure the sentence calls the largest. Smoothness is the same sweep's other reading: the largest factor between neighbouring arguments below x = 16 is %.4g, well under the order of magnitude a threshold would put between two adjacent arguments - the growth is continuous and the size is real, which is the sentence's two halves"
+    }
+  ],
+  "external_run": {
+    "file": "run-record.json",
+    "schema": "claimgate-external-run-1",
+    "note": "the boys accuracy gate's captured run; claimgate checks its structure and digests"
+  }
+}

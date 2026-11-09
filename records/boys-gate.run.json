@@ -1,0 +1,1454 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "boys-gate-5.3.1",
+    "title": "The boys accuracy gate at v5.3.1: registration table and run record",
+    "path": "examples/boys-gate/book.json",
+    "sha256": "5ccb237ceb734513de9c5aa8d0bcb738dfd177ce2348c887e77c24b42d45cab3"
+  },
+  "root": "examples/boys-gate",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "examples/boys-gate/book.json",
+    "--portable",
+    "--report",
+    "records/boys-gate.run.json"
+  ],
+  "started_utc": "2026-11-09T18:20:44+00:00",
+  "finished_utc": "2026-11-09T18:20:44+00:00",
+  "duration_s": 0.019417,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "examples/boys-gate/book.json",
+      "sha256": "5ccb237ceb734513de9c5aa8d0bcb738dfd177ce2348c887e77c24b42d45cab3",
+      "bytes": 125792
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/README.md.slices.json",
+      "sha256": "2ea79f3d77bd997db6c07a16a91428735befa88177ba74f8eae5d7a006d1a267",
+      "bytes": 862
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/docs__mainpage.md.slices.json",
+      "sha256": "df59dae4afbd98e98f3a0dd9b5c4c24b51ed5e3ef89eb26f64c4dab49a6318de",
+      "bytes": 1184
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/docs__lane-contract.md.slices.json",
+      "sha256": "04fbb6fecb4bd0652f37fbb33176b55f7674f0086218cd802649d1c24e208b82",
+      "bytes": 6100
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/CONTRIBUTING.md.slices.json",
+      "sha256": "c4021126081b120e49059b40a396688176d7711e7ccba0b5f71b88a08564fb3e",
+      "bytes": 336
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/src__boys_simd.cpp.slices.json",
+      "sha256": "85507bd600d7fbf9693e5d12f3ea8809050af84c16c2e339f4f41c8e5ff7bd78",
+      "bytes": 522
+    },
+    {
+      "role": "anchor",
+      "path": "examples/boys-gate/anchor-slices/include__boys__boys_decl.hpp.slices.json",
+      "sha256": "edac1779be0ec07c8f9f45d345d2017a307e6a79e27b229b13ea85434ba589a5",
+      "bytes": 581
+    },
+    {
+      "role": "external-run",
+      "path": "examples/boys-gate/run-record.json",
+      "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
+      "bytes": 14245
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "deposited-slice",
+      "checked": 37,
+      "failed": [],
+      "sources": [
+        {
+          "file": "README.md",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/README.md.slices.json",
+          "sha256": "3814c2c526100bc8be179bdf1e8cda551880c2dc373061dd74f300cfda5c51b0"
+        },
+        {
+          "file": "docs/mainpage.md",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/docs__mainpage.md.slices.json",
+          "sha256": "3e99f928e6a8c14771b3f9ece352d0105010c43d06061b17248b81dc0c299202"
+        },
+        {
+          "file": "docs/lane-contract.md",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/docs__lane-contract.md.slices.json",
+          "sha256": "e37e1cfe0acdaa7effffe053ad87aee5820237484fc6192c54253f1aa41e67b1"
+        },
+        {
+          "file": "CONTRIBUTING.md",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/CONTRIBUTING.md.slices.json",
+          "sha256": "91387cd107a51d547cdf51b6dbc95ddf92146503c13c07e3680839bb0bd1349b"
+        },
+        {
+          "file": "src/boys_simd.cpp",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/src__boys_simd.cpp.slices.json",
+          "sha256": "7b71c4d416c8f5e0afa31827ed4439db8cf8f49a932f25b497c22792fe6b1ac8"
+        },
+        {
+          "file": "include/boys/boys_decl.hpp",
+          "mode": "deposited-slice",
+          "path": "examples/boys-gate/anchor-slices/include__boys__boys_decl.hpp.slices.json",
+          "sha256": "1c15d22a7cd09f2b52d4eeca4829fe09993766a6071862d4c5bd32464b56f862"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 13,
+      "absent": 24,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 38,
+      "failed": []
+    },
+    "external_run": {
+      "file": "run-record.json",
+      "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
+      "tool": "boys-accuracy-gate",
+      "version": "5.3.1",
+      "exit_status": 0,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "README.double.single",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) - the accuracy contract's figure over the whole domain, the ladder's first rung being its wider arm wherever the order's own value is the smaller - which is what the four regions the report reads are each judged against. The figure is the shipped default build's: a build whose default rows are a replacement's records these cells and judges none of them, and its own figures are the option probe's report",
+      "subject": "gate row README.double.single",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 1,
+        "id": "README.double.single",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "README.double.batch",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "double batch: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in every region, all entries. The figure is the shipped default build's, on the same terms as the row above",
+      "subject": "gate row README.double.batch",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 2,
+        "id": "README.double.batch",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "README.float",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "float single and batch: 2^-22 of F_n(x), or its 1.5e-7 floor where that is the larger, in every region, and 1e-7 beside it in the plain-reciprocal form - the lane's own bar, not 1e-13 scaled",
+      "subject": "gate row README.float",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 3,
+        "id": "README.float",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "README.half",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "fp16 and bf16 store-half lanes: 1.5e-7 + one half-ULP, single and batch - the fp32 engine's arithmetic stated absolutely, which is the arithmetic these lanes run, plus the half-ULP term their store adds",
+      "subject": "gate row README.half",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 4,
+        "id": "README.half",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "header.double.region_A_and_band",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in the region-A and extended-band cells the header's table keeps apart. The figure is the shipped default build's, on the same terms as README.double.single",
+      "subject": "gate row header.double.region_A_and_band",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 5,
+        "id": "header.double.region_A_and_band",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.double.ceiling",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the stored coefficients are rounded to double precision and hold only the sixteen or so significant digits a double can hold, so nothing below about 1e-16 is reachable however the evaluation is arranged - the fit's own truncation, 5e-19, sits under that floor and is not a second bound",
+      "subject": "gate row LC.double.ceiling",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 6,
+        "id": "LC.double.ceiling",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.float.ceiling",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the ceiling is the format: a 32-bit float carries about seven significant digits, about 6e-8 relative, and the lane's relative arm is 4.0 times that digit (2^-22 / 6e-8), so the two are within a factor of a few of each other; at F_n(x) = 1e-3 the relative arm is 2.4e-10, far below the 1.5e-7 the lane can hold there, and the plain-reciprocal form adds its 1e-7 term to the larger of the two",
+      "subject": "gate row LC.float.ceiling",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 7,
+        "id": "LC.float.ceiling",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.fp64.bound",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the region-A transform's fp64 mode: |F_hat - F| <= 1e-15 over region A - the double single lane's region-A budget, both bands, every order, every argument",
+      "subject": "gate row transform.fp64.bound",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 8,
+        "id": "transform.fp64.bound",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.fp64.delivered",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the fp64 mode's delivered worst over region A is 1.110e-16 - the per-order fits' own truncation, which the product adds nothing measurable to",
+      "subject": "gate row transform.fp64.delivered",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 9,
+        "id": "transform.fp64.delivered",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.tf32x3.bound",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the region-A transform's 3xTF32 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "subject": "gate row transform.tf32x3.bound",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 10,
+        "id": "transform.tf32x3.bound",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.tf32x3.delivered",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the 3xTF32 mode's delivered worst over region A is 1.916e-07 - its 32-bit accumulator's floor, not the operand split's - which the prose rounds to 1.92e-07",
+      "subject": "gate row transform.tf32x3.delivered",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 11,
+        "id": "transform.tf32x3.delivered",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.bf16x6.bound",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the region-A transform's bf16x6 mode: |F_hat - F| <= 1e-15 + 2.5e-7 over region A, the fp32 accumulator's own floor plus the fits' term",
+      "subject": "gate row transform.bf16x6.bound",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 12,
+        "id": "transform.bf16x6.bound",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "transform.bf16x6.delivered",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the bf16x6 mode's delivered worst over region A is 1.946e-07 - its 32-bit accumulator's floor - which the prose rounds to 1.95e-07",
+      "subject": "gate row transform.bf16x6.delivered",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 13,
+        "id": "transform.bf16x6.delivered",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.budget",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the half lane stays inside 1e-7 plus one half-ULP at every order tested - the bar the suite asserts, which is tighter than the 1.5e-7 plus one half-ULP those lanes publish",
+      "subject": "gate row LC.half.budget",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 14,
+        "id": "LC.half.budget",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.worst_cell",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "both formats' worst cells were measured against a 45-digit reference over every argument either format can represent and every order - a 16-bit input is a finite set, so that sweep is exhaustive rather than dense: 0.9993 of the bound for the 16-bit format, a margin of 0.07 per cent, and 0.99992 for the 16-bit brain-float format, a margin of 0.008 per cent; a sparser grid understates them, the committed reference grid reading 0.999 and 0.9994",
+      "subject": "gate row LC.half.worst_cell",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 15,
+        "id": "LC.half.worst_cell",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.representation_share",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "at the worst cell the representation term is very nearly the whole bound, and the arithmetic term has almost nothing left to spend",
+      "subject": "gate row LC.half.representation_share",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 16,
+        "id": "LC.half.representation_share",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.vacuous_floor",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the half lanes' ceiling is a domain restriction: past it no accuracy is claimed and the points are counted rather than passed; in f16 the ceiling and the floor coincide, so the return there is a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126",
+      "subject": "gate row LC.half.vacuous_floor",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 17,
+        "id": "LC.half.vacuous_floor",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.range_from_order3",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "from order 3 upward on region C every unscaled return is a subnormal half or zero, and from order 6 upward every argument of the branch is past the ceiling, so no accuracy is claimed there. Orders 3, 4 and 5 are inside the range the lane does claim over: they still carry cells whose value exceeds the ceiling",
+      "subject": "gate row LC.half.range_from_order3",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 18,
+        "id": "LC.half.range_from_order3",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.no_scaling_past_38",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "beyond about x ~ 35-38 no scaling reaches order 8 at all",
+      "subject": "gate row LC.half.no_scaling_past_38",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 19,
+        "id": "LC.half.no_scaling_past_38",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.packed.rescale_exact",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "a per-order power-of-two rescale does not repair the packed lane because the rescale is exact, leaving the scaled lane bit-identical to the unscaled one at every order",
+      "subject": "gate row LC.packed.rescale_exact",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 20,
+        "id": "LC.packed.rescale_exact",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "code.half_simd_budget",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the 8-wide half-I/O region kernels never drift from the certified scalar half lane by a value the internal 1e-7 fit budgets cannot absorb, on the x86_64 targets that carry those kernels",
+      "subject": "gate row code.half_simd_budget",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 21,
+        "id": "code.half_simd_budget",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "code.half_simd_cells",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the 8-wide half-I/O region kernels hold the published half-lane budget (1.5e-7 plus one half-ULP) on the region each documents as its precondition",
+      "subject": "gate row code.half_simd_cells",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 22,
+        "id": "code.half_simd_cells",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "code.half_domain_stop",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the fp16/bf16 budget is a claim only where the returned value exceeds it: below that ceiling the format's floor answers and no accuracy is claimed; in f16 the ceiling and the floor coincide, so every argument past it returns a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126",
+      "subject": "gate row code.half_domain_stop",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 23,
+        "id": "code.half_domain_stop",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "native.half.bound",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "packed half (two per register, one correctly rounded half operation per ladder step): |out[k] - 2^15 F_k(x)| <= 8 ULP of the returned value, region C only, over the arguments whose returned value is a normal half",
+      "subject": "gate row native.half.bound",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 24,
+        "id": "native.half.bound",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "native.half.ceiling",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the ceiling is a domain restriction and past it the lane claims nothing: the return is a subnormal half, then exactly zero, by design - no rescaling reaches past that limit either, because the range the recursion spans grows like x to the power n against a fixed exponent range - and the crossings are the whole argument range at orders 0 and 1, x ~ 2636 at order 2, x ~ 360 / 129 / 70 / 47 / 36 / 30 at orders 3 / 4 / 5 / 6 / 7 / 8, and none at all at orders 9 to 32: the function is already below 2^-29 at the smallest argument the lane accepts, so twenty-four of the thirty-three orders are in that position",
+      "subject": "gate row native.half.ceiling",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 25,
+        "id": "native.half.ceiling",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "native.half.packed",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the packing is real: every operation is correctly rounded to binary16 once per operation, both halves of one register, with no widening for the sequence as a whole",
+      "subject": "gate row native.half.packed",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 26,
+        "id": "native.half.packed",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.packed.bound",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "packed half spends more than the half-quantum of representation the store-half budget leaves it (the prototype's finding, measured on the lane that is here)",
+      "subject": "gate row LC.packed.bound",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 27,
+        "id": "LC.packed.bound",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.regionB.amplification",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "[corrected this revision] region B's amplification is one plus 1.8e-17 at order 32 - above one, not at most one - and that is its maximum over the supported orders",
+      "subject": "gate row LC.regionB.amplification",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 28,
+        "id": "LC.regionB.amplification",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.coeff.rounding",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "[corrected this revision] rounding the coefficients to double contributes about 5.551e-17 - the half-ULP of the leading coefficient alone - and not 3e-17",
+      "subject": "gate row LC.coeff.rounding",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 29,
+        "id": "LC.coeff.rounding",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "code.coverage.argument_range",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "no lane's claim is unchecked at the top of its own argument range: the sweep reaches binary16's largest finite value for the half lanes and binary32's for the floats, and nothing above binary32's maximum is a range any lane of this library evaluates in",
+      "subject": "gate row code.coverage.argument_range",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 30,
+        "id": "code.coverage.argument_range",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.regionC.domain",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "[corrected this revision] the branch's lower boundary is not a floor: through x = 16 the error varies smoothly, with no threshold and no step of orders of magnitude, growing continuously as x falls below the edge",
+      "subject": "gate row LC.regionC.domain",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 31,
+        "id": "LC.regionC.domain",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.evidence.ctest",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the documented budgets are re-checkable with ctest",
+      "subject": "gate row LC.evidence.ctest",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 32,
+        "id": "LC.evidence.ctest",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.double.worst_cell",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "in between the bound 1e-13 x F_0(x) permits 4.85 times the value at the worst cell, n = 32, x = 31 - 1e-13 x 0.15917105461020217 = 1.5917105461020217e-14 against the value 3.2822575294956117e-15 - and the delivered error there measured 1.40 times the value, 4.582e-15, 0.288 of the bound",
+      "subject": "gate row LC.double.worst_cell",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 33,
+        "id": "LC.double.worst_cell",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.region_A.fit_bar",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the stored fits' 1e-15 bar bounds only the arguments below that edge, where the seed is a per-order fit read at 1e-15 under a reachable gain of at most 2.171050",
+      "subject": "gate row LC.region_A.fit_bar",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 34,
+        "id": "LC.region_A.fit_bar",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.half.returned_value_floor",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "below a certain size the lane returns nothing usable: the bound holds only where the result is larger than 1.5e-7 plus half a representable digit, and the bound is claimed over those larger arguments and over no others - for the 16-bit format the return below that size is a subnormal 16-bit number and then exactly zero, while the brain-float format, whose exponent range is a 32-bit float's, keeps normal returns down to about 1e-38",
+      "subject": "gate row LC.half.returned_value_floor",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 35,
+        "id": "LC.half.returned_value_floor",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "native.half.suite_worst",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the native half lane is the one lane whose figure is not a fraction of the value: it is stated in ULP of the returned value, <= 8 ULP, measured at a worst of 4.3",
+      "subject": "gate row native.half.suite_worst",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 36,
+        "id": "native.half.suite_worst",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.packed.representation_cost",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "the worst cell this lane's own suite finds is 4.243 of those digits against the half-ULP the other lane budgets, which is 8.5 times its representation allowance",
+      "subject": "gate row LC.packed.representation_cost",
+      "verdict": "met_over_domain",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "stated"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 37,
+        "id": "LC.packed.representation_cost",
+        "verdict": "met_over_domain",
+        "tool": "the row's external run record"
+      }
+    },
+    {
+      "id": "LC.regionC.asym_relative",
+      "type": "external_record",
+      "claim_id": null,
+      "statement": "below about x = 16 the asymptotic form is outside the range where it is valid, and the error grows smoothly there, with no sudden jump - but the size of the error is real, and below that boundary it is stated relative to the function's own value: the largest such error is 5.6e4, at order 32 and x = 14.0468, and at x = 15.936 the same quantity is 5.6e3",
+      "subject": "gate row LC.regionC.asym_relative",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "measured_error",
+      "metric": null,
+      "bound": null,
+      "quantifier": null,
+      "domain": {
+        "description": "the domain the gate's row measures, as the gate's own run records it",
+        "scope": "whole"
+      },
+      "cells": 0,
+      "judged_cells": 0,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 0,
+      "worst": {},
+      "establishes": "the observed error on the measured cells; a breach refutes, a pass does not establish a uniform bound",
+      "limitations": [
+        "the verdict is the external tool's run record; claimgate checks the record's structure and digest and does not re-measure the row"
+      ],
+      "external": {
+        "row_index": 38,
+        "id": "LC.regionC.asym_relative",
+        "verdict": "verified",
+        "tool": "the row's external run record"
+      }
+    }
+  ],
+  "summary": {
+    "rows": 38,
+    "verified": 29,
+    "met_over_domain": 9,
+    "exceeded": 0,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 38,
+    "judged": 38
+  },
+  "exit_status": 0
+}

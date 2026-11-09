@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://claimgate.invalid/schema/claimgate-run-1.json",
+  "title": "claimgate run record",
+  "description": "The machine-readable report of one claimgate invocation, and the schema for an external run record a consumer's own gate produces.",
+  "type": "object",
+  "required": ["schema", "tool", "book", "rows", "summary", "exit_status"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "claimgate-run-1"},
+    "tool": {
+      "type": "object",
+      "required": ["name", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "writer": {"type": "string"}
+      }
+    },
+    "book": {
+      "type": "object",
+      "required": ["id", "path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "root": {"type": "string"},
+    "command": {"type": "array", "items": {"type": "string"}},
+    "started_utc": {"type": "string"},
+    "finished_utc": {"type": "string"},
+    "duration_s": {"type": "number", "minimum": 0},
+    "environment": {"type": "object"},
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "additionalProperties": false,
+        "properties": {
+          "role": {"type": "string"},
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "bytes": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anchors": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mode": {"enum": ["full-source", "deposited-slice", "mixed", "missing", "skipped"]},
+            "checked": {"type": "integer", "minimum": 0},
+            "failed": {"type": "array", "items": {"type": "string"}},
+            "sources": {"type": "array", "items": {"type": "object"}}
+          }
+        },
+        "figures": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "checked": {"type": "integer", "minimum": 0},
+            "absent": {"type": "integer", "minimum": 0},
+            "failed": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "checked": {"type": "integer", "minimum": 0},
+            "failed": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "external_run": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "file": {"type": "string"},
+            "sha256": {"type": "string"},
+            "tool": {"type": "string"},
+            "version": {"type": "string"},
+            "exit_status": {"type": "integer"},
+            "failed": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "verdict", "family"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "claim_id": {"type": "string"},
+          "statement": {"type": "string"},
+          "subject": {"type": "string"},
+          "verdict": {"$ref": "#/$defs/verdict"},
+          "family": {"enum": ["judged_and_met", "judged_and_unmet", "not_judged"]},
+          "met": {"type": ["boolean", "null"]},
+          "evidence_class": {"type": "string"},
+          "metric": {"type": "object"},
+          "bound": {"type": "object"},
+          "quantifier": {"type": "string"},
+          "domain": {"type": "object"},
+          "cells": {"type": "integer", "minimum": 0},
+          "judged_cells": {"type": "integer", "minimum": 0},
+          "failures": {"type": "integer", "minimum": 0},
+          "vacuous_cells": {"type": "integer", "minimum": 0},
+          "discriminating_cells": {"type": "integer", "minimum": 0},
+          "worst": {"type": "object"},
+          "establishes": {"type": "string"},
+          "limitations": {"type": "array", "items": {"type": "string"}},
+          "reason": {"type": "string"},
+          "data": {"type": "object"},
+          "external": {"type": "object"}
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["rows", "verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent", "not_carried", "not_judged"],
+      "additionalProperties": false,
+      "properties": {
+        "rows": {"type": "integer", "minimum": 0},
+        "verified": {"type": "integer", "minimum": 0},
+        "met_over_domain": {"type": "integer", "minimum": 0},
+        "exceeded": {"type": "integer", "minimum": 0},
+        "vacuous": {"type": "integer", "minimum": 0},
+        "evidence_absent": {"type": "integer", "minimum": 0},
+        "not_carried": {"type": "integer", "minimum": 0},
+        "not_judged": {"type": "integer", "minimum": 0},
+        "met": {"type": "integer", "minimum": 0},
+        "judged": {"type": "integer", "minimum": 0}
+      }
+    },
+    "exit_status": {"enum": [0, 1, 2]}
+  },
+  "$defs": {
+    "verdict": {
+      "enum": ["verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent", "not_carried", "not_judged"]
+    }
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "claimgate_book": 1,
+  "book": {
+    "id": "row-types",
+    "title": "A constructed testbed for the six row types and the verdict rule",
+    "description": "A small constructed book, not a measurement of any library. It drives every row type and every verdict family: a reference comparison that exceeds, a stated-domain row that is met over its domain, a consistency row, an exactness row, a vacuity row, an evidence-absent row, a not-carried row and a not-judged row. The exit status is 1 because the constructed reference row, the vacuity row and the absent row fail.",
+    "library": {"name": "constructed", "version": "1"},
+    "created": "2026-11-09",
+    "provenance": {
+      "note": "The data are synthetic and the sentences are written for this testbed. The anchor source is anchors/row-types.md."
+    }
+  },
+  "defaults": {"root": "."},
+  "claims": [
+    {
+      "id": "demo.reference",
+      "object": "a constructed measured routine",
+      "domain": {"description": "x in [0, 2]", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed reference comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [7, 7]},
+      "evidence_class": "measured_error",
+      "subject": "a constructed measured value",
+      "rows": ["reference.whole"]
+    },
+    {
+      "id": "demo.stated",
+      "object": "a constructed measured routine on a stated sub-domain",
+      "domain": {"description": "x in [0, 1], the stated sub-domain", "scope": "stated"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed stated-domain comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [15, 15]},
+      "evidence_class": "measured_error",
+      "subject": "a constructed measured value over a stated sub-domain",
+      "rows": ["reference.stated"]
+    },
+    {
+      "id": "demo.consistency",
+      "object": "a constructed fast path against its scalar path",
+      "domain": {"description": "x in [0, 2]", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "absolute", "unit": "absolute"},
+      "bound": {"value": "1e-12", "unit": "absolute", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed two-path comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [9, 9]},
+      "evidence_class": "measured_error",
+      "subject": "the difference of two constructed paths",
+      "rows": ["consistency.paths"]
+    },
+    {
+      "id": "demo.exactness",
+      "object": "a constructed exact value",
+      "domain": {"description": "x = 0", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "exact", "unit": "exactness"},
+      "bound": {"value": 0, "unit": "exactness", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed exactness comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [11, 11]},
+      "evidence_class": "finite_grid_conformance",
+      "subject": "an exact constructed return",
+      "rows": ["exact.zero"]
+    },
+    {
+      "id": "demo.vacuity",
+      "object": "a constructed absolute bound",
+      "domain": {"description": "x in [0, 1] on values of order 1e-3", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "absolute", "unit": "absolute"},
+      "bound": {"value": "1e-2", "unit": "absolute", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed vacuity comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [13, 13]},
+      "evidence_class": "vacuous",
+      "subject": "a bound that cannot discriminate",
+      "rows": ["vacuity.bound"]
+    },
+    {
+      "id": "demo.absent",
+      "object": "a constructed sweep",
+      "domain": {"description": "the domain the absent sweep would cover", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "external", "unit": "not measured"},
+      "bound": {"value": 0, "unit": "not measured", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "no route: the sweep is absent",
+      "assumptions": [],
+      "source": {"file": "anchors/row-types.md", "lines": [17, 17]},
+      "evidence_class": "evidence_absent",
+      "subject": "an absent sweep",
+      "rows": ["absent.sweep"]
+    },
+    {
+      "id": "demo.notcarried",
+      "object": "a constructed vector seam",
+      "domain": {"description": "the domain the closed seam would admit", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "external", "unit": "not measured"},
+      "bound": {"value": 0, "unit": "not measured", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "no route: the seam is closed",
+      "assumptions": [],
+      "source": {"file": "anchors/row-types.md", "lines": [19, 19]},
+      "evidence_class": "not_carried",
+      "subject": "a subject this build does not carry",
+      "rows": ["notcarried.seam"]
+    },
+    {
+      "id": "demo.notjudged",
+      "object": "a constructed measured routine whose figure belongs to another build",
+      "domain": {"description": "x in [0, 1]", "scope": "whole"},
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative", "quantifier": "pointwise"},
+      "implementation": {"name": "constructed", "version": "1"},
+      "route": "the constructed not-judged comparison",
+      "assumptions": ["the constructed data are decimal"],
+      "source": {"file": "anchors/row-types.md", "lines": [21, 21]},
+      "evidence_class": "measured_error",
+      "subject": "a measured value whose figure is withheld",
+      "rows": ["reference.notjudged"]
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.reference",
+      "claim_id": "demo.reference",
+      "sentence": "The reference sentence: the measured value is within 1e-6 relative of the reference on [0, 2].",
+      "source": {"file": "anchors/row-types.md", "lines": [7, 7]},
+      "scope": "the whole constructed domain",
+      "figure": {"text": "1e-6", "unit": "relative"},
+      "rows": ["reference.whole"]
+    },
+    {
+      "id": "reg.stated",
+      "claim_id": "demo.stated",
+      "sentence": "The stated-domain sentence: the reference bound of 1e-6 holds over the stated sub-domain [0, 1].",
+      "source": {"file": "anchors/row-types.md", "lines": [15, 15]},
+      "scope": "the stated sub-domain [0, 1]",
+      "figure": {"text": "1e-6", "unit": "relative"},
+      "rows": ["reference.stated"]
+    },
+    {
+      "id": "reg.consistency",
+      "claim_id": "demo.consistency",
+      "sentence": "The consistency sentence: the fast path is within 1e-12 of the scalar path on [0, 2].",
+      "source": {"file": "anchors/row-types.md", "lines": [9, 9]},
+      "scope": "the whole constructed domain",
+      "figure": {"text": "1e-12", "unit": "absolute"},
+      "rows": ["consistency.paths"]
+    },
+    {
+      "id": "reg.exactness",
+      "claim_id": "demo.exactness",
+      "sentence": "The exactness sentence: the zero-argument return is exactly 1.",
+      "source": {"file": "anchors/row-types.md", "lines": [11, 11]},
+      "scope": "x = 0",
+      "rows": ["exact.zero"]
+    },
+    {
+      "id": "reg.vacuity",
+      "claim_id": "demo.vacuity",
+      "sentence": "The vacuity sentence: the absolute bound is 1e-2 on values of order 1e-3.",
+      "source": {"file": "anchors/row-types.md", "lines": [13, 13]},
+      "scope": "the constructed values",
+      "figure": {"text": "1e-2", "unit": "absolute"},
+      "rows": ["vacuity.bound"]
+    },
+    {
+      "id": "reg.absent",
+      "claim_id": "demo.absent",
+      "sentence": "The absent sentence: the sweep that would measure this claim is not in this tree.",
+      "source": {"file": "anchors/row-types.md", "lines": [17, 17]},
+      "scope": "the absent sweep",
+      "rows": ["absent.sweep"]
+    },
+    {
+      "id": "reg.notcarried",
+      "claim_id": "demo.notcarried",
+      "sentence": "The not-carried sentence: the vector seam that this claim sits behind is closed in this build.",
+      "source": {"file": "anchors/row-types.md", "lines": [19, 19]},
+      "scope": "this build's configuration",
+      "rows": ["notcarried.seam"]
+    },
+    {
+      "id": "reg.notjudged",
+      "claim_id": "demo.notjudged",
+      "sentence": "The not-judged sentence: the figure is the shipped build's, and this build's defaults are a replacement's.",
+      "source": {"file": "anchors/row-types.md", "lines": [21, 21]},
+      "scope": "a replacement-defaults build",
+      "rows": ["reference.notjudged"]
+    }
+  ],
+  "rows": [
+    {
+      "id": "reference.whole",
+      "type": "reference_comparison",
+      "claim_id": "demo.reference",
+      "statement": "the constructed value is within 1e-6 relative of the reference on [0, 2]",
+      "subject": "a constructed measured value",
+      "domain": {"description": "x in [0, 2]", "scope": "whole"},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 1e-06,
+      "data": {
+        "file": "data/reference.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {"measured": "measured", "reference": "reference", "label": "x"},
+        "require_rows": 3
+      },
+      "notes": "The third cell is 2e-6 relative, over the bound."
+    },
+    {
+      "id": "reference.stated",
+      "type": "reference_comparison",
+      "claim_id": "demo.stated",
+      "statement": "the constructed value is within 1e-6 relative over the stated sub-domain [0, 1]",
+      "subject": "a constructed measured value over a stated sub-domain",
+      "domain": {"description": "x in [0, 1], the stated sub-domain", "scope": "stated"},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 1e-06,
+      "data": {
+        "file": "data/reference_pass.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {"measured": "measured", "reference": "reference", "label": "x"},
+        "require_rows": 2
+      },
+      "notes": "The document restricts the claim to [0, 1]; every cell in that domain passes."
+    },
+    {
+      "id": "consistency.paths",
+      "type": "consistency",
+      "claim_id": "demo.consistency",
+      "statement": "the constructed fast path is within 1e-12 absolute of the scalar path",
+      "subject": "the difference of two constructed paths",
+      "domain": {"description": "x in [0, 2]", "scope": "whole"},
+      "metric": {"kind": "absolute", "unit": "absolute"},
+      "bound": {"value": "1e-12", "unit": "absolute"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 1e-12,
+      "data": {
+        "file": "data/consistency.csv",
+        "format": "csv",
+        "comparison": "consistency",
+        "columns": {"a": "a", "b": "b", "label": "x"},
+        "require_rows": 3
+      },
+      "notes": "A consistency row measures agreement between two paths, not distance from a reference."
+    },
+    {
+      "id": "exact.zero",
+      "type": "exactness",
+      "claim_id": "demo.exactness",
+      "statement": "the constructed zero-argument return is exactly 1",
+      "subject": "an exact constructed return",
+      "domain": {"description": "x = 0", "scope": "whole"},
+      "metric": {"kind": "exact", "unit": "exactness"},
+      "bound": {"value": 0, "unit": "exactness"},
+      "quantifier": "pointwise",
+      "evidence_class": "finite_grid_conformance",
+      "data": {
+        "file": "data/exact.csv",
+        "format": "csv",
+        "comparison": "exact",
+        "columns": {"measured": "measured", "expected": "expected", "label": "x"},
+        "require_rows": 1
+      }
+    },
+    {
+      "id": "vacuity.bound",
+      "type": "vacuity",
+      "claim_id": "demo.vacuity",
+      "statement": "the constructed absolute bound of 1e-2 is not vacuous on values of order 1e-3",
+      "subject": "a bound that cannot discriminate",
+      "domain": {"description": "x in [0, 1]", "scope": "whole"},
+      "metric": {"kind": "absolute", "unit": "absolute"},
+      "bound": {"value": "1e-2", "unit": "absolute"},
+      "quantifier": "pointwise",
+      "evidence_class": "vacuous",
+      "figure_bound": 1e-02,
+      "data": {
+        "file": "data/vacuity.csv",
+        "format": "csv",
+        "comparison": "vacuous",
+        "columns": {"magnitude": "magnitude", "label": "x"},
+        "require_rows": 2
+      },
+      "notes": "Every value is below the bound, so even a zero return would pass."
+    },
+    {
+      "id": "absent.sweep",
+      "type": "evidence_absent",
+      "claim_id": "demo.absent",
+      "statement": "the constructed sweep would measure the claim",
+      "subject": "an absent sweep",
+      "domain": {"description": "the domain the absent sweep would cover", "scope": "whole"},
+      "evidence_class": "evidence_absent",
+      "state": "evidence_absent",
+      "reason": "the sweep is not in this tree"
+    },
+    {
+      "id": "notcarried.seam",
+      "type": "not_carried",
+      "claim_id": "demo.notcarried",
+      "statement": "the constructed vector seam carries the claim",
+      "subject": "a subject this build does not carry",
+      "domain": {"description": "the domain the closed seam would admit", "scope": "whole"},
+      "evidence_class": "not_carried",
+      "reason": "the seam is closed in this build"
+    },
+    {
+      "id": "reference.notjudged",
+      "type": "reference_comparison",
+      "claim_id": "demo.notjudged",
+      "statement": "the constructed value is within 1e-6 relative, recorded but not judged",
+      "subject": "a measured value whose figure is withheld",
+      "domain": {"description": "x in [0, 1]", "scope": "whole"},
+      "metric": {"kind": "relative", "unit": "relative"},
+      "bound": {"value": "1e-6", "unit": "relative"},
+      "quantifier": "pointwise",
+      "evidence_class": "measured_error",
+      "figure_bound": 1e-06,
+      "data": {
+        "file": "data/reference_pass.csv",
+        "format": "csv",
+        "comparison": "value_vs_reference",
+        "columns": {"measured": "measured", "reference": "reference", "label": "x"},
+        "require_rows": 2
+      },
+      "state": "not_judged",
+      "reason": "the figure is the shipped build's and this build's defaults are a replacement's"
+    }
+  ]
+}

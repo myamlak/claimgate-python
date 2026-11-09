@@ -1,0 +1,272 @@
+{
+  "schema": "claimgate-external-run-1",
+  "tool": {
+    "name": "boys-accuracy-gate",
+    "version": "5.3.1",
+    "binary_sha256": "172be307e680d1d765570ecc2a80dc857b45d8736943fdce5e8864ab45c21370",
+    "binary_bytes": 8134144
+  },
+  "command": "build\\Release\\boys-accuracy-gate.exe",
+  "tag": "v5.3.1",
+  "tag_object": "d1e63f71c6f2501aecc6340e31216a42c2a390b9",
+  "source_revision": "2f83e40a6504368b7b2f13682e29b4f24ab2a40c",
+  "captured": "2026-11-08",
+  "host": "Windows 11 Pro, x86-64",
+  "compiler": "MSVC, Visual Studio 18 2026, Release",
+  "registration": {
+    "claims": 36,
+    "entries": 37,
+    "figure_checked": 13,
+    "figure_absent": 24
+  },
+  "summary": {
+    "rows": 38,
+    "verified": 29,
+    "met_over_domain": 9,
+    "exceeded": 0,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 38,
+    "judged": 38
+  },
+  "exit_status": 0,
+  "rows": [
+    {
+      "index": 1,
+      "id": "README.double.single",
+      "verdict": "verified",
+      "detail": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) - the accuracy contract's figure over the whole domain, the ladder's first rung being its wider arm wherever the order's own value is the smaller - which is what the four regions the report reads are each judged against. The figure is the shipped default build's: a build whose default rows are a replacement's records these cells and "
+    },
+    {
+      "index": 2,
+      "id": "README.double.batch",
+      "verdict": "verified",
+      "detail": "double batch: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in every region, all entries. The figure is the shipped default build's, on the same terms as the row above"
+    },
+    {
+      "index": 3,
+      "id": "README.float",
+      "verdict": "verified",
+      "detail": "float single and batch: 2^-22 of F_n(x), or its 1.5e-7 floor where that is the larger, in every region, and 1e-7 beside it in the plain-reciprocal form - the lane's own bar, not 1e-13 scaled"
+    },
+    {
+      "index": 4,
+      "id": "README.half",
+      "verdict": "met_over_domain",
+      "detail": "domain: the arguments where |F_n(x)| > 1e-7 + one half-ULP of the returned value, and no others - the restriction the half lanes' paragraph in docs/lane-contract.md states. The row judges at that base, which is the region target the half lanes' fits are cut for and is tighter than the 1.5e-7 the library publishes for them, so its domain is wider than the published claim's and a pass here is the st"
+    },
+    {
+      "index": 5,
+      "id": "header.double.region_A_and_band",
+      "verdict": "verified",
+      "detail": "double single: the larger of 1e-13 of F_n(x) and 1e-13 of F_0(x) in the region-A and extended-band cells the header's table keeps apart. The figure is the shipped default build's, on the same terms as README.double.single"
+    },
+    {
+      "index": 6,
+      "id": "LC.double.ceiling",
+      "verdict": "verified",
+      "detail": "the stored coefficients are rounded to double precision and hold only the sixteen or so significant digits a double can hold, so nothing below about 1e-16 is reachable however the evaluation is arranged - the fit's own truncation, 5e-19, sits under that floor and is not a second bound"
+    },
+    {
+      "index": 7,
+      "id": "LC.float.ceiling",
+      "verdict": "verified",
+      "detail": "the ceiling is the format: a 32-bit float carries about seven significant digits, about 6e-8 relative, and the lane's relative arm is 4.0 times that digit (2^-22 / 6e-8), so the two are within a factor of a few of each other; at F_n(x) = 1e-3 the relative arm is 2.4e-10, far below the 1.5e-7 the lane can hold there, and the plain-reciprocal form adds its 1e-7 term to the larger of the two"
+    },
+    {
+      "index": 8,
+      "id": "transform.fp64.bound",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits"
+    },
+    {
+      "index": 9,
+      "id": "transform.fp64.delivered",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits"
+    },
+    {
+      "index": 10,
+      "id": "transform.tf32x3.bound",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits"
+    },
+    {
+      "index": 11,
+      "id": "transform.tf32x3.delivered",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits. The bound is an idealisation of an fp32 tensor-core ac"
+    },
+    {
+      "index": 12,
+      "id": "transform.bf16x6.bound",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits"
+    },
+    {
+      "index": 13,
+      "id": "transform.bf16x6.delivered",
+      "verdict": "verified",
+      "detail": "domain: region A - both bands, x < kRegionA1Edge and kRegionA1Edge <= x < kRegionAEnd - every order 0..32, every argument of the band. The band is the entry's precondition rather than a convenience: the coefficient matrix is the band's, so the sweep groups the arguments by band itself and a cell is never measured against the other band's fits. The bound is an idealisation of an fp32 tensor-core ac"
+    },
+    {
+      "index": 14,
+      "id": "LC.half.budget",
+      "verdict": "met_over_domain",
+      "detail": "domain: the arguments where |F_n(x)| > 1e-7 + one half-ULP of the returned value, and no others - the base the half lanes' fits are cut for, tighter than the 1.5e-7 the library publishes for them"
+    },
+    {
+      "index": 15,
+      "id": "LC.half.worst_cell",
+      "verdict": "verified",
+      "detail": "both formats' worst cells were measured against a 45-digit reference over every argument either format can represent and every order - a 16-bit input is a finite set, so that sweep is exhaustive rather than dense: 0.9993 of the bound for the 16-bit format, a margin of 0.07 per cent, and 0.99992 for the 16-bit brain-float format, a margin of 0.008 per cent; a sparser grid understates them, the comm"
+    },
+    {
+      "index": 16,
+      "id": "LC.half.representation_share",
+      "verdict": "verified",
+      "detail": "at the worst cell the representation term is very nearly the whole bound, and the arithmetic term has almost nothing left to spend"
+    },
+    {
+      "index": 17,
+      "id": "LC.half.vacuous_floor",
+      "verdict": "met_over_domain",
+      "detail": "domain: the arguments where |F_n(x)| > 1e-7 + one half-ULP of the returned value - the domain a base the half lanes' fits are cut for carves, tighter than the 1.5e-7 the library publishes and so wider than the published claim, and no others"
+    },
+    {
+      "index": 18,
+      "id": "LC.half.range_from_order3",
+      "verdict": "verified",
+      "detail": "domain: orders 3 to 32 on region C (x >= kX1), the part of the half lane's argument range where the returns are subnormal or zero"
+    },
+    {
+      "index": 19,
+      "id": "LC.half.no_scaling_past_38",
+      "verdict": "verified",
+      "detail": "beyond about x ~ 35-38 no scaling reaches order 8 at all"
+    },
+    {
+      "index": 20,
+      "id": "LC.packed.rescale_exact",
+      "verdict": "verified",
+      "detail": "a per-order power-of-two rescale does not repair the packed lane because the rescale is exact, leaving the scaled lane bit-identical to the unscaled one at every order"
+    },
+    {
+      "index": 21,
+      "id": "code.half_simd_budget",
+      "verdict": "verified",
+      "detail": "the 8-wide half-I/O region kernels never drift from the certified scalar half lane by a value the internal 1e-7 fit budgets cannot absorb, on the x86_64 targets that carry those kernels"
+    },
+    {
+      "index": 22,
+      "id": "code.half_simd_cells",
+      "verdict": "verified",
+      "detail": "the 8-wide half-I/O region kernels hold the published half-lane budget (1.5e-7 plus one half-ULP) on the region each documents as its precondition"
+    },
+    {
+      "index": 23,
+      "id": "code.half_domain_stop",
+      "verdict": "verified",
+      "detail": "the fp16/bf16 budget is a claim only where the returned value exceeds it: below that ceiling the format's floor answers and no accuracy is claimed; in f16 the ceiling and the floor coincide, so every argument past it returns a subnormal half and then exactly zero, while in bf16 the exponent range equals float's, so the base is met by the arithmetic down to about 2^-126"
+    },
+    {
+      "index": 24,
+      "id": "native.half.bound",
+      "verdict": "met_over_domain",
+      "detail": "domain: region C, x >= 28.984375 = fp16(kX1), over the arguments whose returned value is a normal half - the lane offers no other region and claims no accuracy outside it"
+    },
+    {
+      "index": 25,
+      "id": "native.half.ceiling",
+      "verdict": "met_over_domain",
+      "detail": "domain: region C, x >= 28.984375 = fp16(kX1), where the ceiling is what the lane's own scaling reaches"
+    },
+    {
+      "index": 26,
+      "id": "native.half.packed",
+      "verdict": "met_over_domain",
+      "detail": "domain: region C, x >= 28.984375 = fp16(kX1), the only region the lane evaluates in"
+    },
+    {
+      "index": 27,
+      "id": "LC.packed.bound",
+      "verdict": "verified",
+      "detail": "domain: region C, x >= fp16(kX1) = 28.984375, and only there"
+    },
+    {
+      "index": 28,
+      "id": "LC.regionB.amplification",
+      "verdict": "verified",
+      "detail": "[corrected this revision] region B's amplification is one plus 1.8e-17 at order 32 - above one, not at most one - and that is its maximum over the supported orders"
+    },
+    {
+      "index": 29,
+      "id": "LC.coeff.rounding",
+      "verdict": "verified",
+      "detail": "[corrected this revision] rounding the coefficients to double contributes about 5.551e-17 - the half-ULP of the leading coefficient alone - and not 3e-17"
+    },
+    {
+      "index": 30,
+      "id": "code.coverage.argument_range",
+      "verdict": "verified",
+      "detail": "no lane's claim is unchecked at the top of its own argument range: the sweep reaches binary16's largest finite value for the half lanes and binary32's for the floats, and nothing above binary32's maximum is a range any lane of this library evaluates in"
+    },
+    {
+      "index": 31,
+      "id": "LC.regionC.domain",
+      "verdict": "verified",
+      "detail": "[corrected this revision] the branch's lower boundary is not a floor: through x = 16 the error varies smoothly, with no threshold and no step of orders of magnitude, growing continuously as x falls below the edge"
+    },
+    {
+      "index": 32,
+      "id": "LC.evidence.ctest",
+      "verdict": "verified",
+      "detail": "the documented budgets are re-checkable with ctest"
+    },
+    {
+      "index": 33,
+      "id": "LC.double.worst_cell",
+      "verdict": "verified",
+      "detail": "domain: the named cell, n = 32 and x = 31, on the committed reference grid, located by the sentence's F_0 and F_32; the lane's whole-domain reading is the README.double.single row"
+    },
+    {
+      "index": 34,
+      "id": "LC.region_A.fit_bar",
+      "verdict": "verified",
+      "detail": "domain: region A, x < the band's edge, where a per-order fit is read - the arguments the 1e-15 bar binds; the extended band above that edge carries its own 3e-14 bar"
+    },
+    {
+      "index": 35,
+      "id": "LC.half.returned_value_floor",
+      "verdict": "met_over_domain",
+      "detail": "domain: both store-half formats over the committed grid; the bound is claimed above the threshold and no accuracy below it, and the 16-bit format's descent to a subnormal half and then zero is the sentence's"
+    },
+    {
+      "index": 36,
+      "id": "native.half.suite_worst",
+      "verdict": "met_over_domain",
+      "detail": "domain: region C, x >= fp16(kX1) = 28.984375, the only region the lane evaluates in"
+    },
+    {
+      "index": 37,
+      "id": "LC.packed.representation_cost",
+      "verdict": "met_over_domain",
+      "detail": "domain: region C, x >= fp16(kX1) = 28.984375, and the store-half budget's 0.5 ULP representation term"
+    },
+    {
+      "index": 38,
+      "id": "LC.regionC.asym_relative",
+      "verdict": "verified",
+      "detail": "domain: region C below x = 16, the form as coded, at every order and every argument of the committed grid; the two named cells are order 32"
+    }
+  ],
+  "inputs": {
+    "src": "7e5c43b4919f7f4e",
+    "include": "a5115e4cc203c6df",
+    "gate": "629d88caa4273bb1",
+    "grid": "970db44ddb6a7da5",
+    "cmake": "02a9ac36190a748e"
+  }
+}

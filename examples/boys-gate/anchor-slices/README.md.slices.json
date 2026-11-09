@@ -1,0 +1,14 @@
+{
+ "source": "README.md",
+ "tag": "v5.3.1",
+ "sha256": "3814c2c526100bc8be179bdf1e8cda551880c2dc373061dd74f300cfda5c51b0",
+ "lines": {
+  "322": "**What the bound is, and what it is not.** For every `n <= 32` and every `x >= 0` the error of a",
+  "323": "returned value is at or below **`1e-13 \u00b7 F_0(x)`** \u2014 the ladder's first rung scaled by `1e-13`, not",
+  "324": "the value the caller asked for. F is decreasing in the order, so the `1e-13 \u00b7 F_n(x)` arm of the",
+  "346": "The float lane's figure carries a floor of its own for the same reason: binary32 arithmetic on",
+  "347": "values of order one leaves about `1e-7` behind whatever the value is, so that lane states the",
+  "348": "larger of `2^-22 \u00b7 F_n(x)` and the `1.5e-7` it already published, plus `1e-7` in the",
+  "349": "plain-reciprocal form. The [accuracy"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "source": "docs/mainpage.md",
+ "tag": "v5.3.1",
+ "sha256": "3e99f928e6a8c14771b3f9ece352d0105010c43d06061b17248b81dc0c299202",
+ "lines": {
+  "199": "`x \u2248 93` at `n = 32`; in between the bound `1e-13 \u00b7 F_0(x)` permits 4.85 times the value at the",
+  "200": "worst cell, `n = 32, x = 31`: 1e-13 \u00b7 0.15917105461020217 = 1.5917105461020217e-14 against the",
+  "201": "value 3.2822575294956117e-15, and the delivered error there measured 1.40 times the value,",
+  "202": "4.582e-15, 0.288 of the bound. The contract is the ladder-scaled floor, not a constant `5.5e-14`, which the",
+  "219": "| fp16 / bf16 | \u2264 1.5e-7 + \u00bd ULP, or \u2264 2.5e-7 + \u00bd ULP in the plain-reciprocal form \u2014 this lane's figure is the fp32 engine's arithmetic stated absolutely, and it is left as it was: it is already a term of the value's own digit beside a floor, and it is looser than the floor the float lane's figure keeps |",
+  "311": "The native half lane is the one lane whose figure is not a fraction of the value: it is stated in",
+  "312": "ULP of the returned value, \u2264 8 ULP, measured at a worst of 4.3. A bound on the returned value's own"
+ }
+}

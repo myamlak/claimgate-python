@@ -1,0 +1,214 @@
+{
+  "claimgate_book": 1,
+  "book": {
+    "id": "crlibm-sinh",
+    "title": "crlibm 1.0beta5: the sinh correct-rounding claim",
+    "description": "The manual's Table 1 marks sinh 'complete', which the manual defines as correct rounding over the whole floating-point input range. Each directed-rounding entry is a row over the deposited witness set. The rows are finite-grid conformance: a mismatch refutes the claim, a pass on the sample does not establish it over the whole range.",
+    "library": {
+      "name": "crlibm",
+      "version": "1.0beta5",
+      "tag": "crlibm-1.0beta5",
+      "revision": "eb3063791aa75bc9705b49283bf14250465220a7"
+    },
+    "created": "2026-11-09",
+    "provenance": {
+      "deposit": "papers-harness-repo/accuracy-claim-audit/witness-rerun/",
+      "data": "raw/crlibm_sinh_reference.csv, copied unchanged; SHA-256 354d05959eacd1056e1cdb10db3739e3ab4aaf9b15b7bdad39f4bddc30b9ccf8",
+      "anchor": "raw/doc_excerpts.txt, copied unchanged; SHA-256 3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
+      "upstream": "crlibm archive SHA-256 79d626f9515fccdbc724e8b74cbf848331317b1891ef22aaaf6a195e20bbbfe5; docs/latex/0_getting-started.tex line 149 and lines 173-177",
+      "reference": "mpmath 1.4.1 at 60 significant decimal digits, with the IEEE 754 clause 7.4 overflow rule",
+      "measured": "crlibm 1.0beta5 built on x86-64 Linux, gcc 15.2, --enable-sse2 --disable-mpfr --disable-double-extended; FLT_EVAL_METHOD=0",
+      "note": "The witness set is 422 arguments: the named input, its neighbours, the mirror, and scans of the overflow tail. The manual's claim is over the whole floating-point input range; 422 arguments sample it."
+    }
+  },
+  "defaults": {"root": "."},
+  "claims": [
+    {
+      "id": "crlibm.sinh.correct_rounding",
+      "object": "sinh_rn, sinh_ru, sinh_rd and sinh_rz",
+      "domain": {
+        "description": "the whole floating-point input range, the domain the manual's definition of 'complete' states",
+        "scope": "whole",
+        "source": "docs/latex/0_getting-started.tex line 149 (Table 1) and lines 173-177 (the definition)"
+      },
+      "output": {"representation": "binary64", "precision_bits": 53},
+      "metric": {"kind": "bit_identity", "unit": "bit identity"},
+      "bound": {"value": 0, "unit": "mismatches", "quantifier": "uniform"},
+      "implementation": {
+        "name": "crlibm",
+        "version": "1.0beta5",
+        "tag": "crlibm-1.0beta5",
+        "revision": "eb3063791aa75bc9705b49283bf14250465220a7"
+      },
+      "route": "the four directed-rounding entry points sinh_rn, sinh_ru, sinh_rd, sinh_rz",
+      "assumptions": [
+        "binary64, x86-64, FLT_EVAL_METHOD=0",
+        "gcc 15.2.0, -std=c99 -msse2 -mfpmath=sse -O2",
+        "correct rounding follows IEEE 754 clause 7.4, so an overflow returns the largest finite magnitude in the required direction, not infinity",
+        "the expected bits are computed from mpmath at 60 significant decimal digits with the clause 7.4 rule"
+      ],
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [35, 35],
+        "document": "crlibm docs/latex/0_getting-started.tex line 149; the definition is lines 173-177"
+      },
+      "evidence_class": "finite_grid_conformance",
+      "subject": "the bit identity of each sinh entry with the correctly rounded result",
+      "rows": [
+        "crlibm.sinh.rn",
+        "crlibm.sinh.ru",
+        "crlibm.sinh.rd",
+        "crlibm.sinh.rz"
+      ]
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.crlibm.sinh",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "sentence": "sinh & sinh\\_rn & sinh\\_ru & sinh\\_rd & sinh\\_rz & complete & complete (paper)\\\\ \\hline",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [35, 35],
+        "document": "docs/latex/0_getting-started.tex line 149 (Table 1)"
+      },
+      "scope": "the first state column; 'complete' is defined by the supporting sentence",
+      "rows": [
+        "crlibm.sinh.rn",
+        "crlibm.sinh.ru",
+        "crlibm.sinh.rd",
+        "crlibm.sinh.rz"
+      ],
+      "version": "1.0beta5",
+      "route": "sinh_rn, sinh_ru, sinh_rd, sinh_rz",
+      "supporting": [
+        {
+          "sentence": "The first indicates the state of the search for worst cases for correct rounding \\cite{LMT98,Lef2000}. If it indicates ``complete'', it means that the function is guaranteed to return correct rounding on its whole floating-point input range.",
+          "source": {
+            "file": "anchors/doc_excerpts.txt",
+            "lines": [40, 43],
+            "document": "docs/latex/0_getting-started.tex lines 173-177"
+          }
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "id": "crlibm.sinh.rn",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rn returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rn in binary64",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "metric": {"kind": "bit_identity", "unit": "bit identity"},
+      "bound": {"value": 0, "unit": "mismatches"},
+      "quantifier": "uniform",
+      "evidence_class": "finite_grid_conformance",
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "format": "csv",
+        "comparison": "bit_identity",
+        "columns": {
+          "measured_bits": "got_rn_bits",
+          "expected_bits": "expected_rn_bits",
+          "label": "label"
+        },
+        "require_rows": 422
+      },
+      "assumptions": ["the expected bits use the clause 7.4 overflow rule"],
+      "notes": "Round-to-nearest is correct at the overflow witness because the exact value lies above the round-to-nearest overflow midpoint."
+    },
+    {
+      "id": "crlibm.sinh.ru",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_ru returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_ru in binary64",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "metric": {"kind": "bit_identity", "unit": "bit identity"},
+      "bound": {"value": 0, "unit": "mismatches"},
+      "quantifier": "uniform",
+      "evidence_class": "finite_grid_conformance",
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "format": "csv",
+        "comparison": "bit_identity",
+        "columns": {
+          "measured_bits": "got_ru_bits",
+          "expected_bits": "expected_ru_bits",
+          "label": "label"
+        },
+        "require_rows": 422
+      },
+      "assumptions": ["the expected bits use the clause 7.4 overflow rule"],
+      "notes": "Fails at the negated witness: -inf where -DBL_MAX is required."
+    },
+    {
+      "id": "crlibm.sinh.rd",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rd returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rd in binary64",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "metric": {"kind": "bit_identity", "unit": "bit identity"},
+      "bound": {"value": 0, "unit": "mismatches"},
+      "quantifier": "uniform",
+      "evidence_class": "finite_grid_conformance",
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "format": "csv",
+        "comparison": "bit_identity",
+        "columns": {
+          "measured_bits": "got_rd_bits",
+          "expected_bits": "expected_rd_bits",
+          "label": "label"
+        },
+        "require_rows": 422
+      },
+      "assumptions": ["the expected bits use the clause 7.4 overflow rule"],
+      "notes": "Fails at the positive witness 0x408633ce8fb9f87e: +inf where +DBL_MAX is required."
+    },
+    {
+      "id": "crlibm.sinh.rz",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rz returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rz in binary64",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "metric": {"kind": "bit_identity", "unit": "bit identity"},
+      "bound": {"value": 0, "unit": "mismatches"},
+      "quantifier": "uniform",
+      "evidence_class": "finite_grid_conformance",
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "format": "csv",
+        "comparison": "bit_identity",
+        "columns": {
+          "measured_bits": "got_rz_bits",
+          "expected_bits": "expected_rz_bits",
+          "label": "label"
+        },
+        "require_rows": 422
+      },
+      "assumptions": ["the expected bits use the clause 7.4 overflow rule"],
+      "notes": "Fails at both witnesses, because sinh_rz delegates to sinh_rd for positive and sinh_ru for negative inputs."
+    }
+  ]
+}

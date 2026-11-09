@@ -1,0 +1,314 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "crlibm-sinh",
+    "title": "crlibm 1.0beta5: the sinh correct-rounding claim",
+    "path": "examples/crlibm-sinh/book.json",
+    "sha256": "2e04f7b201b1c3ad4eea8c32c8023f3d1005e1c10c1e0c9cfe1a8800521703ce"
+  },
+  "root": "examples/crlibm-sinh",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "examples/crlibm-sinh/book.json",
+    "--portable",
+    "--report",
+    "records/crlibm-sinh.run.json"
+  ],
+  "started_utc": "2026-11-09T18:20:43+00:00",
+  "finished_utc": "2026-11-09T18:20:43+00:00",
+  "duration_s": 0.045014,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "examples/crlibm-sinh/book.json",
+      "sha256": "2e04f7b201b1c3ad4eea8c32c8023f3d1005e1c10c1e0c9cfe1a8800521703ce",
+      "bytes": 9646
+    },
+    {
+      "role": "data",
+      "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
+      "sha256": "354d05959eacd1056e1cdb10db3739e3ab4aaf9b15b7bdad39f4bddc30b9ccf8",
+      "bytes": 134083
+    },
+    {
+      "role": "anchor",
+      "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
+      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
+      "bytes": 2881
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 2,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/doc_excerpts.txt",
+          "mode": "full-source",
+          "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
+          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 0,
+      "absent": 1,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 4,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "crlibm.sinh.rn",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rn returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rn in binary64",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "cells": 422,
+      "judged_cells": 422,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 422,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "1.0 sanity point",
+          "x": "1.0",
+          "input_bits": "3ff0000000000000",
+          "metric": "0",
+          "measured": "3ff2cd9fc44eb982",
+          "reference": "3ff2cd9fc44eb982",
+          "measured_bits": "3ff2cd9fc44eb982",
+          "reference_bits": "3ff2cd9fc44eb982"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 422 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
+        "comparison": "bit_identity",
+        "rows": 422
+      }
+    },
+    {
+      "id": "crlibm.sinh.ru",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_ru returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_ru in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "cells": 422,
+      "judged_cells": 422,
+      "failures": 1,
+      "vacuous_cells": 0,
+      "discriminating_cells": 422,
+      "worst": {
+        "value": 1.0,
+        "text": "1",
+        "cell": {
+          "data_row": 278,
+          "label": "negative neighbour +0",
+          "x": "-710.475860073944",
+          "input_bits": "c08633ce8fb9f87e",
+          "metric": "1",
+          "measured": "fff0000000000000",
+          "reference": "ffefffffffffffff",
+          "measured_bits": "fff0000000000000",
+          "reference_bits": "ffefffffffffffff"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 422 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
+        "comparison": "bit_identity",
+        "rows": 422
+      }
+    },
+    {
+      "id": "crlibm.sinh.rd",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rd returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rd in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "cells": 422,
+      "judged_cells": 422,
+      "failures": 1,
+      "vacuous_cells": 0,
+      "discriminating_cells": 422,
+      "worst": {
+        "value": 1.0,
+        "text": "1",
+        "cell": {
+          "data_row": 68,
+          "label": "positive neighbour +0",
+          "x": "710.475860073944",
+          "input_bits": "408633ce8fb9f87e",
+          "metric": "1",
+          "measured": "7ff0000000000000",
+          "reference": "7fefffffffffffff",
+          "measured_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 422 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
+        "comparison": "bit_identity",
+        "rows": 422
+      }
+    },
+    {
+      "id": "crlibm.sinh.rz",
+      "type": "reference_comparison",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "statement": "sinh_rz returns the correctly rounded result at each of the 422 sampled inputs",
+      "subject": "sinh_rz in binary64",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the 422-argument witness set: the named inputs, their neighbours, the mirror, and scans of the overflow tail",
+        "scope": "whole",
+        "source": "witness-rerun raw/crlibm_sinh_inputs_meta.csv"
+      },
+      "cells": 422,
+      "judged_cells": 422,
+      "failures": 2,
+      "vacuous_cells": 0,
+      "discriminating_cells": 422,
+      "worst": {
+        "value": 1.0,
+        "text": "1",
+        "cell": {
+          "data_row": 68,
+          "label": "positive neighbour +0",
+          "x": "710.475860073944",
+          "input_bits": "408633ce8fb9f87e",
+          "metric": "1",
+          "measured": "7ff0000000000000",
+          "reference": "7fefffffffffffff",
+          "measured_bits": "7ff0000000000000",
+          "reference_bits": "7fefffffffffffff"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 422 measured cell(s) and makes no statement between them"
+      ],
+      "data": {
+        "file": "data/crlibm_sinh_reference.csv",
+        "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
+        "comparison": "bit_identity",
+        "rows": 422
+      }
+    }
+  ],
+  "summary": {
+    "rows": 4,
+    "verified": 1,
+    "met_over_domain": 0,
+    "exceeded": 3,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 1,
+    "judged": 4
+  },
+  "exit_status": 1
+}
