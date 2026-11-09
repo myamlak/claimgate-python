@@ -91,6 +91,32 @@ def _parse_term(text: str) -> Fraction:
     return Fraction(decimal)
 
 
+def parse_decimal_value(text: str):
+    """Read a value column as a number, never as a bit pattern.
+
+    A bit pattern belongs in a ``*_bits`` column, where it is unambiguous.
+    A sixteen-digit decimal in a value column is a decimal; reading it as
+    bits would silently turn 1 into a subnormal.
+    """
+    text = text.strip()
+    if not text:
+        raise NumberError("an empty data cell")
+    if text.lower() in ("nan", "inf", "+inf", "-inf", "infinity", "-infinity"):
+        return float(text.replace("infinity", "inf"))
+    if text.lower().startswith(("0x", "+0x", "-0x")):
+        try:
+            return Fraction(float.fromhex(text))
+        except ValueError as exc:
+            raise NumberError(f"cannot read the hexadecimal float {text!r}") from exc
+    try:
+        decimal = Decimal(text)
+    except InvalidOperation as exc:
+        raise NumberError(f"cannot read the data value {text!r}") from exc
+    if not decimal.is_finite():
+        return float(decimal)
+    return Fraction(decimal)
+
+
 def parse_float_value(text: str):
     """Read a data-file value exactly.
 

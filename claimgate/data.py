@@ -25,6 +25,7 @@ from .exact import (
     bits_of,
     format_fraction,
     fraction_to_float,
+    parse_decimal_value,
     parse_exact,
     parse_float_value,
     ulp_distance,
@@ -108,10 +109,10 @@ def _read_value(row, columns, value_key, bits_key, path):
         raise DataError(f"{path}: the row specification names neither {value_key} nor {bits_key}")
     text = _column(row, value_name, path)
     try:
-        value, bits = parse_float_value(text)
+        value = parse_decimal_value(text)
     except NumberError as exc:
         raise DataError(f"{path}: the column {value_name!r}: {exc}") from exc
-    return value, bits, text
+    return value, None, text
 
 
 def _diff(got, ref):
@@ -264,17 +265,17 @@ def evaluate_data(book, row) -> dict:
             elif comparison == "exact":
                 got_text = _column(raw, columns["measured"], path)
                 ref_text = _column(raw, columns["expected"], path)
-                got, got_bits = parse_float_value(got_text)
-                ref, ref_bits = parse_float_value(ref_text)
+                got = parse_decimal_value(got_text)
+                ref = parse_decimal_value(ref_text)
             elif comparison == "consistency":
                 got_text = _column(raw, columns["a"], path)
                 ref_text = _column(raw, columns["b"], path)
-                got, got_bits = parse_float_value(got_text)
-                ref, ref_bits = parse_float_value(ref_text)
+                got = parse_decimal_value(got_text)
+                ref = parse_decimal_value(ref_text)
             elif comparison == "vacuous":
                 ref_text = _column(raw, columns["magnitude"], path)
-                ref, ref_bits = parse_float_value(ref_text)
-                got, got_bits, got_text = ref, ref_bits, ref_text
+                ref = parse_decimal_value(ref_text)
+                got, got_bits, got_text = ref, None, ref_text
             else:
                 raise DataError(f"{path}: the comparison {comparison!r} is not known")
         except NumberError as exc:

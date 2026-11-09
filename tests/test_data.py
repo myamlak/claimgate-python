@@ -131,6 +131,22 @@ class EvaluateDataTest(unittest.TestCase):
             self.assertEqual(data["worst"].metric, Fraction(2, 10**6))
             self.assertEqual(data["vacuous_cells"], 0)
 
+    def test_value_column_is_not_read_as_bits(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            write(tmp, "data.csv", "measured,reference\n0000000000000001,1\n")
+            spec = row({
+                "metric": {"kind": "absolute", "unit": "absolute"},
+                "bound": {"value": 0, "unit": "absolute"},
+                "data": {
+                    "file": "data.csv",
+                    "format": "csv",
+                    "comparison": "value_vs_reference",
+                    "columns": {"measured": "measured", "reference": "reference"},
+                },
+            })
+            data = evaluate_data(DummyBook(tmp), spec)
+            self.assertEqual(data["failures"], 0)
+
     def test_filter(self):
         with tempfile.TemporaryDirectory() as tmp:
             write(tmp, "data.csv",

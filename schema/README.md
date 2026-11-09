@@ -113,7 +113,9 @@ Whitespace runs are collapsed by the anchor check, not by the author.
 
 The `data.comparison` values are `value_vs_reference`, `consistency`,
 `bit_identity`, `exact` and `vacuous`.  A value column may be a decimal or a
-sixteen-hex-digit binary64 pattern; a bit column is always a pattern.  A
+hexadecimal float, and is never read as a bit pattern; a bit column is always
+sixteen hexadecimal digits.  The ULP metric is exact when both operands are
+bit patterns; a decimal value is converted to the nearest binary64 first.  A
 filter is one criterion (`column` plus `equals` or `startswith`) or an
 `{"all": [...]}` of criteria.
 

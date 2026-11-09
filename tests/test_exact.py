@@ -8,6 +8,7 @@ from claimgate.exact import (
     EPS64,
     NumberError,
     format_fraction,
+    parse_decimal_value,
     parse_exact,
     parse_float_value,
     ulp_distance,
@@ -68,6 +69,17 @@ class ParseFloatValueTest(unittest.TestCase):
     def test_bad(self):
         with self.assertRaises(NumberError):
             parse_float_value("not-a-number")
+
+
+class ParseDecimalValueTest(unittest.TestCase):
+    def test_sixteen_digits_are_a_decimal(self):
+        self.assertEqual(parse_decimal_value("0000000000000001"), Fraction(1))
+
+    def test_short_hex_digits_are_a_decimal(self):
+        self.assertEqual(parse_decimal_value("1234567890123456"), Fraction(1234567890123456))
+
+    def test_hex_float(self):
+        self.assertEqual(parse_decimal_value("0x1.8p+3"), Fraction(12))
 
 
 class UlpTest(unittest.TestCase):

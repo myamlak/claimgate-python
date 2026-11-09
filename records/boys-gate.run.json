@@ -22,9 +22,9 @@
     "--report",
     "records/boys-gate.run.json"
   ],
-  "started_utc": "2026-11-09T18:21:46+00:00",
-  "finished_utc": "2026-11-09T18:21:46+00:00",
-  "duration_s": 0.021917,
+  "started_utc": "2026-11-09T18:23:13+00:00",
+  "finished_utc": "2026-11-09T18:23:13+00:00",
+  "duration_s": 0.025795,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
