@@ -10,14 +10,15 @@ EXAMPLES = ROOT / "examples"
 
 TOP_LEVEL = {
     "schema", "tool", "book", "root", "command", "started_utc", "finished_utc",
-    "duration_s", "environment", "inputs", "checks", "rows", "summary", "exit_status",
+    "duration_s", "environment", "inputs", "registrations", "checks", "rows",
+    "summary", "exit_status",
 }
 CHECKS = {"anchors", "figures", "bindings", "external_run"}
 ROW_KEYS = {
     "id", "type", "claim_id", "statement", "subject", "verdict", "family", "met",
-    "evidence_class", "metric", "bound", "quantifier", "domain", "cells", "judged_cells",
-    "failures", "vacuous_cells", "discriminating_cells", "worst", "establishes",
-    "limitations", "reason", "data", "external",
+    "evidence_class", "relation", "metric", "bound", "quantifier", "domain", "cells",
+    "judged_cells", "failures", "vacuous_cells", "discriminating_cells", "worst",
+    "establishes", "limitations", "reason", "data", "external",
 }
 SUMMARY = {
     "rows", "verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent",
@@ -51,6 +52,10 @@ class ReportShapeTest(unittest.TestCase):
                     )
                 for entry in report["inputs"]:
                     self.assertRegex(entry["sha256"], r"^[0-9a-f]{64}$")
+                for entry in report["registrations"]:
+                    self.assertIn(entry["anchor"], ("ok", "failed"))
+                    self.assertIn(entry["figure_check"], ("ok", "failed", "absent"))
+                    self.assertTrue(entry["rows"])
 
 
 if __name__ == "__main__":

@@ -166,8 +166,9 @@ that a finite set cannot establish a uniform bound.
   declared verdict agrees with the record's row.
 
 The report records the tool version, the book digest, the root, the command,
-the environment, the SHA-256 of every input it read, the checks, the rows, the
-summary and the exit status.
+the environment, the SHA-256 of every input it read, the registration chain
+(each registration's claim, source, rows, anchor and figure result), the
+checks, the rows, the summary and the exit status.
 
 ## Examples
 

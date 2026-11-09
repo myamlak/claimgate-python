@@ -49,6 +49,23 @@
         }
       }
     },
+    "registrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "claim_id", "source", "rows", "anchor", "figure_check"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "claim_id": {"type": "string"},
+          "source": {"type": "object"},
+          "rows": {"type": "array", "items": {"type": "string"}},
+          "figure": {"type": "object"},
+          "anchor": {"enum": ["ok", "failed"]},
+          "figure_check": {"enum": ["ok", "failed", "absent"]}
+        }
+      }
+    },
     "checks": {
       "type": "object",
       "additionalProperties": false,
@@ -110,6 +127,7 @@
           "family": {"enum": ["judged_and_met", "judged_and_unmet", "not_judged"]},
           "met": {"type": ["boolean", "null"]},
           "evidence_class": {"type": "string"},
+          "relation": {"type": "string"},
           "metric": {"type": "object"},
           "bound": {"type": "object"},
           "quantifier": {"type": "string"},

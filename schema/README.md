@@ -105,6 +105,7 @@ Whitespace runs are collapsed by the anchor check, not by the author.
 | `quantifier` | how the bound is read over the domain |
 | `evidence_class` | what the row's evidence is |
 | `figure_bound` | the numeric bound the registration's figure is checked against |
+| `relation` | optional: `carries`, `measures`, `matches` or `supports`; absent, a row with a `claim_id` is reported as carrying it |
 | `data` | the CSV specification: file, comparison, columns, filter, `require_rows`, `crosscheck` |
 | `record` | for `external_record`: the run record file and the row index |
 | `state` | `not_judged`, `not_carried` or `evidence_absent`, with a `reason` |
@@ -134,8 +135,9 @@ verdict against the record.
 
 The top level holds `schema` (`claimgate-run-1`), `tool`, `book` (id, title,
 path, SHA-256), `root`, `command`, timestamps, `environment`, `inputs` (each
-with a SHA-256), `checks` (anchors, figures, bindings, external run), `rows`,
-`summary` and `exit_status`.
+with a SHA-256), `registrations` (the chain: each registration's id, claim,
+source, rows and its anchor and figure results), `checks` (anchors, figures,
+bindings, external run), `rows`, `summary` and `exit_status`.
 
 Each row result carries the verdict, its family, `met`, the evidence class,
 the metric and bound, the cell and failure counts, the worst cell, what the

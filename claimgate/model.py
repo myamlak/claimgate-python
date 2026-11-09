@@ -504,6 +504,9 @@ def validate_book(data: dict[str, Any]) -> list[str]:
                 f"{where}: a {row_type} row cannot carry evidence class {evidence!r}; "
                 f"the class establishes {ESTABLISHES.get(evidence, 'nothing')}"
             )
+        relation = row.get("relation")
+        if relation is not None and relation not in ("carries", "measures", "matches", "supports"):
+            errors.append(f"{where}: the relation {relation!r} is not known")
         _check_domain(errors, where, row.get("domain"))
         if row.get("claim_id") is not None:
             if not isinstance(row["claim_id"], str):

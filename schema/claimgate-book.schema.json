@@ -340,6 +340,10 @@
         "bound": {"$ref": "#/$defs/bound"},
         "quantifier": {"$ref": "#/$defs/quantifier"},
         "evidence_class": {"$ref": "#/$defs/evidenceClass"},
+        "relation": {
+          "description": "How the row stands to its claim: carries (restates the sentence's domain, bound and quantifier), measures (the same object under another subject), matches (the same object under another subject without carrying the sentence), supports (related evidence). Absent, a row with a claim_id is reported as carrying it.",
+          "enum": ["carries", "measures", "matches", "supports"]
+        },
         "figure_bound": {
           "description": "The numeric bound the registration's stated figure is compared with to one ULP. Zero or absent where the row has no directly comparable bound.",
           "type": "number",

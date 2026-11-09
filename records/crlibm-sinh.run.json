@@ -22,9 +22,9 @@
     "--report",
     "records/crlibm-sinh.run.json"
   ],
-  "started_utc": "2026-11-09T18:20:43+00:00",
-  "finished_utc": "2026-11-09T18:20:43+00:00",
-  "duration_s": 0.045014,
+  "started_utc": "2026-11-09T18:21:46+00:00",
+  "finished_utc": "2026-11-09T18:21:46+00:00",
+  "duration_s": 0.053994,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -50,6 +50,27 @@
       "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
       "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
       "bytes": 2881
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.crlibm.sinh",
+      "claim_id": "crlibm.sinh.correct_rounding",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          35,
+          35
+        ]
+      },
+      "rows": [
+        "crlibm.sinh.rn",
+        "crlibm.sinh.ru",
+        "crlibm.sinh.rd",
+        "crlibm.sinh.rz"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
     }
   ],
   "checks": {
@@ -125,6 +146,7 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -180,6 +202,7 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -235,6 +258,7 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -290,6 +314,7 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",

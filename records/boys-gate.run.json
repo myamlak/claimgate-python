@@ -22,9 +22,9 @@
     "--report",
     "records/boys-gate.run.json"
   ],
-  "started_utc": "2026-11-09T18:20:44+00:00",
-  "finished_utc": "2026-11-09T18:20:44+00:00",
-  "duration_s": 0.019417,
+  "started_utc": "2026-11-09T18:21:46+00:00",
+  "finished_utc": "2026-11-09T18:21:46+00:00",
+  "duration_s": 0.021917,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -80,6 +80,639 @@
       "path": "examples/boys-gate/run-record.json",
       "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
       "bytes": 14245
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.D01.01",
+      "claim_id": "D01",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          322,
+          324
+        ]
+      },
+      "rows": [
+        "README.double.single"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.D01.02",
+      "claim_id": "D01",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          322,
+          324
+        ]
+      },
+      "rows": [
+        "README.double.batch"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.F01.03",
+      "claim_id": "F01",
+      "source": {
+        "file": "README.md",
+        "lines": [
+          346,
+          349
+        ]
+      },
+      "rows": [
+        "README.float"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "2^-22"
+      }
+    },
+    {
+      "id": "reg.H01.04",
+      "claim_id": "H01",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          219,
+          219
+        ]
+      },
+      "rows": [
+        "README.half"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.D13.05",
+      "claim_id": "D13",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          199,
+          202
+        ]
+      },
+      "rows": [
+        "LC.double.worst_cell"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-13"
+      }
+    },
+    {
+      "id": "reg.P02.06",
+      "claim_id": "P02",
+      "source": {
+        "file": "docs/mainpage.md",
+        "lines": [
+          311,
+          312
+        ]
+      },
+      "rows": [
+        "native.half.suite_worst"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "8"
+      }
+    },
+    {
+      "id": "reg.D07.07",
+      "claim_id": "D07",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          135,
+          137
+        ]
+      },
+      "rows": [
+        "LC.double.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.F02.08",
+      "claim_id": "F02",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          491,
+          496
+        ]
+      },
+      "rows": [
+        "LC.float.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "2^-22"
+      }
+    },
+    {
+      "id": "reg.D02.09",
+      "claim_id": "D02",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          124,
+          126
+        ]
+      },
+      "rows": [
+        "LC.region_A.fit_bar"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-15"
+      }
+    },
+    {
+      "id": "reg.X01.10",
+      "claim_id": "X01",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          574,
+          574
+        ]
+      },
+      "rows": [
+        "transform.fp64.bound"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-15"
+      }
+    },
+    {
+      "id": "reg.X02.11",
+      "claim_id": "X02",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          578,
+          579
+        ]
+      },
+      "rows": [
+        "transform.fp64.delivered"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.X03.12",
+      "claim_id": "X03",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          575,
+          575
+        ]
+      },
+      "rows": [
+        "transform.tf32x3.bound"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-15 + 2.5e-7"
+      }
+    },
+    {
+      "id": "reg.X05.13",
+      "claim_id": "X05",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          576,
+          576
+        ]
+      },
+      "rows": [
+        "transform.bf16x6.bound"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-15 + 2.5e-7"
+      }
+    },
+    {
+      "id": "reg.X04.14",
+      "claim_id": "X04",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "rows": [
+        "transform.tf32x3.delivered"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.X06.15",
+      "claim_id": "X06",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          579,
+          580
+        ]
+      },
+      "rows": [
+        "transform.bf16x6.delivered"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.H02b.16",
+      "claim_id": "H02b",
+      "source": {
+        "file": "CONTRIBUTING.md",
+        "lines": [
+          22,
+          23
+        ]
+      },
+      "rows": [
+        "LC.half.budget"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1e-7"
+      }
+    },
+    {
+      "id": "reg.H04.17",
+      "claim_id": "H04",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          642,
+          649
+        ]
+      },
+      "rows": [
+        "LC.half.worst_cell"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.H06.18",
+      "claim_id": "H06",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          649,
+          650
+        ]
+      },
+      "rows": [
+        "LC.half.representation_share"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.H07.19",
+      "claim_id": "H07",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          658,
+          661
+        ]
+      },
+      "rows": [
+        "LC.half.returned_value_floor"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1.5e-7"
+      }
+    },
+    {
+      "id": "reg.H08.20",
+      "claim_id": "H08",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          663,
+          666
+        ]
+      },
+      "rows": [
+        "LC.half.range_from_order3"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P06.21",
+      "claim_id": "P06",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          711,
+          712
+        ]
+      },
+      "rows": [
+        "LC.packed.rescale_exact"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P09.22",
+      "claim_id": "P09",
+      "source": {
+        "file": "src/boys_simd.cpp",
+        "lines": [
+          374,
+          377
+        ]
+      },
+      "rows": [
+        "code.half_simd_cells"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P01.23",
+      "claim_id": "P01",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          672,
+          673
+        ]
+      },
+      "rows": [
+        "native.half.bound"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "8"
+      }
+    },
+    {
+      "id": "reg.P11.24",
+      "claim_id": "P11",
+      "source": {
+        "file": "include/boys/boys_decl.hpp",
+        "lines": [
+          1992,
+          1996
+        ]
+      },
+      "rows": [
+        "code.half_domain_stop"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P07.25",
+      "claim_id": "P07",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          712,
+          713
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08a.26",
+      "claim_id": "P08a",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          696,
+          696
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08b.27",
+      "claim_id": "P08b",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          697,
+          697
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08c.28",
+      "claim_id": "P08c",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          698,
+          698
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08d.29",
+      "claim_id": "P08d",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          699,
+          699
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08e.30",
+      "claim_id": "P08e",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          700,
+          700
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08f.31",
+      "claim_id": "P08f",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          701,
+          701
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08g.32",
+      "claim_id": "P08g",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          702,
+          702
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08h.33",
+      "claim_id": "P08h",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          703,
+          703
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P08i.34",
+      "claim_id": "P08i",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          704,
+          708
+        ]
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P03.35",
+      "claim_id": "P03",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          685,
+          688
+        ]
+      },
+      "rows": [
+        "native.half.packed"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.P04.36",
+      "claim_id": "P04",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          679,
+          681
+        ]
+      },
+      "rows": [
+        "LC.packed.representation_cost"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.A03.37",
+      "claim_id": "A03",
+      "source": {
+        "file": "docs/lane-contract.md",
+        "lines": [
+          1420,
+          1423
+        ]
+      },
+      "rows": [
+        "LC.regionC.asym_relative"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
     }
   ],
   "checks": {

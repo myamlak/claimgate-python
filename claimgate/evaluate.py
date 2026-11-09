@@ -52,7 +52,10 @@ def _limitations(row, cells: int) -> list[str]:
 
 
 def _base_result(row) -> dict:
-    return {
+    relation = row.get("relation")
+    if relation is None and row.get("claim_id"):
+        relation = "carries"
+    result = {
         "id": row["id"],
         "type": row["type"],
         "claim_id": row.get("claim_id"),
@@ -75,6 +78,9 @@ def _base_result(row) -> dict:
         "establishes": ESTABLISHES.get(row["evidence_class"], ""),
         "limitations": [],
     }
+    if relation:
+        result["relation"] = relation
+    return result
 
 
 def _judged(result: dict, verdict: str, met: bool) -> dict:

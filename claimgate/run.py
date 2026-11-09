@@ -158,6 +158,34 @@ def run_book(
     failing_rows = [result for result in row_results if result["verdict"] in book.fail_on]
     exit_status = 1 if (check_failures or failing_rows) else 0
 
+    def registration_failed(reg_id: str, failures: list[str]) -> bool:
+        prefix = f"registration {reg_id}"
+        return any(
+            failure.startswith(prefix + ":") or failure.startswith(prefix + " supporting[")
+            for failure in failures
+        )
+
+    registration_report = []
+    for reg in book.registrations:
+        figure = reg.get("figure")
+        entry = {
+            "id": reg["id"],
+            "claim_id": reg["claim_id"],
+            "source": {
+                "file": reg["source"]["file"],
+                "lines": list(reg["source"]["lines"]),
+            },
+            "rows": list(reg["rows"]),
+            "anchor": "failed" if registration_failed(reg["id"], anchors["failed"]) else "ok",
+            "figure_check": "absent",
+        }
+        if figure:
+            entry["figure"] = {"text": figure["text"]}
+            entry["figure_check"] = (
+                "failed" if registration_failed(reg["id"], figures["failed"]) else "ok"
+            )
+        registration_report.append(entry)
+
     finished = time.perf_counter()
     report = {
         "schema": RUN_SCHEMA,
@@ -175,6 +203,7 @@ def run_book(
         "duration_s": round(finished - started, 6),
         "environment": _environment(),
         "inputs": list(inputs.values()),
+        "registrations": registration_report,
         "checks": {
             "anchors": {
                 "mode": anchors.get("mode", "skipped"),

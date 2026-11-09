@@ -22,9 +22,9 @@
     "--report",
     "records/boost-airy.run.json"
   ],
-  "started_utc": "2026-11-09T18:20:43+00:00",
-  "finished_utc": "2026-11-09T18:20:43+00:00",
-  "duration_s": 0.207564,
+  "started_utc": "2026-11-09T18:21:45+00:00",
+  "finished_utc": "2026-11-09T18:21:46+00:00",
+  "duration_s": 0.176732,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -50,6 +50,30 @@
       "path": "examples/boost-airy/anchors/doc_excerpts.txt",
       "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
       "bytes": 2881
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.boost.airy.100eps",
+      "claim_id": "boost.math.airy.100eps",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          17,
+          18
+        ]
+      },
+      "rows": [
+        "boost.airy.ai.a2_grid",
+        "boost.airy.bi.a2_grid",
+        "boost.airy.ai.named",
+        "boost.airy.bi.named"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "100"
+      }
     }
   ],
   "checks": {
@@ -127,6 +151,7 @@
         "the verdict covers 65 measured cell(s) and makes no statement between them",
         "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -184,6 +209,7 @@
         "the verdict covers 65 measured cell(s) and makes no statement between them",
         "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -240,6 +266,7 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -296,6 +323,7 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
+      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
