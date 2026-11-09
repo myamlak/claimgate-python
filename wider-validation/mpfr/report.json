@@ -1,0 +1,1160 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "mpfr-4.2.2",
+    "title": "MPFR 4.2.2: the correct-rounding guarantee at precision 53",
+    "path": "wider-validation/mpfr/book.json",
+    "sha256": "ce06b1fc7454f036ead2888c780f74ee8228159ec2260a83ec990b5583570040"
+  },
+  "root": "wider-validation/mpfr",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "wider-validation/mpfr/book.json",
+    "--portable",
+    "--report",
+    "records/mpfr.run.json"
+  ],
+  "started_utc": "2026-11-09T19:02:13+00:00",
+  "finished_utc": "2026-11-09T19:02:13+00:00",
+  "duration_s": 0.531378,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "wider-validation/mpfr/book.json",
+      "sha256": "ce06b1fc7454f036ead2888c780f74ee8228159ec2260a83ec990b5583570040",
+      "bytes": 27001
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/mpfr/data/sin.csv",
+      "sha256": "a699e213d286d44b3314a808b00217fc293bd2a316b871449d7ace5d48218449",
+      "bytes": 173608
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/mpfr/data/exp.csv",
+      "sha256": "adc2b3f3072aeeff4bdeabf6bb127a2e1d7d5effa09874bb10d77f103c03dde4",
+      "bytes": 169725
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/mpfr/data/log.csv",
+      "sha256": "98c2a5516e75331176d756abec01396feaf832f071f4c6226dacfa93cbae54ee",
+      "bytes": 171671
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/mpfr/data/atan.csv",
+      "sha256": "133ec480d45041e41b2f049a1150a6d7f877e478db43817c0bc2b15996dd0f07",
+      "bytes": 173623
+    },
+    {
+      "role": "anchor",
+      "path": "wider-validation/mpfr/anchors/doc_excerpts.txt",
+      "sha256": "c7265c851d2a94b35ffdf11153fb33e9790ac02334bbbab376bd11f092eebbe2",
+      "bytes": 1014
+    }
+  ],
+  "claims": [
+    {
+      "id": "mpfr.sin.correct_rounding",
+      "object": "mpfr_sin at precision 53",
+      "evidence_class": "certified_bound",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "mpfr.sin.rn",
+        "mpfr.sin.ru",
+        "mpfr.sin.rd",
+        "mpfr.sin.rz"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 4
+    },
+    {
+      "id": "mpfr.exp.correct_rounding",
+      "object": "mpfr_exp at precision 53",
+      "evidence_class": "certified_bound",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "mpfr.exp.rn",
+        "mpfr.exp.ru",
+        "mpfr.exp.rd",
+        "mpfr.exp.rz"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 4
+    },
+    {
+      "id": "mpfr.log.correct_rounding",
+      "object": "mpfr_log at precision 53",
+      "evidence_class": "certified_bound",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "mpfr.log.rn",
+        "mpfr.log.ru",
+        "mpfr.log.rd",
+        "mpfr.log.rz"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 4
+    },
+    {
+      "id": "mpfr.atan.correct_rounding",
+      "object": "mpfr_atan at precision 53",
+      "evidence_class": "certified_bound",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "mpfr.atan.rn",
+        "mpfr.atan.ru",
+        "mpfr.atan.rd",
+        "mpfr.atan.rz"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 4
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.mpfr.sin",
+      "claim_id": "mpfr.sin.correct_rounding",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "mpfr.sin.rn",
+        "mpfr.sin.ru",
+        "mpfr.sin.rd",
+        "mpfr.sin.rz"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.mpfr.exp",
+      "claim_id": "mpfr.exp.correct_rounding",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "mpfr.exp.rn",
+        "mpfr.exp.ru",
+        "mpfr.exp.rd",
+        "mpfr.exp.rz"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.mpfr.log",
+      "claim_id": "mpfr.log.correct_rounding",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "mpfr.log.rn",
+        "mpfr.log.ru",
+        "mpfr.log.rd",
+        "mpfr.log.rz"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    },
+    {
+      "id": "reg.mpfr.atan",
+      "claim_id": "mpfr.atan.correct_rounding",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "mpfr.atan.rn",
+        "mpfr.atan.ru",
+        "mpfr.atan.rd",
+        "mpfr.atan.rz"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 12,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/doc_excerpts.txt",
+          "mode": "full-source",
+          "path": "wider-validation/mpfr/anchors/doc_excerpts.txt",
+          "sha256": "c7265c851d2a94b35ffdf11153fb33e9790ac02334bbbab376bd11f092eebbe2"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 0,
+      "absent": 4,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 16,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "mpfr.sin.rn",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.sin.correct_rounding",
+      "statement": "mpfr_sin rounded to nearest returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_sin at precision 53, round to nearest",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "eccda72b843f4f1e",
+          "x": "-1.2777787450147603e+216",
+          "input_bits": "eccda72b843f4f1e",
+          "metric": "0",
+          "measured": "bf9cd65614b3b433",
+          "reference": "bf9cd65614b3b433",
+          "measured_bits": "bf9cd65614b3b433",
+          "reference_bits": "bf9cd65614b3b433"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/sin.csv",
+        "path": "wider-validation/mpfr/data/sin.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.sin.ru",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.sin.correct_rounding",
+      "statement": "mpfr_sin rounded upward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_sin at precision 53, round upward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "eccda72b843f4f1e",
+          "x": "-1.2777787450147603e+216",
+          "input_bits": "eccda72b843f4f1e",
+          "metric": "0",
+          "measured": "bf9cd65614b3b433",
+          "reference": "bf9cd65614b3b433",
+          "measured_bits": "bf9cd65614b3b433",
+          "reference_bits": "bf9cd65614b3b433"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/sin.csv",
+        "path": "wider-validation/mpfr/data/sin.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.sin.rd",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.sin.correct_rounding",
+      "statement": "mpfr_sin rounded downward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_sin at precision 53, round downward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "eccda72b843f4f1e",
+          "x": "-1.2777787450147603e+216",
+          "input_bits": "eccda72b843f4f1e",
+          "metric": "0",
+          "measured": "bf9cd65614b3b434",
+          "reference": "bf9cd65614b3b434",
+          "measured_bits": "bf9cd65614b3b434",
+          "reference_bits": "bf9cd65614b3b434"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/sin.csv",
+        "path": "wider-validation/mpfr/data/sin.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.sin.rz",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.sin.correct_rounding",
+      "statement": "mpfr_sin rounded toward zero returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_sin at precision 53, round toward zero",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "eccda72b843f4f1e",
+          "x": "-1.2777787450147603e+216",
+          "input_bits": "eccda72b843f4f1e",
+          "metric": "0",
+          "measured": "bf9cd65614b3b433",
+          "reference": "bf9cd65614b3b433",
+          "measured_bits": "bf9cd65614b3b433",
+          "reference_bits": "bf9cd65614b3b433"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/sin.csv",
+        "path": "wider-validation/mpfr/data/sin.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.exp.rn",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.exp.correct_rounding",
+      "statement": "mpfr_exp rounded to nearest returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_exp at precision 53, round to nearest",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 925,
+      "judged_cells": 925,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 925,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "4068d5dc2d72307c",
+          "x": "198.68312713911644",
+          "input_bits": "4068d5dc2d72307c",
+          "metric": "0",
+          "measured": "51d8eb35f557d3fb",
+          "reference": "51d8eb35f557d3fb",
+          "measured_bits": "51d8eb35f557d3fb",
+          "reference_bits": "51d8eb35f557d3fb"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 925 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/exp.csv",
+        "path": "wider-validation/mpfr/data/exp.csv",
+        "comparison": "bit_identity",
+        "rows": 925
+      }
+    },
+    {
+      "id": "mpfr.exp.ru",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.exp.correct_rounding",
+      "statement": "mpfr_exp rounded upward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_exp at precision 53, round upward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 925,
+      "judged_cells": 925,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 925,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "4068d5dc2d72307c",
+          "x": "198.68312713911644",
+          "input_bits": "4068d5dc2d72307c",
+          "metric": "0",
+          "measured": "51d8eb35f557d3fc",
+          "reference": "51d8eb35f557d3fc",
+          "measured_bits": "51d8eb35f557d3fc",
+          "reference_bits": "51d8eb35f557d3fc"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 925 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/exp.csv",
+        "path": "wider-validation/mpfr/data/exp.csv",
+        "comparison": "bit_identity",
+        "rows": 925
+      }
+    },
+    {
+      "id": "mpfr.exp.rd",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.exp.correct_rounding",
+      "statement": "mpfr_exp rounded downward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_exp at precision 53, round downward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 925,
+      "judged_cells": 925,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 925,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "4068d5dc2d72307c",
+          "x": "198.68312713911644",
+          "input_bits": "4068d5dc2d72307c",
+          "metric": "0",
+          "measured": "51d8eb35f557d3fb",
+          "reference": "51d8eb35f557d3fb",
+          "measured_bits": "51d8eb35f557d3fb",
+          "reference_bits": "51d8eb35f557d3fb"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 925 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/exp.csv",
+        "path": "wider-validation/mpfr/data/exp.csv",
+        "comparison": "bit_identity",
+        "rows": 925
+      }
+    },
+    {
+      "id": "mpfr.exp.rz",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.exp.correct_rounding",
+      "statement": "mpfr_exp rounded toward zero returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_exp at precision 53, round toward zero",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 925,
+      "judged_cells": 925,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 925,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "4068d5dc2d72307c",
+          "x": "198.68312713911644",
+          "input_bits": "4068d5dc2d72307c",
+          "metric": "0",
+          "measured": "51d8eb35f557d3fb",
+          "reference": "51d8eb35f557d3fb",
+          "measured_bits": "51d8eb35f557d3fb",
+          "reference_bits": "51d8eb35f557d3fb"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 925 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/exp.csv",
+        "path": "wider-validation/mpfr/data/exp.csv",
+        "comparison": "bit_identity",
+        "rows": 925
+      }
+    },
+    {
+      "id": "mpfr.log.rn",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.log.correct_rounding",
+      "statement": "mpfr_log rounded to nearest returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_log at precision 53, round to nearest",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled positive binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 913,
+      "judged_cells": 913,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 913,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "23859fb793d28110",
+          "x": "1.4526664703086005e-137",
+          "input_bits": "23859fb793d28110",
+          "metric": "0",
+          "measured": "c073b14ac7c6a8a8",
+          "reference": "c073b14ac7c6a8a8",
+          "measured_bits": "c073b14ac7c6a8a8",
+          "reference_bits": "c073b14ac7c6a8a8"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 913 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/log.csv",
+        "path": "wider-validation/mpfr/data/log.csv",
+        "comparison": "bit_identity",
+        "rows": 913
+      }
+    },
+    {
+      "id": "mpfr.log.ru",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.log.correct_rounding",
+      "statement": "mpfr_log rounded upward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_log at precision 53, round upward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled positive binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 913,
+      "judged_cells": 913,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 913,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "23859fb793d28110",
+          "x": "1.4526664703086005e-137",
+          "input_bits": "23859fb793d28110",
+          "metric": "0",
+          "measured": "c073b14ac7c6a8a8",
+          "reference": "c073b14ac7c6a8a8",
+          "measured_bits": "c073b14ac7c6a8a8",
+          "reference_bits": "c073b14ac7c6a8a8"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 913 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/log.csv",
+        "path": "wider-validation/mpfr/data/log.csv",
+        "comparison": "bit_identity",
+        "rows": 913
+      }
+    },
+    {
+      "id": "mpfr.log.rd",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.log.correct_rounding",
+      "statement": "mpfr_log rounded downward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_log at precision 53, round downward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled positive binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 913,
+      "judged_cells": 913,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 913,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "23859fb793d28110",
+          "x": "1.4526664703086005e-137",
+          "input_bits": "23859fb793d28110",
+          "metric": "0",
+          "measured": "c073b14ac7c6a8a9",
+          "reference": "c073b14ac7c6a8a9",
+          "measured_bits": "c073b14ac7c6a8a9",
+          "reference_bits": "c073b14ac7c6a8a9"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 913 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/log.csv",
+        "path": "wider-validation/mpfr/data/log.csv",
+        "comparison": "bit_identity",
+        "rows": 913
+      }
+    },
+    {
+      "id": "mpfr.log.rz",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.log.correct_rounding",
+      "statement": "mpfr_log rounded toward zero returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_log at precision 53, round toward zero",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled positive binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 913,
+      "judged_cells": 913,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 913,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "23859fb793d28110",
+          "x": "1.4526664703086005e-137",
+          "input_bits": "23859fb793d28110",
+          "metric": "0",
+          "measured": "c073b14ac7c6a8a8",
+          "reference": "c073b14ac7c6a8a8",
+          "measured_bits": "c073b14ac7c6a8a8",
+          "reference_bits": "c073b14ac7c6a8a8"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 913 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/log.csv",
+        "path": "wider-validation/mpfr/data/log.csv",
+        "comparison": "bit_identity",
+        "rows": 913
+      }
+    },
+    {
+      "id": "mpfr.atan.rn",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.atan.correct_rounding",
+      "statement": "mpfr_atan rounded to nearest returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_atan at precision 53, round to nearest",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "59ac88f838bef415",
+          "x": "9.4316284500094746e+123",
+          "input_bits": "59ac88f838bef415",
+          "metric": "0",
+          "measured": "3ff921fb54442d18",
+          "reference": "3ff921fb54442d18",
+          "measured_bits": "3ff921fb54442d18",
+          "reference_bits": "3ff921fb54442d18"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/atan.csv",
+        "path": "wider-validation/mpfr/data/atan.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.atan.ru",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.atan.correct_rounding",
+      "statement": "mpfr_atan rounded upward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_atan at precision 53, round upward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "59ac88f838bef415",
+          "x": "9.4316284500094746e+123",
+          "input_bits": "59ac88f838bef415",
+          "metric": "0",
+          "measured": "3ff921fb54442d19",
+          "reference": "3ff921fb54442d19",
+          "measured_bits": "3ff921fb54442d19",
+          "reference_bits": "3ff921fb54442d19"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/atan.csv",
+        "path": "wider-validation/mpfr/data/atan.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.atan.rd",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.atan.correct_rounding",
+      "statement": "mpfr_atan rounded downward returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_atan at precision 53, round downward",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "59ac88f838bef415",
+          "x": "9.4316284500094746e+123",
+          "input_bits": "59ac88f838bef415",
+          "metric": "0",
+          "measured": "3ff921fb54442d18",
+          "reference": "3ff921fb54442d18",
+          "measured_bits": "3ff921fb54442d18",
+          "reference_bits": "3ff921fb54442d18"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/atan.csv",
+        "path": "wider-validation/mpfr/data/atan.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    },
+    {
+      "id": "mpfr.atan.rz",
+      "type": "reference_comparison",
+      "claim_id": "mpfr.atan.correct_rounding",
+      "statement": "mpfr_atan rounded toward zero returns the correctly rounded result at each sampled argument",
+      "subject": "mpfr_atan at precision 53, round toward zero",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 919,
+      "judged_cells": 919,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 919,
+      "worst": {
+        "value": 0.0,
+        "text": "0",
+        "cell": {
+          "data_row": 1,
+          "label": "59ac88f838bef415",
+          "x": "9.4316284500094746e+123",
+          "input_bits": "59ac88f838bef415",
+          "metric": "0",
+          "measured": "3ff921fb54442d18",
+          "reference": "3ff921fb54442d18",
+          "measured_bits": "3ff921fb54442d18",
+          "reference_bits": "3ff921fb54442d18"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 919 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "supports",
+      "data": {
+        "file": "data/atan.csv",
+        "path": "wider-validation/mpfr/data/atan.csv",
+        "comparison": "bit_identity",
+        "rows": 919
+      }
+    }
+  ],
+  "summary": {
+    "rows": 16,
+    "verified": 16,
+    "met_over_domain": 0,
+    "exceeded": 0,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 16,
+    "judged": 16
+  },
+  "exit_status": 0
+}

@@ -1,0 +1,8 @@
+GSL 2.8 documentation excerpts
+Source: doc/specfunc.rst, read from the pinned archive gsl-2.8.tar.gz
+Archive: https://mirrors.kernel.org/gnu/gsl/gsl-2.8.tar.gz
+SHA-256: 6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190
+Quoted from the reStructuredText source; markup and line wrapping are as rendered in the manual.
+
+prec.double: Double-precision, a relative accuracy of approximately 2 * 10^-16.
+error_estimate: The field err contains an estimate of the absolute error in the value.

@@ -1,0 +1,73 @@
+{
+  "schema": "claimgate-wider-validation-sources-1",
+  "created": "2026-11-09",
+  "host": {
+    "system": "Linux 6.18.33.2-microsoft-standard-WSL2 x86_64",
+    "cpu": "Intel(R) Core(TM) i7-9850H CPU @ 2.60GHz",
+    "compiler": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "cmake": "4.2.3",
+    "python": "3.14.7 on Windows, 3.x in WSL"
+  },
+  "sources": {
+    "sleef": {
+      "version": "3.9.0",
+      "url": "https://github.com/shibatch/sleef/archive/refs/tags/3.9.0.tar.gz",
+      "archive": "sleef-3.9.0.tar.gz",
+      "sha256": "af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908",
+      "bytes": 1808227,
+      "build": [
+        "cmake -S src -B build -DCMAKE_BUILD_TYPE=Release -DSLEEF_BUILD_TESTS=OFF -DSLEEF_BUILD_DFT=OFF -DSLEEF_BUILD_QUAD=OFF -DSLEEF_BUILD_GNUABI_LIBS=OFF -DSLEEF_BUILD_SCALAR_LIB=ON -DSLEEF_BUILD_INLINE_HEADERS=OFF",
+        "cmake --build build -j 12"
+      ],
+      "artifacts": ["build/sleef/lib/libsleef.a", "build/sleef/lib/libsleefscalar.a", "build/sleef/include/sleef.h"]
+    },
+    "gsl": {
+      "version": "2.8",
+      "url": "https://mirrors.kernel.org/gnu/gsl/gsl-2.8.tar.gz",
+      "archive": "gsl-2.8.tar.gz",
+      "sha256": "6a99eeed15632c6354895b1dd542ed5a855c0f15d9ad1326c6fe2b2c9e423190",
+      "bytes": 8997136,
+      "build": [
+        "./configure --prefix=$HOME/wider-validation/prefix/gsl-2.8 --disable-shared --enable-static",
+        "make -j 12",
+        "make install"
+      ],
+      "artifacts": ["prefix/gsl-2.8/lib/libgsl.a", "prefix/gsl-2.8/lib/libgslcblas.a"]
+    },
+    "mpfr": {
+      "version": "4.2.2",
+      "url": "https://www.mpfr.org/mpfr-4.2.2/mpfr-4.2.2.tar.xz",
+      "archive": "mpfr-4.2.2.tar.xz",
+      "sha256": "b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01",
+      "bytes": 1505596,
+      "dependency": "GMP 6.3.0 (Ubuntu libgmp-dev 2:6.3.0+dfsg-5ubuntu2)",
+      "build": [
+        "./configure --prefix=$HOME/wider-validation/prefix/mpfr-4.2.2 --disable-shared --enable-static --with-gmp=/usr",
+        "make -j 12",
+        "make install"
+      ],
+      "artifacts": ["prefix/mpfr-4.2.2/lib/libmpfr.a", "prefix/mpfr-4.2.2/include/mpfr.h"]
+    }
+  },
+  "drivers": {
+    "sleef": {"source": "wider-validation/sleef/driver.c", "build": "sh wider-validation/sleef/build.sh", "output": "input_bits,x,result_bits,result,reference_60d,error_ulp,status"},
+    "gsl": {"source": "wider-validation/gsl/driver.c", "build": "sh wider-validation/gsl/build.sh", "output": "input_bits,x,result_bits,result,gsl_err,gsl_err_bits,reference_60d,true_error,relative_error,error_over_err,status"},
+    "mpfr": {"source": "wider-validation/mpfr/driver.c", "build": "sh wider-validation/mpfr/build.sh", "output": "input_bits,x,got_rn_bits,expected_rn_bits,match_rn,... for ru, rd, rz, status"}
+  },
+  "measurements": {
+    "inputs": "wider-validation/gen_inputs.py --out wider-validation/inputs (seed 20261109)",
+    "sleef": {"functions": ["sin", "exp", "log", "erf"], "cells": {"sin": 1048, "exp": 935, "log": 952, "erf": 945}},
+    "gsl": {"functions": ["erf", "gamma", "bessel_j0", "bessel_j1", "airy_ai", "ellint_k"], "cells": {"erf": 944, "gamma": 945, "bessel_j0": 940, "bessel_j1": 935, "airy_ai": 930, "ellint_k": 916}},
+    "mpfr": {"functions": ["sin", "exp", "log", "atan"], "modes": ["rn", "ru", "rd", "rz"], "cells": {"sin": 919, "exp": 925, "log": 913, "atan": 919}, "bit_comparisons": 14704}
+  },
+  "books": {
+    "sleef": "wider-validation/sleef/book.json",
+    "gsl": "wider-validation/gsl/book.json",
+    "mpfr": "wider-validation/mpfr/book.json"
+  },
+  "reports": {
+    "sleef": "wider-validation/sleef/report.json",
+    "gsl": "wider-validation/gsl/report.json",
+    "mpfr": "wider-validation/mpfr/report.json"
+  }
+}

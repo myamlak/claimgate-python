@@ -60,14 +60,30 @@ def parse_exact(value):
     terms = text.split(" + ")
     total = Fraction(0)
     for term in terms:
-        total += _parse_term(term.strip())
+        total += _parse_product(term.strip())
     return total
+
+
+def _parse_product(text: str) -> Fraction:
+    """A product of terms, as documents write ``2 * 10^-16``."""
+    product = Fraction(1)
+    for factor in text.split(" * "):
+        product *= _parse_term(factor.strip())
+    return product
 
 
 def _parse_term(text: str) -> Fraction:
     if not text:
         raise NumberError("an empty summand in a bound")
     lowered = text.lower()
+    if lowered.startswith("10^"):
+        try:
+            power = int(text[3:])
+        except ValueError as exc:
+            raise NumberError(f"cannot read the power of ten {text!r}") from exc
+        if not -400 <= power <= 400:
+            raise NumberError(f"a power of ten outside a sane range: {text!r}")
+        return Fraction(10) ** power
     if lowered.startswith("2^"):
         try:
             power = int(text[2:])
@@ -176,6 +192,23 @@ def within_one_ulp(a: float, b: float) -> bool:
         return True
     lo, hi = (a, b) if a < b else (b, a)
     return math.nextafter(lo, math.inf) >= hi
+
+
+def binary64_ulp_at(value: Fraction) -> Fraction:
+    """The spacing of binary64 values at the magnitude of ``value``.
+
+    Normal values use 2**(floor(log2(|value|)) - 52); subnormal values use
+    2**-1074.  The value zero uses the smallest subnormal spacing.
+    """
+    if value == 0:
+        return Fraction(1, 2**1074)
+    a = abs(value)
+    exponent = a.numerator.bit_length() - a.denominator.bit_length()
+    if Fraction(2) ** exponent > a:
+        exponent -= 1
+    if exponent < -1022:
+        return Fraction(1, 2**1074)
+    return Fraction(2) ** (exponent - 52)
 
 
 def finite_fraction(value) -> Fraction:

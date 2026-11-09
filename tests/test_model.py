@@ -86,7 +86,7 @@ class ValidationErrorTest(unittest.TestCase):
     def test_data_columns(self):
         self.data["rows"][0]["data"]["columns"] = {"measured": "m"}
         errors = self.errors(self.data)
-        self.assertTrue(any("needs the column 'reference'" in error for error in errors))
+        self.assertTrue(any("needs one of the columns reference" in error for error in errors))
 
     def test_external_record_needs_record(self):
         self.data["rows"][0] = {

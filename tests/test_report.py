@@ -10,8 +10,8 @@ EXAMPLES = ROOT / "examples"
 
 TOP_LEVEL = {
     "schema", "tool", "book", "root", "command", "started_utc", "finished_utc",
-    "duration_s", "environment", "inputs", "registrations", "checks", "rows",
-    "summary", "exit_status",
+    "duration_s", "environment", "inputs", "claims", "registrations", "checks",
+    "rows", "summary", "exit_status",
 }
 CHECKS = {"anchors", "figures", "bindings", "external_run"}
 ROW_KEYS = {
@@ -56,6 +56,12 @@ class ReportShapeTest(unittest.TestCase):
                     self.assertIn(entry["anchor"], ("ok", "failed"))
                     self.assertIn(entry["figure_check"], ("ok", "failed", "absent"))
                     self.assertTrue(entry["rows"])
+                for entry in report["claims"]:
+                    self.assertGreaterEqual(entry["carrying_rows"], 0)
+                    self.assertGreaterEqual(entry["supporting_rows"], 0)
+                    self.assertEqual(
+                        entry["carrying_rows"] + entry["supporting_rows"], len(entry["rows"])
+                    )
 
 
 if __name__ == "__main__":

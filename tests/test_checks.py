@@ -142,6 +142,8 @@ class FigureTest(unittest.TestCase):
         self.assertFalse(figure_in_quote("less than 100.5 epsilon", "100"))
         self.assertFalse(figure_in_quote("less than 0.008 epsilon", "8"))
         self.assertTrue(figure_in_quote("at 8 ULP", "8"))
+        self.assertTrue(figure_in_quote("approximately 2 * 10^-16.", "2 * 10^-16"))
+        self.assertFalse(figure_in_quote("approximately 2 * 10^-16.5", "2 * 10^-16"))
 
     def test_parse(self):
         self.assertEqual(parse_figure_float("1e-13"), 1e-13)

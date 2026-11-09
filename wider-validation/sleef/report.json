@@ -1,0 +1,484 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "sleef-3.9.0",
+    "title": "SLEEF 3.9.0: the scalar u10 error bounds",
+    "path": "wider-validation/sleef/book.json",
+    "sha256": "9980675196e1156842f01a4d0585e4ce257a12f501621997b9020f57d091c460"
+  },
+  "root": "wider-validation/sleef",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "wider-validation/sleef/book.json",
+    "--portable",
+    "--report",
+    "records/sleef.run.json"
+  ],
+  "started_utc": "2026-11-09T19:02:10+00:00",
+  "finished_utc": "2026-11-09T19:02:11+00:00",
+  "duration_s": 0.421571,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "wider-validation/sleef/book.json",
+      "sha256": "9980675196e1156842f01a4d0585e4ce257a12f501621997b9020f57d091c460",
+      "bytes": 14756
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/sleef/data/sin.csv",
+      "sha256": "6742be787dafd4920200b659c10e4b8330d84beed2e4f78a9a4985407e12d03b",
+      "bytes": 172199
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/sleef/data/exp.csv",
+      "sha256": "67407f0a35314f9acab65e154e35c4578b5670b7fe106a76794414f3ce20ab3c",
+      "bytes": 155377
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/sleef/data/log.csv",
+      "sha256": "a3cb7bf88ab2206fbd6cf7bcf8a5c23da9d5ab4b25e66b3f7ad12b158aa2e5da",
+      "bytes": 161594
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/sleef/data/erf.csv",
+      "sha256": "1d09d8acec71a6b0900fb94994d3f8e8a08f7bb8862be0e26e9566c357cab16d",
+      "bytes": 155459
+    },
+    {
+      "role": "anchor",
+      "path": "wider-validation/sleef/anchors/doc_excerpts.txt",
+      "sha256": "49c261f5a37f6bf2e4c7ce36d5c80ee7a5cf6efa91115cdfda3d89ac36813898",
+      "bytes": 833
+    }
+  ],
+  "claims": [
+    {
+      "id": "sleef.sin.u10",
+      "object": "Sleef_sin_u10",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "sleef.sin.u10.row"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0
+    },
+    {
+      "id": "sleef.exp.u10",
+      "object": "Sleef_exp_u10",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "sleef.exp.u10.row"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0
+    },
+    {
+      "id": "sleef.log.u10",
+      "object": "Sleef_log_u10",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "sleef.log.u10.row"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0
+    },
+    {
+      "id": "sleef.erf.u10",
+      "object": "Sleef_erf_u10",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "sleef.erf.u10.row"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.sleef.sin.u10",
+      "claim_id": "sleef.sin.u10",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "sleef.sin.u10.row"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1.0"
+      }
+    },
+    {
+      "id": "reg.sleef.exp.u10",
+      "claim_id": "sleef.exp.u10",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          8,
+          8
+        ]
+      },
+      "rows": [
+        "sleef.exp.u10.row"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1.0"
+      }
+    },
+    {
+      "id": "reg.sleef.log.u10",
+      "claim_id": "sleef.log.u10",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          9,
+          9
+        ]
+      },
+      "rows": [
+        "sleef.log.u10.row"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1.0"
+      }
+    },
+    {
+      "id": "reg.sleef.erf.u10",
+      "claim_id": "sleef.erf.u10",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          10,
+          10
+        ]
+      },
+      "rows": [
+        "sleef.erf.u10.row"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "1.0"
+      }
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 4,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/doc_excerpts.txt",
+          "mode": "full-source",
+          "path": "wider-validation/sleef/anchors/doc_excerpts.txt",
+          "sha256": "49c261f5a37f6bf2e4c7ce36d5c80ee7a5cf6efa91115cdfda3d89ac36813898"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 4,
+      "absent": 0,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 4,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "sleef.sin.u10.row",
+      "type": "reference_comparison",
+      "claim_id": "sleef.sin.u10",
+      "statement": "Sleef_sin_u10 returns a value within 1.0 ULP of the exact sine at each sampled argument",
+      "subject": "Sleef_sin_u10 in binary64",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 1048,
+      "judged_cells": 1048,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 1048,
+      "worst": {
+        "value": 0.6129075711292352,
+        "text": "0.61290757112923522",
+        "cell": {
+          "data_row": 213,
+          "label": "410e31275a64e968",
+          "x": "247332.91913778638",
+          "input_bits": "410e31275a64e968",
+          "metric": "0.61290757112923522",
+          "measured": "3feff8ce881b6c9c",
+          "reference": "9.991219194738677907943667911588629215127660994554559962200777e-01",
+          "measured_bits": "3feff8ce881b6c9c"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 1048 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/sin.csv",
+        "path": "wider-validation/sleef/data/sin.csv",
+        "comparison": "value_vs_reference",
+        "rows": 1048
+      }
+    },
+    {
+      "id": "sleef.exp.u10.row",
+      "type": "reference_comparison",
+      "claim_id": "sleef.exp.u10",
+      "statement": "Sleef_exp_u10 returns a value within 1.0 ULP of the exact exponential at each sampled argument",
+      "subject": "Sleef_exp_u10 in binary64",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments whose result is finite",
+        "scope": "whole"
+      },
+      "cells": 935,
+      "judged_cells": 935,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 935,
+      "worst": {
+        "value": 0.6906512695160184,
+        "text": "0.69065126951601842",
+        "cell": {
+          "data_row": 845,
+          "label": "bfdb91d206a5a268",
+          "x": "-0.43077517174837121",
+          "input_bits": "bfdb91d206a5a268",
+          "metric": "0.69065126951601842",
+          "measured": "3fe4ccd75b52ef14",
+          "reference": "6.500050338431458619327407162400894572570123268747418492800884e-01",
+          "measured_bits": "3fe4ccd75b52ef14"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 935 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/exp.csv",
+        "path": "wider-validation/sleef/data/exp.csv",
+        "comparison": "value_vs_reference",
+        "rows": 935
+      }
+    },
+    {
+      "id": "sleef.log.u10.row",
+      "type": "reference_comparison",
+      "claim_id": "sleef.log.u10",
+      "statement": "Sleef_log_u10 returns a value within 1.0 ULP of the exact natural logarithm at each sampled argument",
+      "subject": "Sleef_log_u10 in binary64",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled positive binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 952,
+      "judged_cells": 952,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 952,
+      "worst": {
+        "value": 0.5000000000000001,
+        "text": "0.50000000000000007",
+        "cell": {
+          "data_row": 933,
+          "label": "3feffffffffffffe",
+          "x": "0.99999999999999978",
+          "input_bits": "3feffffffffffffe",
+          "metric": "0.50000000000000007",
+          "measured": "bcb0000000000000",
+          "reference": "-2.220446049250313327366296217747866308312685109654662575025529e-16",
+          "measured_bits": "bcb0000000000000"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 952 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/log.csv",
+        "path": "wider-validation/sleef/data/log.csv",
+        "comparison": "value_vs_reference",
+        "rows": 952
+      }
+    },
+    {
+      "id": "sleef.erf.u10.row",
+      "type": "reference_comparison",
+      "claim_id": "sleef.erf.u10",
+      "statement": "Sleef_erf_u10 returns a value within 1.0 ULP of the exact error function at each sampled argument",
+      "subject": "Sleef_erf_u10 in binary64",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "ulp_exact",
+        "unit": "ulp"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "ulp"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled binary64 arguments",
+        "scope": "whole"
+      },
+      "cells": 945,
+      "judged_cells": 945,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 945,
+      "worst": {
+        "value": 0.612158820061557,
+        "text": "0.61215882006155699",
+        "cell": {
+          "data_row": 915,
+          "label": "3e45798ee2308c38",
+          "x": "9.9999999999999969e-09",
+          "input_bits": "3e45798ee2308c38",
+          "metric": "0.61215882006155699",
+          "measured": "3e483b547fb79512",
+          "reference": "1.128379167095512186542753510886886756175268956693179655704505e-08",
+          "measured_bits": "3e483b547fb79512"
+        }
+      },
+      "establishes": "conformance on the measured cells only",
+      "limitations": [
+        "the verdict covers 945 measured cell(s) and makes no statement between them"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/erf.csv",
+        "path": "wider-validation/sleef/data/erf.csv",
+        "comparison": "value_vs_reference",
+        "rows": 945
+      }
+    }
+  ],
+  "summary": {
+    "rows": 4,
+    "verified": 4,
+    "met_over_domain": 0,
+    "exceeded": 0,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 4,
+    "judged": 4
+  },
+  "exit_status": 0
+}

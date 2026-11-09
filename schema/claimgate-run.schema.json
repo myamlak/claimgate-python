@@ -49,6 +49,24 @@
         }
       }
     },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "supporting_rows"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "object": {"type": "string"},
+          "evidence_class": {"type": "string"},
+          "metric": {"type": "object"},
+          "bound": {"type": "object"},
+          "rows": {"type": "array", "items": {"type": "string"}},
+          "carrying_rows": {"type": "integer", "minimum": 0},
+          "supporting_rows": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
     "registrations": {
       "type": "array",
       "items": {

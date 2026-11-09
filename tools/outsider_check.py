@@ -24,10 +24,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 EXAMPLES = (
-    ("boost-airy", 1, {"exceeded": 4}),
-    ("crlibm-sinh", 1, {"exceeded": 3, "verified": 1}),
-    ("row-types", 1, {"exceeded": 1, "vacuous": 1, "evidence_absent": 1}),
-    ("boys-gate", 0, {"verified": 29, "met_over_domain": 9}),
+    ("boost-airy", "examples/boost-airy/book.json", 1, {"exceeded": 4}),
+    ("crlibm-sinh", "examples/crlibm-sinh/book.json", 1, {"exceeded": 3, "verified": 1}),
+    ("row-types", "examples/row-types/book.json", 1,
+     {"exceeded": 1, "vacuous": 1, "evidence_absent": 1}),
+    ("boys-gate", "examples/boys-gate/book.json", 0, {"verified": 29, "met_over_domain": 9}),
+    ("sleef", "wider-validation/sleef/book.json", 0, {"verified": 4}),
+    ("gsl", "wider-validation/gsl/book.json", 1, {"exceeded": 3, "verified": 3}),
+    ("mpfr", "wider-validation/mpfr/book.json", 0, {"verified": 16}),
 )
 
 
@@ -81,7 +85,14 @@ def main(argv=None) -> int:
             "examples/boost-airy/data/boost_airy_reference.csv",
             "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
             "examples/boys-gate/anchor-slices/index.json",
+            "wider-validation/sleef/book.json",
+            "wider-validation/sleef/data/sin.csv",
+            "wider-validation/gsl/book.json",
+            "wider-validation/gsl/data/erf.csv",
+            "wider-validation/mpfr/book.json",
+            "wider-validation/mpfr/data/sin.csv",
             "tests/test_examples.py",
+            "tests/test_wider_validation.py",
         ):
             check((clone / required).is_file(), f"the clone is missing {required}")
 
@@ -95,8 +106,7 @@ def main(argv=None) -> int:
         print("tests        : OK")
 
         # 2. Every example validates and runs with the documented exit status.
-        for name, expected_status, expected_counts in EXAMPLES:
-            book = f"examples/{name}/book.json"
+        for name, book, expected_status, expected_counts in EXAMPLES:
             result = run([sys.executable, "-m", "claimgate", "validate", book],
                          cwd=clone, env=env)
             check(result.returncode == 0, f"{book}: validate failed: {result.stderr[-2000:]}")

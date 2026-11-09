@@ -230,6 +230,27 @@ The gate stays in the boys repository.  `examples/boys-gate/extract.py`
 regenerates this book from the tagged source and the transcript; it requires
 the boys checkout and is not needed to run the example.
 
+### The wider validation: SLEEF, GSL and MPFR
+
+`wider-validation/` carries the independent validation on three libraries
+the author did not write: SLEEF 3.9.0 (per-function ULP bounds), GSL 2.8
+(accuracy modes and `_e` error estimates) and MPFR 4.2.2 (a proof-backed
+correct-rounding guarantee). The sources are pinned by URL and SHA-256; each
+library has its own book, driver, data and report.
+
+| Library | sample | result |
+| --- | --- | --- |
+| SLEEF | 4 `u10` functions, 3,880 cells | 4 of 4 verified; worst 0.691 ULP |
+| GSL | 2 statements, 6 rows, 5,610 cells | 3 of 6 met; 3 exceeded |
+| MPFR | 4 functions, 4 modes, 14,704 bit comparisons | 16 of 16 verified; 0 mismatches |
+
+The GSL findings: the `GSL_PREC_DOUBLE` "approximately 2e-16" allowance is
+exceeded on Airy Ai (worst 3.34e-15, 570 of 930 cells) and elliptic K (worst
+4.33e-16, 177 of 916); the `gsl_sf_erf_e` error estimate is below the true
+error at 8 of 944 cells (worst 1.344 times the reported error). The full
+record, the undetermined claims and what the tool cannot handle are in
+`wider-validation/README.md`.
+
 ### The row-type testbed (a construction)
 
 `examples/row-types/` is a constructed book, not a measurement.  It drives
@@ -268,6 +289,7 @@ row, a not-carried row and a not-judged row.  Its exit status is 1.
 | `examples/crlibm-sinh/` | the crlibm sinh pilot |
 | `examples/boys-gate/` | the boys gate consumer, its extractor and anchor slices |
 | `examples/row-types/` | the constructed row-type testbed |
+| `wider-validation/` | the SLEEF, GSL and MPFR validation: sources.lock.json, drivers, books, data and reports |
 | `tests/` | the unit and example tests |
 | `tools/outsider_check.py` | the fresh-clone check |
 | `records/` | the captured run reports |

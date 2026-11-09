@@ -22,6 +22,7 @@ from pathlib import Path
 from .exact import (
     EPS64,
     NumberError,
+    binary64_ulp_at,
     bits_of,
     format_fraction,
     fraction_to_float,
@@ -170,6 +171,22 @@ def metric_value(kind: str, got, ref, got_bits, ref_bits, epsilon, scale=None):
         return Fraction(0) if got == ref else Fraction(1)
     if kind == "ulp":
         return Fraction(ulp_distance(_bits_for(got, got_bits), _bits_for(ref, ref_bits)))
+    if kind == "ulp_exact":
+        # The distance from a binary64 result to an exact real reference,
+        # divided by the spacing of binary64 at the reference's correctly
+        # rounded double.  That is the definition SLEEF's own tester uses
+        # (countULPdp), with the spacing floored at the smallest subnormal.
+        if isinstance(got, Fraction) and isinstance(ref, Fraction):
+            try:
+                nearest = float(ref)
+            except OverflowError:
+                nearest = math.inf
+            if math.isfinite(nearest):
+                denominator = binary64_ulp_at(Fraction(nearest))
+            else:
+                denominator = binary64_ulp_at(ref)
+            return abs(got - ref) / denominator
+        return math.inf
     raise DataError(f"the metric {kind!r} is not known")
 
 
@@ -282,10 +299,20 @@ def evaluate_data(book, row) -> dict:
             raise DataError(f"{path}: data row {index}: {exc}") from exc
 
         scale = None
+        scale_bits_name = columns.get("scale_bits")
         scale_name = columns.get("scale")
-        if scale_name:
+        if scale_bits_name:
+            scale_text = _column(raw, scale_bits_name, path)
+            try:
+                scale, _ = parse_float_value(scale_text)
+            except NumberError as exc:
+                raise DataError(f"{path}: the scale column {scale_bits_name!r}: {exc}") from exc
+        elif scale_name:
             scale_text = _column(raw, scale_name, path)
-            scale, _ = parse_float_value(scale_text)
+            try:
+                scale = parse_decimal_value(scale_text)
+            except NumberError as exc:
+                raise DataError(f"{path}: the scale column {scale_name!r}: {exc}") from exc
 
         value = metric_value(kind, got, ref, got_bits, ref_bits, epsilon, scale)
         context = cell_context(raw, columns, index)

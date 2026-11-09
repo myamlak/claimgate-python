@@ -1,0 +1,539 @@
+{
+  "schema": "claimgate-run-1",
+  "tool": {
+    "name": "claimgate",
+    "version": "0.1.0",
+    "writer": "claimgate reference runner"
+  },
+  "book": {
+    "id": "gsl-2.8",
+    "title": "GSL 2.8: the GSL_PREC_DOUBLE accuracy mode and the _e error estimates",
+    "path": "wider-validation/gsl/book.json",
+    "sha256": "f023fb4e35198ff89b2a7e4f79f155573ced9f5de4707406b7f2aa205514a6cc"
+  },
+  "root": "wider-validation/gsl",
+  "command": [
+    "python.exe",
+    "-m",
+    "claimgate",
+    "run",
+    "wider-validation/gsl/book.json",
+    "--portable",
+    "--report",
+    "records/gsl.run.json"
+  ],
+  "started_utc": "2026-11-09T19:02:12+00:00",
+  "finished_utc": "2026-11-09T19:02:12+00:00",
+  "duration_s": 0.417259,
+  "environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "executable": "python.exe"
+  },
+  "inputs": [
+    {
+      "role": "book",
+      "path": "wider-validation/gsl/book.json",
+      "sha256": "f023fb4e35198ff89b2a7e4f79f155573ced9f5de4707406b7f2aa205514a6cc",
+      "bytes": 13990
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/airy_ai.csv",
+      "sha256": "09cc7cdc73a7115f55e77e63ed5a6e9c39032d9fc1d2a825941448b06b6914c3",
+      "bytes": 218336
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/ellint_k.csv",
+      "sha256": "d466fa993b2c95d530b9e5e4ea98b292fc03bdfc7d14130b9e606ea05f64f8c8",
+      "bytes": 213097
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/erf.csv",
+      "sha256": "0eeb51b4652bf3abc4ce55d532ff084067ff27403da83b66406ee1259119a56a",
+      "bytes": 236711
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/gamma.csv",
+      "sha256": "f3d981d9fb533b8f24643467939e729b40b6b6400611d8eadff37dae5225199c",
+      "bytes": 239807
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/bessel_j0.csv",
+      "sha256": "74359d946db8f495bf82d30658a358cbab7a8c4b871cc3e44cd77e9ac2232643",
+      "bytes": 235515
+    },
+    {
+      "role": "data",
+      "path": "wider-validation/gsl/data/bessel_j1.csv",
+      "sha256": "3c1eb356851007e5a4a20f670e302aba96ebb38f4ef646d6d6a7a4d798edc38e",
+      "bytes": 235492
+    },
+    {
+      "role": "anchor",
+      "path": "wider-validation/gsl/anchors/doc_excerpts.txt",
+      "sha256": "a8d93c66702ad982e7f030db2a64f46e8b20100f5dd7dd258c2cd869f22dd26e",
+      "bytes": 499
+    }
+  ],
+  "claims": [
+    {
+      "id": "gsl.specfunc.prec_double",
+      "object": "the special functions that accept GSL_PREC_DOUBLE (sampled: gsl_sf_airy_Ai_e, gsl_sf_ellint_Kcomp_e)",
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "2 * 10^-16",
+        "unit": "relative",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "gsl.airy_ai.prec_double",
+        "gsl.ellint_k.prec_double"
+      ],
+      "carrying_rows": 2,
+      "supporting_rows": 0
+    },
+    {
+      "id": "gsl.specfunc.error_estimate",
+      "object": "the _e special functions (sampled: gsl_sf_erf_e, gsl_sf_gamma_e, gsl_sf_bessel_J0_e, gsl_sf_bessel_J1_e)",
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "scaled",
+        "unit": "reported-error"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "reported-error",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "gsl.erf.err",
+        "gsl.gamma.err",
+        "gsl.bessel_j0.err",
+        "gsl.bessel_j1.err"
+      ],
+      "carrying_rows": 4,
+      "supporting_rows": 0
+    }
+  ],
+  "registrations": [
+    {
+      "id": "reg.gsl.prec_double",
+      "claim_id": "gsl.specfunc.prec_double",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          7,
+          7
+        ]
+      },
+      "rows": [
+        "gsl.airy_ai.prec_double",
+        "gsl.ellint_k.prec_double"
+      ],
+      "anchor": "ok",
+      "figure_check": "ok",
+      "figure": {
+        "text": "2 * 10^-16"
+      }
+    },
+    {
+      "id": "reg.gsl.error_estimate",
+      "claim_id": "gsl.specfunc.error_estimate",
+      "source": {
+        "file": "anchors/doc_excerpts.txt",
+        "lines": [
+          8,
+          8
+        ]
+      },
+      "rows": [
+        "gsl.erf.err",
+        "gsl.gamma.err",
+        "gsl.bessel_j0.err",
+        "gsl.bessel_j1.err"
+      ],
+      "anchor": "ok",
+      "figure_check": "absent"
+    }
+  ],
+  "checks": {
+    "anchors": {
+      "mode": "full-source",
+      "checked": 2,
+      "failed": [],
+      "sources": [
+        {
+          "file": "anchors/doc_excerpts.txt",
+          "mode": "full-source",
+          "path": "wider-validation/gsl/anchors/doc_excerpts.txt",
+          "sha256": "a8d93c66702ad982e7f030db2a64f46e8b20100f5dd7dd258c2cd869f22dd26e"
+        }
+      ]
+    },
+    "figures": {
+      "checked": 1,
+      "absent": 1,
+      "failed": []
+    },
+    "bindings": {
+      "checked": 6,
+      "failed": []
+    }
+  },
+  "rows": [
+    {
+      "id": "gsl.airy_ai.prec_double",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.prec_double",
+      "statement": "gsl_sf_airy_Ai_e at GSL_PREC_DOUBLE has a relative error of at most 2e-16 on the sampled arguments",
+      "subject": "gsl_sf_airy_Ai_e at GSL_PREC_DOUBLE",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "2 * 10^-16",
+        "unit": "relative"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled arguments in [0, 10], away from a zero of Ai",
+        "scope": "whole"
+      },
+      "cells": 930,
+      "judged_cells": 930,
+      "failures": 570,
+      "vacuous_cells": 0,
+      "discriminating_cells": 930,
+      "worst": {
+        "value": 3.338970850418225e-15,
+        "text": "3.3389708504182248e-15",
+        "cell": {
+          "data_row": 435,
+          "label": "40234f2dc64faf03",
+          "x": "9.6546461078901356",
+          "input_bits": "40234f2dc64faf03",
+          "metric": "3.3389708504182248e-15",
+          "measured": "3df69baa16ccef4b",
+          "reference": "3.289906323066384726393126622777050607880270099228625047249027e-10",
+          "measured_bits": "3df69baa16ccef4b"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 930 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/airy_ai.csv",
+        "path": "wider-validation/gsl/data/airy_ai.csv",
+        "comparison": "value_vs_reference",
+        "rows": 930
+      }
+    },
+    {
+      "id": "gsl.ellint_k.prec_double",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.prec_double",
+      "statement": "gsl_sf_ellint_Kcomp_e at GSL_PREC_DOUBLE has a relative error of at most 2e-16 on the sampled arguments",
+      "subject": "gsl_sf_ellint_Kcomp_e at GSL_PREC_DOUBLE",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "2 * 10^-16",
+        "unit": "relative"
+      },
+      "quantifier": "uniform",
+      "domain": {
+        "description": "the sampled moduli in [0, 0.9], away from the singular point 1",
+        "scope": "whole"
+      },
+      "cells": 916,
+      "judged_cells": 916,
+      "failures": 177,
+      "vacuous_cells": 0,
+      "discriminating_cells": 916,
+      "worst": {
+        "value": 4.329956070717867e-16,
+        "text": "4.3299560707178672e-16",
+        "cell": {
+          "data_row": 15,
+          "label": "3fc0f878db74bffc",
+          "x": "0.13258276668193492",
+          "input_bits": "3fc0f878db74bffc",
+          "metric": "4.3299560707178672e-16",
+          "measured": "3ff93e8a0a7ae7b0",
+          "reference": "1.577768364847069931420439046737962005262785389802723137652253e+00",
+          "measured_bits": "3ff93e8a0a7ae7b0"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 916 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/ellint_k.csv",
+        "path": "wider-validation/gsl/data/ellint_k.csv",
+        "comparison": "value_vs_reference",
+        "rows": 916
+      }
+    },
+    {
+      "id": "gsl.erf.err",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.error_estimate",
+      "statement": "gsl_sf_erf_e returns an err field at least the true absolute error at each sampled argument",
+      "subject": "gsl_sf_erf_e's error estimate",
+      "verdict": "exceeded",
+      "family": "judged_and_unmet",
+      "met": false,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "scaled",
+        "unit": "reported-error"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "reported-error"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "the sampled arguments in [-6, 6]",
+        "scope": "whole"
+      },
+      "cells": 944,
+      "judged_cells": 944,
+      "failures": 8,
+      "vacuous_cells": 9,
+      "discriminating_cells": 935,
+      "worst": {
+        "value": 1.343685205224773,
+        "text": "1.3436852052247729",
+        "cell": {
+          "data_row": 159,
+          "label": "3fece511f7d4d8e0",
+          "x": "0.90296266941620829",
+          "input_bits": "3fece511f7d4d8e0",
+          "metric": "1.3436852052247729",
+          "measured": "3fe98c6c28025034",
+          "reference": "7.983914166857229952197999111946597730004778409869965930818732e-01",
+          "measured_bits": "3fe98c6c28025034"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 944 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/erf.csv",
+        "path": "wider-validation/gsl/data/erf.csv",
+        "comparison": "value_vs_reference",
+        "rows": 944
+      }
+    },
+    {
+      "id": "gsl.gamma.err",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.error_estimate",
+      "statement": "gsl_sf_gamma_e returns an err field at least the true absolute error at each sampled argument",
+      "subject": "gsl_sf_gamma_e's error estimate",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "scaled",
+        "unit": "reported-error"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "reported-error"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "the sampled arguments in [0.01, 170]",
+        "scope": "whole"
+      },
+      "cells": 945,
+      "judged_cells": 945,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 945,
+      "worst": {
+        "value": 0.7113921675492335,
+        "text": "0.71139216754923351",
+        "cell": {
+          "data_row": 908,
+          "label": "3fefffffffffffff",
+          "x": "0.99999999999999989",
+          "input_bits": "3fefffffffffffff",
+          "metric": "0.71139216754923351",
+          "measured": "3ff0000000000001",
+          "reference": "1.000000000000000064083812134800074479666460253063617118754982e+00",
+          "measured_bits": "3ff0000000000001"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 945 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/gamma.csv",
+        "path": "wider-validation/gsl/data/gamma.csv",
+        "comparison": "value_vs_reference",
+        "rows": 945
+      }
+    },
+    {
+      "id": "gsl.bessel_j0.err",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.error_estimate",
+      "statement": "gsl_sf_bessel_J0_e returns an err field at least the true absolute error at each sampled argument",
+      "subject": "gsl_sf_bessel_J0_e's error estimate",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "scaled",
+        "unit": "reported-error"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "reported-error"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "the sampled arguments in [0, 500]",
+        "scope": "whole"
+      },
+      "cells": 940,
+      "judged_cells": 940,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 940,
+      "worst": {
+        "value": 0.8498739047096626,
+        "text": "0.84987390470966261",
+        "cell": {
+          "data_row": 586,
+          "label": "40711faa86405189",
+          "x": "273.97913193821347",
+          "input_bits": "40711faa86405189",
+          "metric": "0.84987390470966261",
+          "measured": "bfa87ca4dc9b6b77",
+          "reference": "-4.782595818479414893680273820222017088338738923129880684373924e-02",
+          "measured_bits": "bfa87ca4dc9b6b77"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 940 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/bessel_j0.csv",
+        "path": "wider-validation/gsl/data/bessel_j0.csv",
+        "comparison": "value_vs_reference",
+        "rows": 940
+      }
+    },
+    {
+      "id": "gsl.bessel_j1.err",
+      "type": "reference_comparison",
+      "claim_id": "gsl.specfunc.error_estimate",
+      "statement": "gsl_sf_bessel_J1_e returns an err field at least the true absolute error at each sampled argument",
+      "subject": "gsl_sf_bessel_J1_e's error estimate",
+      "verdict": "verified",
+      "family": "judged_and_met",
+      "met": true,
+      "evidence_class": "empirical_allowance",
+      "metric": {
+        "kind": "scaled",
+        "unit": "reported-error"
+      },
+      "bound": {
+        "value": 1.0,
+        "unit": "reported-error"
+      },
+      "quantifier": "pointwise",
+      "domain": {
+        "description": "the sampled arguments in [0, 500]",
+        "scope": "whole"
+      },
+      "cells": 935,
+      "judged_cells": 935,
+      "failures": 0,
+      "vacuous_cells": 0,
+      "discriminating_cells": 935,
+      "worst": {
+        "value": 0.6027263281189508,
+        "text": "0.60272632811895081",
+        "cell": {
+          "data_row": 772,
+          "label": "407720f93562aaa5",
+          "x": "370.06084192792542",
+          "input_bits": "407720f93562aaa5",
+          "metric": "0.60272632811895081",
+          "measured": "bfa507c1cae0e5b0",
+          "reference": "-4.107480622810597931644321860111923131995808660896914927958644e-02",
+          "measured_bits": "bfa507c1cae0e5b0"
+        }
+      },
+      "establishes": "an allowance observed over a design; not a bound",
+      "limitations": [
+        "the verdict covers 935 measured cell(s) and makes no statement between them",
+        "an observed allowance is not a bound"
+      ],
+      "relation": "carries",
+      "data": {
+        "file": "data/bessel_j1.csv",
+        "path": "wider-validation/gsl/data/bessel_j1.csv",
+        "comparison": "value_vs_reference",
+        "rows": 935
+      }
+    }
+  ],
+  "summary": {
+    "rows": 6,
+    "verified": 3,
+    "met_over_domain": 0,
+    "exceeded": 3,
+    "vacuous": 0,
+    "evidence_absent": 0,
+    "not_carried": 0,
+    "not_judged": 0,
+    "met": 3,
+    "judged": 6
+  },
+  "exit_status": 1
+}

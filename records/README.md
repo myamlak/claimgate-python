@@ -9,6 +9,9 @@ documented commands, made with claimgate 0.1.0 on 2026-11-09.
 | `crlibm-sinh.run.json` | `python -m claimgate run examples/crlibm-sinh/book.json --portable --report records/crlibm-sinh.run.json` | 1 | 1 of 4 judged rows met; 3 exceeded |
 | `boys-gate.run.json` | `python -m claimgate run examples/boys-gate/book.json --portable --report records/boys-gate.run.json` | 0 | 38 of 38 judged rows met |
 | `row-types.run.json` | `python -m claimgate run examples/row-types/book.json --portable --report records/row-types.run.json` | 1 | 3 of 6 judged rows met; 1 exceeded, 1 vacuous, 1 evidence absent |
+| `sleef.run.json` | `python -m claimgate run wider-validation/sleef/book.json --portable --report records/sleef.run.json` | 0 | 4 of 4 judged rows met; worst 0.691 ULP |
+| `gsl.run.json` | `python -m claimgate run wider-validation/gsl/book.json --portable --report records/gsl.run.json` | 1 | 3 of 6 judged rows met; 3 exceeded |
+| `mpfr.run.json` | `python -m claimgate run wider-validation/mpfr/book.json --portable --report records/mpfr.run.json` | 0 | 16 of 16 judged rows met; 0 mismatches |
 
 Each report carries the book digest, the root, the command, the environment,
 the SHA-256 of every input, the per-row results and the summary.  The reports

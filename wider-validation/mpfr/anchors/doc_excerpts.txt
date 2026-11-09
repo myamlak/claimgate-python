@@ -1,0 +1,9 @@
+MPFR 4.2.2 documentation excerpts
+Source: doc/mpfr.texi, read from the pinned archive mpfr-4.2.2.tar.xz
+Archive: https://www.mpfr.org/mpfr-4.2.2/mpfr-4.2.2.tar.xz
+SHA-256: b67ba0383ef7e8a8563734e2e889ef5ec3c3b898a01d00fa0a6869ad81c6ce01
+Quoted from the Texinfo source; markup is stripped and the line wrapping is joined.
+
+correct_rounding: The value stored in the destination variable is correctly rounded, i.e., MPFR behaves as if it computed the result with an infinite precision, then rounded it to the precision of this variable.
+exact_inputs: The input variables are regarded as exact (in particular, their precision does not affect the result).
+error_bound: As a consequence, in case of a non-zero real rounded result, the error on the result is less than or equal to 1/2 ulp (unit in the last place) of that result in the rounding to nearest mode, and less than 1 ulp of that result in the directed rounding modes (a ulp is the weight of the least significant represented bit of the result after rounding).

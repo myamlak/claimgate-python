@@ -186,6 +186,26 @@ def run_book(
             )
         registration_report.append(entry)
 
+    claim_report = []
+    for claim in book.data.get("claims", []):
+        row_ids = list(claim.get("rows", []))
+        carrying = [
+            row_id for row_id in row_ids
+            if book.rows[row_id].get("relation", "carries") == "carries"
+        ]
+        claim_report.append(
+            {
+                "id": claim["id"],
+                "object": claim["object"],
+                "evidence_class": claim["evidence_class"],
+                "metric": claim.get("metric"),
+                "bound": claim.get("bound"),
+                "rows": row_ids,
+                "carrying_rows": len(carrying),
+                "supporting_rows": len(row_ids) - len(carrying),
+            }
+        )
+
     finished = time.perf_counter()
     report = {
         "schema": RUN_SCHEMA,
@@ -203,6 +223,7 @@ def run_book(
         "duration_s": round(finished - started, 6),
         "environment": _environment(),
         "inputs": list(inputs.values()),
+        "claims": claim_report,
         "registrations": registration_report,
         "checks": {
             "anchors": {

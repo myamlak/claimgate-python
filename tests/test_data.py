@@ -76,6 +76,24 @@ class MetricTest(unittest.TestCase):
             Fraction(1),
         )
 
+    def test_ulp_exact(self):
+        eps = Fraction(1, 2**52)
+        self.assertEqual(
+            metric_value("ulp_exact", Fraction(1) + eps, Fraction(1), None, None, None),
+            Fraction(1),
+        )
+        self.assertEqual(
+            metric_value("ulp_exact", Fraction(1), Fraction(1) + eps / 2, None, None, None),
+            Fraction(1, 2),
+        )
+        # A reference just below 2 rounds to 2.0, whose spacing is used.
+        reference = Fraction(2) - Fraction(1, 2**53)
+        measured = Fraction(2) - Fraction(1, 2**52)
+        self.assertEqual(
+            metric_value("ulp_exact", measured, reference, None, None, None),
+            Fraction(1, 4),
+        )
+
     def test_bit_identity(self):
         self.assertEqual(
             metric_value("bit_identity", Fraction(1), Fraction(1), 1, 1, None), Fraction(0)

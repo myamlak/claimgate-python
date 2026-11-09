@@ -44,7 +44,7 @@ EVIDENCE_CLASSES = (
     "not_carried",
 )
 
-METRIC_KINDS = ("absolute", "relative", "epsilon", "ulp", "bit_identity", "scaled", "exact", "external")
+METRIC_KINDS = ("absolute", "relative", "epsilon", "ulp", "ulp_exact", "bit_identity", "scaled", "exact", "external")
 
 QUANTIFIERS = ("pointwise", "uniform", "observed_maximum", "band_maximum")
 
@@ -293,11 +293,11 @@ def _check_data(errors: list[str], where: str, data) -> None:
         errors.append(f"{where}: the data format must be csv")
     comparison = data.get("comparison")
     required_columns = {
-        "value_vs_reference": ("measured", "reference"),
-        "consistency": ("a", "b"),
-        "bit_identity": ("measured_bits", "expected_bits"),
-        "exact": ("measured", "expected"),
-        "vacuous": ("magnitude",),
+        "value_vs_reference": (("measured", "measured_bits"), ("reference", "reference_bits")),
+        "consistency": (("a",), ("b",)),
+        "bit_identity": (("measured_bits",), ("expected_bits",)),
+        "exact": (("measured",), ("expected",)),
+        "vacuous": (("magnitude",),),
     }
     if comparison not in required_columns:
         errors.append(f"{where}: the comparison {comparison!r} is not known")
@@ -306,9 +306,12 @@ def _check_data(errors: list[str], where: str, data) -> None:
     if not isinstance(columns, dict):
         errors.append(f"{where}: the data columns must be an object")
         return
-    for column in required_columns[comparison]:
-        if not isinstance(columns.get(column), str) or not columns[column]:
-            errors.append(f"{where}: comparison {comparison!r} needs the column {column!r}")
+    for alternatives in required_columns[comparison]:
+        if not any(isinstance(columns.get(name), str) and columns[name] for name in alternatives):
+            errors.append(
+                f"{where}: comparison {comparison!r} needs one of the columns "
+                f"{', '.join(alternatives)}"
+            )
     if data.get("filter") is not None:
         filt = data["filter"]
         if not isinstance(filt, dict):
@@ -557,16 +560,23 @@ def validate_book(data: dict[str, Any]) -> list[str]:
                     f"claim {cid}: names row {row_id!r}, but no registration of the claim cites it"
                 )
         if claim.get("evidence_class") in ("proof", "certified_bound"):
-            row_classes = {
-                rows[row_id].get("evidence_class")
-                for row_id in claim.get("rows", []) if isinstance(claim.get("rows"), list)
-                if row_id in rows
-            }
-            if claim["evidence_class"] not in row_classes:
-                errors.append(
-                    f"claim {cid}: is registered as {claim['evidence_class']!r}, but no carrying "
-                    f"row carries that class (the rows carry {sorted(c for c in row_classes if c)})"
-                )
+            # A proof or certified claim needs a carrying row of that class.
+            # A claim whose rows all support an external proof (the library's
+            # own guarantee) is allowed: the proof is outside the book.
+            carrying = [
+                row_id for row_id in claim.get("rows", [])
+                if isinstance(claim.get("rows"), list)
+                and row_id in rows
+                and rows[row_id].get("relation", "carries") == "carries"
+            ]
+            if carrying:
+                row_classes = {rows[row_id].get("evidence_class") for row_id in carrying}
+                if claim["evidence_class"] not in row_classes:
+                    errors.append(
+                        f"claim {cid}: is registered as {claim['evidence_class']!r}, but no "
+                        f"carrying row carries that class (the rows carry "
+                        f"{sorted(c for c in row_classes if c)})"
+                    )
     for reg in registrations:
         if not isinstance(reg, dict):
             continue

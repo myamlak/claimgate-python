@@ -7,6 +7,7 @@ from fractions import Fraction
 from claimgate.exact import (
     EPS64,
     NumberError,
+    binary64_ulp_at,
     format_fraction,
     parse_decimal_value,
     parse_exact,
@@ -31,6 +32,10 @@ class ParseExactTest(unittest.TestCase):
             parse_exact("1e-15 + 2.5e-7"),
             Fraction(1, 10**15) + Fraction(25, 10**8),
         )
+
+    def test_product(self):
+        self.assertEqual(parse_exact("2 * 10^-16"), Fraction(2, 10**16))
+        self.assertEqual(parse_exact("1.5 * 2^-10"), Fraction(3, 2) * Fraction(1, 2**10))
 
     def test_hex_float(self):
         self.assertEqual(parse_exact("0x1.8p+3"), Fraction(12))
@@ -80,6 +85,21 @@ class ParseDecimalValueTest(unittest.TestCase):
 
     def test_hex_float(self):
         self.assertEqual(parse_decimal_value("0x1.8p+3"), Fraction(12))
+
+
+class Binary64UlpTest(unittest.TestCase):
+    def test_normal(self):
+        self.assertEqual(binary64_ulp_at(Fraction(1)), Fraction(1, 2**52))
+        self.assertEqual(binary64_ulp_at(Fraction(2)), Fraction(1, 2**51))
+        self.assertEqual(binary64_ulp_at(Fraction(3, 4)), Fraction(1, 2**53))
+        self.assertEqual(binary64_ulp_at(Fraction(1, 3)), Fraction(1, 2**54))
+
+    def test_subnormal_and_zero(self):
+        self.assertEqual(binary64_ulp_at(Fraction(1, 2**1022)), Fraction(1, 2**1074))
+        self.assertEqual(binary64_ulp_at(Fraction(0)), Fraction(1, 2**1074))
+
+    def test_negative(self):
+        self.assertEqual(binary64_ulp_at(Fraction(-1)), Fraction(1, 2**52))
 
 
 class UlpTest(unittest.TestCase):

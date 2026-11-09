@@ -173,12 +173,24 @@ def check_anchors(book, mode: str = "auto") -> dict:
 
 
 def figure_in_quote(quote: str, figure: str) -> bool:
-    """True when the figure occurs in the quote as a number of its own."""
+    """True when the figure occurs in the quote as a number of its own.
+
+    A sentence-final period is punctuation, not a decimal point: the figure
+    ``2 * 10^-16`` is present in ``approximately 2 * 10^-16.`` while the
+    figure ``8`` is not present in ``0.008``.
+    """
     at = quote.find(figure)
     while at != -1:
         left_ok = at == 0 or not _FIGURE_CHAR.match(quote[at - 1])
         end = at + len(figure)
-        right_ok = end == len(quote) or not _FIGURE_CHAR.match(quote[end])
+        if end == len(quote):
+            right_ok = True
+        elif not _FIGURE_CHAR.match(quote[end]):
+            right_ok = True
+        elif quote[end] == "." and (end + 1 == len(quote) or quote[end + 1].isspace()):
+            right_ok = True
+        else:
+            right_ok = False
         if left_ok and right_ok:
             return True
         at = quote.find(figure, at + 1)

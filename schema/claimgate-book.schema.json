@@ -45,7 +45,7 @@
     },
     "metricKind": {
       "description": "The comparison a row computes. 'external' means the metric is the external run record's own and claimgate does not recompute it.",
-      "enum": ["absolute", "relative", "epsilon", "ulp", "bit_identity", "scaled", "exact", "external"]
+      "enum": ["absolute", "relative", "epsilon", "ulp", "ulp_exact", "bit_identity", "scaled", "exact", "external"]
     },
     "quantifier": {
       "enum": ["pointwise", "uniform", "observed_maximum", "band_maximum"]
@@ -284,6 +284,7 @@
             "magnitude": {"type": "string"},
             "band": {"type": "string"},
             "scale": {"type": "string"},
+            "scale_bits": {"type": "string"},
             "label": {"type": "string"}
           }
         },

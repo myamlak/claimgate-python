@@ -4,3 +4,10 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+
+# Wider validation: the pinned archives are fetched by hash, and the inputs
+# and build logs are regenerable.  The measured CSVs, books and reports are
+# tracked.
+wider-validation/downloads/
+wider-validation/inputs/
+wider-validation/*.log

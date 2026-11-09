@@ -1,0 +1,10 @@
+SLEEF 3.9.0 documentation excerpts
+Source: docs/purec.xhtml, read from the pinned archive sleef-3.9.0.tar.gz
+Archive: https://github.com/shibatch/sleef/archive/refs/tags/3.9.0.tar.gz
+SHA-256: af60856abac08a3b5e72a8d156dd71fec1f7ac23de8ee67793f45f9edcdf0908
+Quoted from the rendered page; HTML tags are stripped, and the argument variable is written a.
+
+sin: These functions evaluate the sine function of a value in a. The error bound of the returned value is 1.0 ULP.
+exp: These functions return the value of e raised to a. The error bound of the returned value is 1.0 ULP.
+log: These functions return the natural logarithm of a. The error bound of the returned value is 1.0 ULP.
+erf: These functions return the value as specified in the C99 specification of erf and erff functions. The error bound of the returned value is 1.0 ULP.
