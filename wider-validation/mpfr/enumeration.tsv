@@ -1,0 +1,6 @@
+# MPFR 4.2.2 claim enumeration: doc/mpfr.texi.
+# The manual states one correct-rounding guarantee for every function and every rounding mode.
+# This validation samples four functions at precision 53 in the four rounding modes.
+claim	sentence	source	scope	registered
+correct_rounding	The value stored in the destination variable is correctly rounded, i.e., MPFR behaves as if it computed the result with an infinite precision, then rounded it to the precision of this variable.	doc/mpfr.texi lines 988-990	every MPFR function and rounding mode	yes: mpfr_sin, mpfr_exp, mpfr_log, mpfr_atan at precision 53, RN/RU/RD/RZ
+rounding_error	As a consequence, in case of a non-zero real rounded result, the error on the result is less than or equal to 1/2 ulp ... in the rounding to nearest mode, and less than 1 ulp ... in the directed rounding modes.	doc/mpfr.texi lines 994-996	every MPFR function and rounding mode	supporting sentence, not registered on its own

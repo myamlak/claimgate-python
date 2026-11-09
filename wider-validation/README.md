@@ -71,6 +71,23 @@ as `supports`, not `carries`.
 evaluation at 53+64 to 53+16384 bits, certified by `mpfr_can_round`. This
 confirms the guarantee on the sample; it does not verify the library's proof.
 
+## Claim enumeration
+
+The enumeration is a lower bound on each library's row-shaped claims, built
+by hand from the pinned documentation. The sample registered and measured is
+a subset.
+
+| Library | Enumerated | Registered | Record |
+| --- | --- | --- | --- |
+| SLEEF | 27 scalar double-precision `u10` entries in `docs/purec.xhtml`, each with its documented bound | 4 (sin, exp, log, erf) | `sleef/enumeration.tsv` |
+| GSL | 4 numeric accuracy statements in the special-functions chapter (`GSL_PREC_DOUBLE`, `GSL_PREC_SINGLE`, `GSL_PREC_APPROX`, the `err` estimate) | 2 (the `GSL_PREC_DOUBLE` allowance and the `err` estimate) | `gsl/enumeration.tsv` |
+| MPFR | 1 correct-rounding guarantee, scoped over every function and rounding mode | 4 functions × 4 modes at precision 53 | `mpfr/enumeration.tsv` |
+
+The SLEEF census excludes the `u35` and `u05` families and the vector entries;
+the GSL census is the special-functions chapter, not the whole manual; the
+MPFR guarantee is one claim, so its "sample" is a set of function-and-mode
+instances rather than a set of sentences. No enumeration is claimed complete.
+
 ## Undetermined claims
 
 * GSL's two sentences are not strict, row-shaped claims. "Approximately" and

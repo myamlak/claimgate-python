@@ -1,0 +1,32 @@
+# SLEEF 3.9.0 claim enumeration: the scalar double-precision u10 entries in docs/purec.xhtml.
+# Each row is a documented error bound for the double-precision entry point; the single-precision
+# entries share the heading. "registered" marks the four claims measured in this validation.
+# The bound is quoted from the rendered page; HTML tags are stripped.
+function	documented_bound	domain_as_stated	registered	upstream_line
+Sleef_sin_u10	1.0 ULP	all finite arguments	yes	106
+Sleef_cos_u10	1.0 ULP	all finite arguments	no	180
+Sleef_sincos_u10	1.0 ULP	all finite arguments	no	255
+Sleef_tan_u10	1.0 ULP	all finite arguments	no	497
+Sleef_pow_u10	1.0 ULP	all finite arguments	no	572
+Sleef_log_u10	1.0 ULP	all finite arguments	yes	609
+Sleef_log10_u10	1.0 ULP	all finite arguments	no	683
+Sleef_log2_u10	1.0 ULP	all finite arguments	no	720
+Sleef_log1p_u10	1.0 ULP	all finite arguments	no	757
+Sleef_exp_u10	1.0 ULP	all finite arguments	yes	794
+Sleef_exp2_u10	1.0 ULP	all finite arguments	no	831
+Sleef_exp10_u10	1.09 ULP	all finite arguments	no	868
+Sleef_expm1_u10	1.0 ULP	all finite arguments	no	905
+Sleef_cbrt_u10	1.0 ULP	all finite arguments	no	1014
+Sleef_asin_u10	1.0 ULP	all finite arguments	no	1160
+Sleef_acos_u10	1.0 ULP	all finite arguments	no	1234
+Sleef_atan_u10	1.0 ULP	all finite arguments	no	1308
+Sleef_atan2_u10	max(1.0 ULP, DBL_MIN) DP / max(1.0 ULP, FLT_MIN) SP	all finite arguments	no	1382
+Sleef_sinh_u10	1.0 ULP	if a is in [-709, 709] (DP)	no	1461
+Sleef_cosh_u10	1.0 ULP	if a is in [-709, 709] (DP)	no	1543
+Sleef_tanh_u10	1.0 ULP DP / 1.0001 ULP SP	all finite arguments	no	1625
+Sleef_asinh_u10	1.0 ULP	if a is in [-1.34e+154, 1.34e+154] (DP)	no	1701
+Sleef_acosh_u10	1.0 ULP	if a is in [-1.34e+154, 1.34e+154] (DP)	no	1743
+Sleef_atanh_u10	1.0 ULP DP / 1.0001 ULP SP	all finite arguments	no	1785
+Sleef_erf_u10	1.0 ULP	all finite arguments	yes	1824
+Sleef_tgamma_u10	1.0 ULP	all finite arguments	no	1898
+Sleef_lgamma_u10	1.0 ULP if positive / max(1 ULP, 1e-15) if negative	positive or negative finite arguments	no	1934

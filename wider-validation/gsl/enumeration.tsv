@@ -1,0 +1,8 @@
+# GSL 2.8 claim enumeration: the numeric accuracy statements in the special-functions chapter,
+# doc/specfunc.rst. The mode statements cover every function that takes a gsl_mode_t; the err
+# statement covers every _e routine. "registered" marks the statements measured in this validation.
+claim	sentence	source	row_shaped	registered
+GSL_PREC_DOUBLE	Double-precision, a relative accuracy of approximately 2 * 10^-16.	doc/specfunc.rst line 108	hedged by "approximately"; an allowance, not a strict bound	yes (Airy Ai and elliptic K)
+GSL_PREC_SINGLE	Single-precision, a relative accuracy of approximately 10^-7.	doc/specfunc.rst line 112	hedged by "approximately"; an allowance, not a strict bound	no
+GSL_PREC_APPROX	Approximate values, a relative accuracy of approximately 5 * 10^-4.	doc/specfunc.rst line 116	hedged by "approximately"; an allowance, not a strict bound	no
+gsl_sf_result.err	The field err contains an estimate of the absolute error in the value.	doc/specfunc.rst line 72	an estimate, not a bound	yes (erf, gamma, J0, J1)
