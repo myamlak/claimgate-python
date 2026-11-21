@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "records/row-types.run.json"
   ],
-  "started_utc": "2026-11-21T10:21:15+00:00",
-  "finished_utc": "2026-11-21T10:21:15+00:00",
-  "duration_s": 0.018491,
+  "started_utc": "2026-11-21T10:29:41+00:00",
+  "finished_utc": "2026-11-21T10:29:41+00:00",
+  "duration_s": 0.018314,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -94,8 +94,10 @@
         "reference.whole"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.stated",
@@ -114,8 +116,10 @@
         "reference.stated"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.consistency",
@@ -134,8 +138,10 @@
         "consistency.paths"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.exactness",
@@ -154,8 +160,10 @@
         "exact.zero"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.vacuity",
@@ -174,8 +182,10 @@
         "vacuity.bound"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.absent",
@@ -194,8 +204,10 @@
         "absent.sweep"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.notcarried",
@@ -214,8 +226,10 @@
         "notcarried.seam"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "demo.notjudged",
@@ -234,8 +248,10 @@
         "reference.notjudged"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [

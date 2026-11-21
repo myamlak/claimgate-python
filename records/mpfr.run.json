@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "records/mpfr.run.json"
   ],
-  "started_utc": "2026-11-21T10:21:17+00:00",
-  "finished_utc": "2026-11-21T10:21:17+00:00",
-  "duration_s": 0.355534,
+  "started_utc": "2026-11-21T10:29:43+00:00",
+  "finished_utc": "2026-11-21T10:29:43+00:00",
+  "duration_s": 0.3359,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -91,8 +91,10 @@
         "mpfr.sin.rz"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 4,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.exp.correct_rounding",
@@ -114,8 +116,10 @@
         "mpfr.exp.rz"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 4,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.log.correct_rounding",
@@ -137,8 +141,10 @@
         "mpfr.log.rz"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 4,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.atan.correct_rounding",
@@ -160,8 +166,10 @@
         "mpfr.atan.rz"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 4,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [

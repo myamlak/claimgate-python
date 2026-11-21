@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "records/boost-airy.run.json"
   ],
-  "started_utc": "2026-11-21T10:21:14+00:00",
-  "finished_utc": "2026-11-21T10:21:14+00:00",
-  "duration_s": 0.188334,
+  "started_utc": "2026-11-21T10:29:40+00:00",
+  "finished_utc": "2026-11-21T10:29:40+00:00",
+  "duration_s": 0.176189,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -42,14 +42,14 @@
     {
       "role": "data",
       "path": "examples/boost-airy/data/boost_airy_reference.csv",
-      "sha256": "4efec9f2b07b712e577644f11d64267af544505aceaae1774ad3b686b84c4a16",
-      "bytes": 785603
+      "sha256": "ecb7eb4ce9873794f3b824f5708a36bf88c0d93d5eaf08a37203ac9e33e9e3c2",
+      "bytes": 780904
     },
     {
       "role": "anchor",
       "path": "examples/boost-airy/anchors/doc_excerpts.txt",
-      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
-      "bytes": 2881
+      "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162",
+      "bytes": 2803
     }
   ],
   "claims": [
@@ -74,8 +74,10 @@
         "boost.airy.bi.named"
       ],
       "carrying_rows": 4,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -112,7 +114,7 @@
           "file": "anchors/doc_excerpts.txt",
           "mode": "full-source",
           "path": "examples/boost-airy/anchors/doc_excerpts.txt",
-          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+          "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162"
         }
       ]
     },

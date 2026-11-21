@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "records/boys-gate.run.json"
   ],
-  "started_utc": "2026-11-21T10:24:05+00:00",
-  "finished_utc": "2026-11-21T10:24:05+00:00",
-  "duration_s": 0.022254,
+  "started_utc": "2026-11-21T10:29:41+00:00",
+  "finished_utc": "2026-11-21T10:29:41+00:00",
+  "duration_s": 0.063794,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -42,44 +42,44 @@
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/README.md.slices.json",
-      "sha256": "2ea79f3d77bd997db6c07a16a91428735befa88177ba74f8eae5d7a006d1a267",
-      "bytes": 862
+      "sha256": "60b9b47ef61ab6be4082d4843016ba4d9a8a71ba2d92781b2153416ba04aeb1e",
+      "bytes": 848
     },
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/docs__mainpage.md.slices.json",
-      "sha256": "df59dae4afbd98e98f3a0dd9b5c4c24b51ed5e3ef89eb26f64c4dab49a6318de",
-      "bytes": 1184
+      "sha256": "7fa46e6a1e3381e1caf97dfc5b77159e3176a0198f49a6ffb69a877ce6bef9a2",
+      "bytes": 1170
     },
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/docs__lane-contract.md.slices.json",
-      "sha256": "04fbb6fecb4bd0652f37fbb33176b55f7674f0086218cd802649d1c24e208b82",
-      "bytes": 6100
+      "sha256": "7bba51a5be29a6e6e7f8253f1e499665ba10115b4027c534664eb4d7c79db0e6",
+      "bytes": 6029
     },
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/CONTRIBUTING.md.slices.json",
-      "sha256": "c4021126081b120e49059b40a396688176d7711e7ccba0b5f71b88a08564fb3e",
-      "bytes": 336
+      "sha256": "2273fa0979a40960bea8ac2732888bfcb57a650e0f9fc62aecab40a8403db83e",
+      "bytes": 327
     },
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/src__boys_simd.cpp.slices.json",
-      "sha256": "85507bd600d7fbf9693e5d12f3ea8809050af84c16c2e339f4f41c8e5ff7bd78",
-      "bytes": 522
+      "sha256": "400f9ec81e9a424de8c82a61c4928d9bc9c1e3d6cc6c594cd4b310ea81668b7a",
+      "bytes": 511
     },
     {
       "role": "anchor",
       "path": "examples/boys-gate/anchor-slices/include__boys__boys_decl.hpp.slices.json",
-      "sha256": "edac1779be0ec07c8f9f45d345d2017a307e6a79e27b229b13ea85434ba589a5",
-      "bytes": 581
+      "sha256": "ebb35fb83c3716d72f9f9b0c4c1f0a686098189ca7ba9e33c0f3b85c7af0171e",
+      "bytes": 569
     },
     {
       "role": "external-run",
       "path": "examples/boys-gate/run-record.json",
-      "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
-      "bytes": 14245
+      "sha256": "d751035191fdc221b11bc09626571390355e6547859d311cd201e8e7e880e0da",
+      "bytes": 13973
     }
   ],
   "claims": [
@@ -101,8 +101,10 @@
         "README.double.batch"
       ],
       "carrying_rows": 2,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "F01",
@@ -121,8 +123,10 @@
         "README.float"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H01",
@@ -141,8 +145,10 @@
         "README.half"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 1,
-      "stronger_test_rows": 1
+      "stronger_test_rows": 1,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "D13",
@@ -161,8 +167,10 @@
         "LC.double.worst_cell"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P02",
@@ -181,8 +189,10 @@
         "native.half.suite_worst"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "D07",
@@ -201,8 +211,10 @@
         "LC.double.ceiling"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "F02",
@@ -221,8 +233,10 @@
         "LC.float.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "D02",
@@ -241,8 +255,10 @@
         "LC.region_A.fit_bar"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X01",
@@ -261,8 +277,10 @@
         "transform.fp64.bound"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X02",
@@ -281,8 +299,10 @@
         "transform.fp64.delivered"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X03",
@@ -301,8 +321,10 @@
         "transform.tf32x3.bound"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X05",
@@ -321,8 +343,10 @@
         "transform.bf16x6.bound"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X04",
@@ -341,8 +365,10 @@
         "transform.tf32x3.delivered"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "X06",
@@ -361,8 +387,10 @@
         "transform.bf16x6.delivered"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H02b",
@@ -381,8 +409,10 @@
         "LC.half.budget"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H04",
@@ -401,8 +431,10 @@
         "LC.half.worst_cell"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H06",
@@ -421,8 +453,10 @@
         "LC.half.representation_share"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H07",
@@ -441,8 +475,10 @@
         "LC.half.returned_value_floor"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "H08",
@@ -461,8 +497,10 @@
         "LC.half.range_from_order3"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P06",
@@ -481,8 +519,10 @@
         "LC.packed.rescale_exact"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P09",
@@ -501,8 +541,10 @@
         "code.half_simd_cells"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P01",
@@ -521,8 +563,10 @@
         "native.half.bound"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P11",
@@ -541,8 +585,10 @@
         "code.half_domain_stop"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 1,
+      "matching_rows": 0
     },
     {
       "id": "P07",
@@ -561,8 +607,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08a",
@@ -581,8 +629,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08b",
@@ -601,8 +651,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08c",
@@ -621,8 +673,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08d",
@@ -641,8 +695,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08e",
@@ -661,8 +717,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08f",
@@ -681,8 +739,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08g",
@@ -701,8 +761,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08h",
@@ -721,8 +783,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P08i",
@@ -741,8 +805,10 @@
         "native.half.ceiling"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P03",
@@ -761,8 +827,10 @@
         "native.half.packed"
       ],
       "carrying_rows": 0,
+      "stronger_test_rows": 0,
       "supporting_rows": 1,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "P04",
@@ -781,8 +849,10 @@
         "LC.packed.representation_cost"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "A03",
@@ -801,8 +871,10 @@
         "LC.regionC.asym_relative"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -1493,7 +1565,7 @@
     },
     "external_run": {
       "file": "run-record.json",
-      "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
+      "sha256": "d751035191fdc221b11bc09626571390355e6547859d311cd201e8e7e880e0da",
       "tool": "boys-accuracy-gate",
       "version": "5.3.1",
       "exit_status": 0,

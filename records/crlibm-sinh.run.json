@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "records/crlibm-sinh.run.json"
   ],
-  "started_utc": "2026-11-21T10:21:15+00:00",
-  "finished_utc": "2026-11-21T10:21:15+00:00",
-  "duration_s": 0.053571,
+  "started_utc": "2026-11-21T10:29:41+00:00",
+  "finished_utc": "2026-11-21T10:29:41+00:00",
+  "duration_s": 0.051824,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -42,14 +42,14 @@
     {
       "role": "data",
       "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
-      "sha256": "354d05959eacd1056e1cdb10db3739e3ab4aaf9b15b7bdad39f4bddc30b9ccf8",
-      "bytes": 134083
+      "sha256": "f7447ff40362b7cd44a595fd41d38c7ccc4e2e603d955b52e6e87e70ef4129ee",
+      "bytes": 133660
     },
     {
       "role": "anchor",
       "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
-      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
-      "bytes": 2881
+      "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162",
+      "bytes": 2803
     }
   ],
   "claims": [
@@ -73,8 +73,10 @@
         "crlibm.sinh.rz"
       ],
       "carrying_rows": 4,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -108,7 +110,7 @@
           "file": "anchors/doc_excerpts.txt",
           "mode": "full-source",
           "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
-          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+          "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162"
         }
       ]
     },

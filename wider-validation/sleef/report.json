@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -22,9 +22,9 @@
     "--report",
     "wider-validation/sleef/report.json"
   ],
-  "started_utc": "2026-11-21T10:21:27+00:00",
-  "finished_utc": "2026-11-21T10:21:28+00:00",
-  "duration_s": 0.18303,
+  "started_utc": "2026-11-21T10:29:44+00:00",
+  "finished_utc": "2026-11-21T10:29:44+00:00",
+  "duration_s": 0.179855,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -88,8 +88,10 @@
         "sleef.sin.u10.row"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.exp.u10",
@@ -108,8 +110,10 @@
         "sleef.exp.u10.row"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.log.u10",
@@ -128,8 +132,10 @@
         "sleef.log.u10.row"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.erf.u10",
@@ -148,8 +154,10 @@
         "sleef.erf.u10.row"
       ],
       "carrying_rows": 1,
+      "stronger_test_rows": 0,
       "supporting_rows": 0,
-      "stronger_test_rows": 0
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
