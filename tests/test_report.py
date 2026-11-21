@@ -24,6 +24,7 @@ SUMMARY = {
     "rows", "verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent",
     "not_carried", "not_judged", "met", "judged",
 }
+RELATIONS = {"carries", "measures", "matches", "supports", "strengthens"}
 
 
 class ReportShapeTest(unittest.TestCase):
@@ -42,6 +43,7 @@ class ReportShapeTest(unittest.TestCase):
                 self.assertIn(report["exit_status"], (0, 1, 2))
                 for row in report["rows"]:
                     self.assertLessEqual(set(row), ROW_KEYS)
+                    self.assertIn(row["relation"], RELATIONS)
                     self.assertIn(
                         row["verdict"],
                         ("verified", "met_over_domain", "exceeded", "vacuous",
@@ -59,6 +61,8 @@ class ReportShapeTest(unittest.TestCase):
                 for entry in report["claims"]:
                     self.assertGreaterEqual(entry["carrying_rows"], 0)
                     self.assertGreaterEqual(entry["supporting_rows"], 0)
+                    self.assertGreaterEqual(entry["stronger_test_rows"], 0)
+                    self.assertLessEqual(entry["stronger_test_rows"], entry["supporting_rows"])
                     self.assertEqual(
                         entry["carrying_rows"] + entry["supporting_rows"], len(entry["rows"])
                     )

@@ -1,5 +1,7 @@
 """The three examples, measured end to end through the runner."""
 
+import importlib.util
+import json
 import unittest
 from pathlib import Path
 
@@ -49,6 +51,14 @@ class BoostAiryTest(unittest.TestCase):
         limitations = self.rows["boost.airy.ai.a2_grid"]["limitations"]
         self.assertTrue(any("cannot establish a uniform bound" in line for line in limitations))
 
+    def test_relations(self):
+        claim = self.report["claims"][0]
+        self.assertEqual(claim["carrying_rows"], 4)
+        self.assertEqual(claim["stronger_test_rows"], 0)
+        self.assertEqual(claim["supporting_rows"], 0)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "carries")
+
 
 class CrlibmTest(unittest.TestCase):
     @classmethod
@@ -90,6 +100,13 @@ class CrlibmTest(unittest.TestCase):
         self.assertEqual(self.report["checks"]["figures"]["checked"], 0)
         self.assertEqual(self.report["checks"]["figures"]["absent"], 1)
 
+    def test_relations(self):
+        claim = self.report["claims"][0]
+        self.assertEqual(claim["carrying_rows"], 4)
+        self.assertEqual(claim["stronger_test_rows"], 0)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "carries")
+
 
 class BoysGateTest(unittest.TestCase):
     @classmethod
@@ -121,6 +138,48 @@ class BoysGateTest(unittest.TestCase):
         self.assertEqual(external["exit_status"], 0)
         self.assertEqual(external["version"], "5.3.1")
         self.assertEqual(external["failed"], [])
+
+    def test_relations(self):
+        claims = {claim["id"]: claim for claim in self.report["claims"]}
+        self.assertEqual(claims["H01"]["carrying_rows"], 0)
+        self.assertEqual(claims["H01"]["stronger_test_rows"], 1)
+        self.assertEqual(claims["H01"]["supporting_rows"], 1)
+        for claim_id in ("D07", "P03", "P11"):
+            self.assertEqual(claims[claim_id]["carrying_rows"], 0, claim_id)
+        self.assertEqual(sum(c["carrying_rows"] for c in self.report["claims"]), 29)
+        self.assertEqual(sum(c["stronger_test_rows"] for c in self.report["claims"]), 1)
+        counts = {}
+        for row in self.report["rows"]:
+            counts[row["relation"]] = counts.get(row["relation"], 0) + 1
+        self.assertEqual(
+            counts,
+            {"carries": 20, "supports": 10, "measures": 7, "strengthens": 1},
+        )
+
+    def test_extractor_relation_map_matches_the_book(self):
+        # The extracted book and the extractor that regenerates it cannot drift.
+        spec = importlib.util.spec_from_file_location(
+            "boys_extract", EXAMPLES / "boys-gate" / "extract.py"
+        )
+        extract = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(extract)
+        book = json.loads(
+            (EXAMPLES / "boys-gate" / "book.json").read_text(encoding="utf-8")
+        )
+        rows_by_claim = {}
+        for claim in book["claims"]:
+            for row_id in claim["rows"]:
+                rows_by_claim.setdefault(row_id, set()).add(claim["id"])
+        for row in book["rows"]:
+            expected = extract.UNREGISTERED_RELATIONS.get(row["id"])
+            if expected is None:
+                expected = {
+                    extract.NON_CARRYING_CLAIMS.get(claim_id, "carries")
+                    for claim_id in rows_by_claim[row["id"]]
+                }
+                self.assertEqual(len(expected), 1, row["id"])
+                expected = expected.pop()
+            self.assertEqual(row["relation"], expected, row["id"])
 
     def test_the_consistency_row_is_released(self):
         # The gate marks code.half_simd_budget as carrying no enumerated claim.
@@ -163,6 +222,12 @@ class RowTypesTest(unittest.TestCase):
         self.assertEqual(summary["met"], 3)
         self.assertEqual(summary["not_carried"], 1)
         self.assertEqual(summary["not_judged"], 1)
+
+    def test_relations(self):
+        self.assertEqual(sum(c["carrying_rows"] for c in self.report["claims"]), 8)
+        self.assertEqual(sum(c["stronger_test_rows"] for c in self.report["claims"]), 0)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "carries")
 
 
 if __name__ == "__main__":

@@ -53,7 +53,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "supporting_rows"],
+        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "supporting_rows", "stronger_test_rows"],
         "additionalProperties": false,
         "properties": {
           "id": {"type": "string"},
@@ -62,8 +62,21 @@
           "metric": {"type": "object"},
           "bound": {"type": "object"},
           "rows": {"type": "array", "items": {"type": "string"}},
-          "carrying_rows": {"type": "integer", "minimum": 0},
-          "supporting_rows": {"type": "integer", "minimum": 0}
+          "carrying_rows": {
+            "description": "Rows explicitly marked carries.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "supporting_rows": {
+            "description": "Rows not marked carries, including the stronger tests.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "stronger_test_rows": {
+            "description": "Rows explicitly marked strengthens; a subset of the supporting rows.",
+            "type": "integer",
+            "minimum": 0
+          }
         }
       }
     },
@@ -145,7 +158,7 @@
           "family": {"enum": ["judged_and_met", "judged_and_unmet", "not_judged"]},
           "met": {"type": ["boolean", "null"]},
           "evidence_class": {"type": "string"},
-          "relation": {"type": "string"},
+          "relation": {"$ref": "#/$defs/relation"},
           "metric": {"type": "object"},
           "bound": {"type": "object"},
           "quantifier": {"type": "string"},
@@ -186,6 +199,9 @@
   "$defs": {
     "verdict": {
       "enum": ["verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent", "not_carried", "not_judged"]
+    },
+    "relation": {
+      "enum": ["carries", "measures", "matches", "supports", "strengthens"]
     }
   }
 }

@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "gsl-2.8",
     "title": "GSL 2.8: the GSL_PREC_DOUBLE accuracy mode and the _e error estimates",
     "path": "wider-validation/gsl/book.json",
-    "sha256": "f023fb4e35198ff89b2a7e4f79f155573ced9f5de4707406b7f2aa205514a6cc"
+    "sha256": "ae61126e631a975cd5930586ca40dbe27a120dfe84a20ea27737b7fbccd15420"
   },
   "root": "wider-validation/gsl",
   "command": [
@@ -20,11 +20,11 @@
     "wider-validation/gsl/book.json",
     "--portable",
     "--report",
-    "records/gsl.run.json"
+    "wider-validation/gsl/report.json"
   ],
-  "started_utc": "2026-11-09T19:02:12+00:00",
-  "finished_utc": "2026-11-09T19:02:12+00:00",
-  "duration_s": 0.417259,
+  "started_utc": "2026-11-21T10:21:28+00:00",
+  "finished_utc": "2026-11-21T10:21:28+00:00",
+  "duration_s": 0.271956,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,8 +36,8 @@
     {
       "role": "book",
       "path": "wider-validation/gsl/book.json",
-      "sha256": "f023fb4e35198ff89b2a7e4f79f155573ced9f5de4707406b7f2aa205514a6cc",
-      "bytes": 13990
+      "sha256": "ae61126e631a975cd5930586ca40dbe27a120dfe84a20ea27737b7fbccd15420",
+      "bytes": 13747
     },
     {
       "role": "data",
@@ -101,7 +101,8 @@
         "gsl.ellint_k.prec_double"
       ],
       "carrying_rows": 2,
-      "supporting_rows": 0
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
     },
     {
       "id": "gsl.specfunc.error_estimate",
@@ -123,7 +124,8 @@
         "gsl.bessel_j1.err"
       ],
       "carrying_rows": 4,
-      "supporting_rows": 0
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
     }
   ],
   "registrations": [
@@ -202,6 +204,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "relative",
         "unit": "relative"
@@ -239,7 +242,6 @@
         "the verdict covers 930 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/airy_ai.csv",
         "path": "wider-validation/gsl/data/airy_ai.csv",
@@ -257,6 +259,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "relative",
         "unit": "relative"
@@ -294,7 +297,6 @@
         "the verdict covers 916 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/ellint_k.csv",
         "path": "wider-validation/gsl/data/ellint_k.csv",
@@ -312,6 +314,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "scaled",
         "unit": "reported-error"
@@ -349,7 +352,6 @@
         "the verdict covers 944 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/erf.csv",
         "path": "wider-validation/gsl/data/erf.csv",
@@ -367,6 +369,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "scaled",
         "unit": "reported-error"
@@ -404,7 +407,6 @@
         "the verdict covers 945 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/gamma.csv",
         "path": "wider-validation/gsl/data/gamma.csv",
@@ -422,6 +424,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "scaled",
         "unit": "reported-error"
@@ -459,7 +462,6 @@
         "the verdict covers 940 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/bessel_j0.csv",
         "path": "wider-validation/gsl/data/bessel_j0.csv",
@@ -477,6 +479,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "metric": {
         "kind": "scaled",
         "unit": "reported-error"
@@ -514,7 +517,6 @@
         "the verdict covers 935 measured cell(s) and makes no statement between them",
         "an observed allowance is not a bound"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/bessel_j1.csv",
         "path": "wider-validation/gsl/data/bessel_j1.csv",

@@ -105,6 +105,7 @@
       "bound": {"value": 100, "unit": "epsilon"},
       "quantifier": "uniform",
       "evidence_class": "measured_error",
+      "relation": "carries",
       "figure_bound": 100.0,
       "data": {
         "file": "data/boost_airy_reference.csv",
@@ -143,6 +144,7 @@
       "bound": {"value": 100, "unit": "epsilon"},
       "quantifier": "uniform",
       "evidence_class": "measured_error",
+      "relation": "carries",
       "figure_bound": 100.0,
       "data": {
         "file": "data/boost_airy_reference.csv",
@@ -181,6 +183,7 @@
       "bound": {"value": 100, "unit": "epsilon"},
       "quantifier": "pointwise",
       "evidence_class": "measured_error",
+      "relation": "carries",
       "figure_bound": 100.0,
       "data": {
         "file": "data/boost_airy_reference.csv",
@@ -219,6 +222,7 @@
       "bound": {"value": 100, "unit": "epsilon"},
       "quantifier": "pointwise",
       "evidence_class": "measured_error",
+      "relation": "carries",
       "figure_bound": 100.0,
       "data": {
         "file": "data/boost_airy_reference.csv",

@@ -27,10 +27,14 @@ documented sentence
 ```
 
 A row **carries** a claim when its statement restates the sentence's domain,
-bound and quantifier.  It **measures** the same object under another subject.
-It **matches** when it measures the same object without carrying the sentence.
-It **supports** when it is related evidence.  The schema records the sentence
-and the row; the relationship is the author's reading, and the book shows it.
+bound and quantifier.  It **strengthens** the claim when it tests a stronger
+condition, so a pass implies the sentence but a failure does not refute it.
+It **measures** the same object under another subject.  It **matches** when it
+measures the same object without carrying the sentence.  It **supports** when
+it is related evidence.  Every row states its relation and the validator
+refuses a row that does not; there is no default.  The schema records the
+sentence and the row; the relationship is the author's reading, and the book
+shows it.
 
 ## Entities
 
@@ -69,7 +73,7 @@ The formal record of one documented claim.  Fields, after the D brief's list:
 | `source` | the document, file and line range |
 | `evidence_class` | what the evidence is |
 | `subject` | what the claim is about |
-| `rows` | the row or rows that carry it |
+| `rows` | the row or rows registered for it |
 
 A claim whose evidence is an external record may mark its metric `external`
 and its bound as the row's own figure; the runner does not recompute it.
@@ -105,7 +109,7 @@ Whitespace runs are collapsed by the anchor check, not by the author.
 | `quantifier` | how the bound is read over the domain |
 | `evidence_class` | what the row's evidence is |
 | `figure_bound` | the numeric bound the registration's figure is checked against |
-| `relation` | optional: `carries`, `measures`, `matches` or `supports`; absent, a row with a `claim_id` is reported as carrying it |
+| `relation` | required: `carries`, `measures`, `matches`, `supports` or `strengthens`; a row without one is refused |
 | `data` | the CSV specification: file, comparison, columns, filter, `require_rows`, `crosscheck` |
 | `record` | for `external_record`: the run record file and the row index |
 | `state` | `not_judged`, `not_carried` or `evidence_absent`, with a `reason` |
@@ -142,8 +146,11 @@ source, rows and its anchor and figure results), `checks` (anchors, figures,
 bindings, external run), `rows`, `summary` and `exit_status`.
 
 Each row result carries the verdict, its family, `met`, the evidence class,
-the metric and bound, the cell and failure counts, the worst cell, what the
-verdict establishes and its limitations.
+the relation, the metric and bound, the cell and failure counts, the worst
+cell, what the verdict establishes and its limitations.  Each claim result
+carries `carrying_rows` (explicit `carries` only), `stronger_test_rows`
+(explicit `strengthens` only) and `supporting_rows` (every row that is not a
+carry, the stronger tests included).
 
 ## Exit status
 

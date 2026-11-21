@@ -191,7 +191,11 @@ def run_book(
         row_ids = list(claim.get("rows", []))
         carrying = [
             row_id for row_id in row_ids
-            if book.rows[row_id].get("relation", "carries") == "carries"
+            if book.rows[row_id]["relation"] == "carries"
+        ]
+        stronger = [
+            row_id for row_id in row_ids
+            if book.rows[row_id]["relation"] == "strengthens"
         ]
         claim_report.append(
             {
@@ -203,6 +207,7 @@ def run_book(
                 "rows": row_ids,
                 "carrying_rows": len(carrying),
                 "supporting_rows": len(row_ids) - len(carrying),
+                "stronger_test_rows": len(stronger),
             }
         )
 

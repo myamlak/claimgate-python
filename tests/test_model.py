@@ -118,6 +118,20 @@ class ValidationErrorTest(unittest.TestCase):
         del self.data["book"]["title"]
         self.assertTrue(any("no title" in error for error in self.errors(self.data)))
 
+    def test_missing_relation_rejected(self):
+        del self.data["rows"][0]["relation"]
+        errors = self.errors(self.data)
+        self.assertTrue(any("relation is missing" in error for error in errors))
+
+    def test_unknown_relation_rejected(self):
+        self.data["rows"][0]["relation"] = "restates"
+        errors = self.errors(self.data)
+        self.assertTrue(any("relation 'restates' is not one of" in error for error in errors))
+
+    def test_strengthens_is_known(self):
+        self.data["rows"][0]["relation"] = "strengthens"
+        self.assertEqual(self.errors(self.data), [])
+
 
 class ResolveTest(unittest.TestCase):
     def test_relative(self):

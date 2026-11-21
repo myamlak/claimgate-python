@@ -1,7 +1,7 @@
 # Captured runs
 
 The reports in this directory are the machine-readable output of the
-documented commands, made with claimgate 0.1.0 on 2026-11-09.
+documented commands, made with claimgate 0.1.1 on 2026-11-21.
 
 | report | command | exit | result |
 | --- | --- | --- | --- |
@@ -17,6 +17,12 @@ Each report carries the book digest, the root, the command, the environment,
 the SHA-256 of every input, the per-row results and the summary.  The reports
 are outputs, not inputs: regenerating them may change the timestamps and the
 environment block, and nothing in the check reads them.
+
+Every report counts each claim's explicit relations.  Summed over the claims
+each book registers: Boost Airy 4 carrying / 0 stronger; crlibm 4/0; the boys
+gate 29/1 (20 distinct carrying rows, because D01 takes two rows and
+`native.half.ceiling` carries ten claims); row-types 8/0; SLEEF 4/0; GSL 6/0;
+MPFR 0/0.
 
 The two pilots reproduce the paper's witnesses:
 

@@ -52,9 +52,6 @@ def _limitations(row, cells: int) -> list[str]:
 
 
 def _base_result(row) -> dict:
-    relation = row.get("relation")
-    if relation is None and row.get("claim_id"):
-        relation = "carries"
     result = {
         "id": row["id"],
         "type": row["type"],
@@ -65,6 +62,7 @@ def _base_result(row) -> dict:
         "family": "not_judged",
         "met": None,
         "evidence_class": row["evidence_class"],
+        "relation": row["relation"],
         "metric": row.get("metric"),
         "bound": row.get("bound"),
         "quantifier": row.get("quantifier"),
@@ -78,8 +76,6 @@ def _base_result(row) -> dict:
         "establishes": ESTABLISHES.get(row["evidence_class"], ""),
         "limitations": [],
     }
-    if relation:
-        result["relation"] = relation
     return result
 
 

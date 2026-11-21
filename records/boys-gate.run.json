@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "boys-gate-5.3.1",
     "title": "The boys accuracy gate at v5.3.1: registration table and run record",
     "path": "examples/boys-gate/book.json",
-    "sha256": "5ccb237ceb734513de9c5aa8d0bcb738dfd177ce2348c887e77c24b42d45cab3"
+    "sha256": "387e97e0af845c8599e386b4c3a265b11b8376b4472630dc8d0d1b5e76b3023c"
   },
   "root": "examples/boys-gate",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/boys-gate.run.json"
   ],
-  "started_utc": "2026-11-09T18:23:13+00:00",
-  "finished_utc": "2026-11-09T18:23:13+00:00",
-  "duration_s": 0.025795,
+  "started_utc": "2026-11-21T10:21:15+00:00",
+  "finished_utc": "2026-11-21T10:21:15+00:00",
+  "duration_s": 0.021906,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,8 +36,8 @@
     {
       "role": "book",
       "path": "examples/boys-gate/book.json",
-      "sha256": "5ccb237ceb734513de9c5aa8d0bcb738dfd177ce2348c887e77c24b42d45cab3",
-      "bytes": 125792
+      "sha256": "387e97e0af845c8599e386b4c3a265b11b8376b4472630dc8d0d1b5e76b3023c",
+      "bytes": 123954
     },
     {
       "role": "anchor",
@@ -80,6 +80,729 @@
       "path": "examples/boys-gate/run-record.json",
       "sha256": "011a826096afacb8d4b2152d30362088077d16d2521b842a14fd0683da0c2c94",
       "bytes": 14245
+    }
+  ],
+  "claims": [
+    {
+      "id": "D01",
+      "object": "README.double.single, README.double.batch",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-13,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "README.double.single",
+        "README.double.batch"
+      ],
+      "carrying_rows": 2,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "F01",
+      "object": "README.float",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.384185791015625e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "README.float"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H01",
+      "object": "README.half",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "README.half"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 1
+    },
+    {
+      "id": "D13",
+      "object": "LC.double.worst_cell",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-13,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.double.worst_cell"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P02",
+      "object": "native.half.suite_worst",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 8.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.suite_worst"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "D07",
+      "object": "LC.double.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.double.ceiling"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "F02",
+      "object": "LC.float.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.384185791015625e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.float.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "D02",
+      "object": "LC.region_A.fit_bar",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-15,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.region_A.fit_bar"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X01",
+      "object": "transform.fp64.bound",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-15,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.fp64.bound"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X02",
+      "object": "transform.fp64.delivered",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.fp64.delivered"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X03",
+      "object": "transform.tf32x3.bound",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.50000001e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.tf32x3.bound"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X05",
+      "object": "transform.bf16x6.bound",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 2.50000001e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.bf16x6.bound"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X04",
+      "object": "transform.tf32x3.delivered",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.tf32x3.delivered"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "X06",
+      "object": "transform.bf16x6.delivered",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "transform.bf16x6.delivered"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H02b",
+      "object": "LC.half.budget",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.half.budget"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H04",
+      "object": "LC.half.worst_cell",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.half.worst_cell"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H06",
+      "object": "LC.half.representation_share",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.half.representation_share"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H07",
+      "object": "LC.half.returned_value_floor",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 1.5e-07,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.half.returned_value_floor"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "H08",
+      "object": "LC.half.range_from_order3",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.half.range_from_order3"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P06",
+      "object": "LC.packed.rescale_exact",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.packed.rescale_exact"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P09",
+      "object": "code.half_simd_cells",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "code.half_simd_cells"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P01",
+      "object": "native.half.bound",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 8.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.bound"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P11",
+      "object": "code.half_domain_stop",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "code.half_domain_stop"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P07",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08a",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08b",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08c",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08d",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08e",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08f",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08g",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08h",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P08i",
+      "object": "native.half.ceiling",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.ceiling"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P03",
+      "object": "native.half.packed",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "native.half.packed"
+      ],
+      "carrying_rows": 0,
+      "supporting_rows": 1,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "P04",
+      "object": "LC.packed.representation_cost",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.packed.representation_cost"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
+    },
+    {
+      "id": "A03",
+      "object": "LC.regionC.asym_relative",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "external",
+        "unit": "the row's own figure"
+      },
+      "bound": {
+        "value": 0.0,
+        "unit": "the row's own figure",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "LC.regionC.asym_relative"
+      ],
+      "carrying_rows": 1,
+      "supporting_rows": 0,
+      "stronger_test_rows": 0
     }
   ],
   "registrations": [
@@ -788,6 +1511,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -822,6 +1546,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -856,6 +1581,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -890,6 +1616,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "strengthens",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -924,6 +1651,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -958,6 +1686,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -992,6 +1721,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1026,6 +1756,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1060,6 +1791,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1094,6 +1826,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1128,6 +1861,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1162,6 +1896,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1196,6 +1931,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1230,6 +1966,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1264,6 +2001,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1298,6 +2036,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1332,6 +2071,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1366,6 +2106,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1400,6 +2141,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1434,6 +2176,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1468,6 +2211,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1502,6 +2246,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1536,6 +2281,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1570,6 +2316,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1604,6 +2351,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1638,6 +2386,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1672,6 +2421,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1706,6 +2456,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1740,6 +2491,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1774,6 +2526,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1808,6 +2561,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "supports",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1842,6 +2596,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "measures",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1876,6 +2631,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1910,6 +2666,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1944,6 +2701,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -1978,6 +2736,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -2012,6 +2771,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -2046,6 +2806,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,

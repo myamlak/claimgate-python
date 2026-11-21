@@ -69,7 +69,7 @@ rows and optionally an external run record:
 A **claim** carries the object, the input domain, the output representation,
 the metric, the bound and its quantifier, the implementation version, the
 route, the assumptions, the source location, the evidence class, the subject
-and the carrying rows.
+and the rows registered for it.
 
 A **registration** carries the verbatim sentence, its file and inclusive line
 range, its scope, the figure the sentence states, and the rows it binds.
@@ -110,6 +110,25 @@ judged-and-unmet verdicts.
 A row may also carry `state: "not_judged"`; its data are measured and printed
 and the verdict is withheld.  This is how a measured row whose figure belongs
 to another build is recorded without being judged.
+
+## The row relation
+
+Every row states its `relation` to its claim.  The field is required; a book
+with a row that omits it is refused, and there is no default.  The five values
+are:
+
+| relation | what the row is to the sentence |
+| --- | --- |
+| `carries` | a restatement of the sentence's domain, bound and quantifier |
+| `strengthens` | a stronger test: a pass implies the sentence, a failure does not refute it |
+| `measures` | a measurement of the same object under another subject |
+| `matches` | a measurement of the same object that does not restate the sentence |
+| `supports` | related evidence, not the sentence's numerical object |
+
+The run report counts each claim's `carrying_rows` (explicit `carries` only),
+`stronger_test_rows` (explicit `strengthens` only) and `supporting_rows` (every
+row that is not a carry, which includes the stronger tests).  A `supports` or
+`measures` row is not a carry and is never counted as one.
 
 ## Metrics and exactness
 
@@ -156,7 +175,7 @@ that a finite set cannot establish a uniform bound.
   `full-source` or `deposited-slice` and the source's SHA-256.
 * **Figure**: the number the sentence states occurs in the sentence as a
   number of its own, parses exactly as the document writes it (a decimal,
-  `2^p`, or a sum), and equals the carrying row's `figure_bound` to one ULP.
+  `2^p`, or a sum), and equals the bound row's `figure_bound` to one ULP.
   A registration with no figure is counted apart, not silently passed.
 * **Binding**: every registration names rows the book holds; every row is
   cited by a registration or listed in `book.unregistered_rows` with a
