@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "row-types",
     "title": "A constructed testbed for the six row types and the verdict rule",
     "path": "examples/row-types/book.json",
-    "sha256": "10591fe7eaf51c3e912beec5c156b4984578de916a73a6e1276ab1473e0817c8"
+    "sha256": "aa72a6fd23f58fa41ecf7c02b8f8f916aeffa989550d1571d95bb431bf831e89"
   },
   "root": "examples/row-types",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/row-types.run.json"
   ],
-  "started_utc": "2026-11-09T18:23:13+00:00",
-  "finished_utc": "2026-11-09T18:23:13+00:00",
-  "duration_s": 0.015406,
+  "started_utc": "2026-11-21T10:29:41+00:00",
+  "finished_utc": "2026-11-21T10:29:41+00:00",
+  "duration_s": 0.018314,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,8 +36,8 @@
     {
       "role": "book",
       "path": "examples/row-types/book.json",
-      "sha256": "10591fe7eaf51c3e912beec5c156b4984578de916a73a6e1276ab1473e0817c8",
-      "bytes": 15742
+      "sha256": "aa72a6fd23f58fa41ecf7c02b8f8f916aeffa989550d1571d95bb431bf831e89",
+      "bytes": 15974
     },
     {
       "role": "data",
@@ -74,6 +74,184 @@
       "path": "examples/row-types/anchors/row-types.md",
       "sha256": "95c10c64d862efe8b31f6079df31239462391b6be0b916dc01dfec3448ab24a7",
       "bytes": 917
+    }
+  ],
+  "claims": [
+    {
+      "id": "demo.reference",
+      "object": "a constructed measured routine",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "reference.whole"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.stated",
+      "object": "a constructed measured routine on a stated sub-domain",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "reference.stated"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.consistency",
+      "object": "a constructed fast path against its scalar path",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "absolute",
+        "unit": "absolute"
+      },
+      "bound": {
+        "value": "1e-12",
+        "unit": "absolute",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "consistency.paths"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.exactness",
+      "object": "a constructed exact value",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "exact",
+        "unit": "exactness"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "exactness",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "exact.zero"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.vacuity",
+      "object": "a constructed absolute bound",
+      "evidence_class": "vacuous",
+      "metric": {
+        "kind": "absolute",
+        "unit": "absolute"
+      },
+      "bound": {
+        "value": "1e-2",
+        "unit": "absolute",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "vacuity.bound"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.absent",
+      "object": "a constructed sweep",
+      "evidence_class": "evidence_absent",
+      "metric": {
+        "kind": "external",
+        "unit": "not measured"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "not measured",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "absent.sweep"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.notcarried",
+      "object": "a constructed vector seam",
+      "evidence_class": "not_carried",
+      "metric": {
+        "kind": "external",
+        "unit": "not measured"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "not measured",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "notcarried.seam"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
+    },
+    {
+      "id": "demo.notjudged",
+      "object": "a constructed measured routine whose figure belongs to another build",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "relative",
+        "unit": "relative"
+      },
+      "bound": {
+        "value": "1e-6",
+        "unit": "relative",
+        "quantifier": "pointwise"
+      },
+      "rows": [
+        "reference.notjudged"
+      ],
+      "carrying_rows": 1,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -253,6 +431,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "relative",
         "unit": "relative"
@@ -287,7 +466,6 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/reference.csv",
         "path": "examples/row-types/data/reference.csv",
@@ -305,6 +483,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "relative",
         "unit": "relative"
@@ -340,7 +519,6 @@
         "the verdict covers 2 measured cell(s) and makes no statement between them",
         "the claim is met over the domain the document states, not over the whole input domain"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/reference_pass.csv",
         "path": "examples/row-types/data/reference_pass.csv",
@@ -358,6 +536,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "absolute",
         "unit": "absolute"
@@ -392,7 +571,6 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/consistency.csv",
         "path": "examples/row-types/data/consistency.csv",
@@ -410,6 +588,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "exact",
         "unit": "exactness"
@@ -444,7 +623,6 @@
       "limitations": [
         "the verdict covers 1 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/exact.csv",
         "path": "examples/row-types/data/exact.csv",
@@ -462,6 +640,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "vacuous",
+      "relation": "carries",
       "metric": {
         "kind": "absolute",
         "unit": "absolute"
@@ -496,7 +675,6 @@
       "limitations": [
         "the bound is at least the value's own magnitude at every measured cell, so losing the value would still pass"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/vacuity.csv",
         "path": "examples/row-types/data/vacuity.csv",
@@ -514,6 +692,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "evidence_absent",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -531,7 +710,6 @@
       "limitations": [
         "the evidence named is absent: the sweep is not in this tree"
       ],
-      "relation": "carries",
       "reason": "the sweep is not in this tree"
     },
     {
@@ -544,6 +722,7 @@
       "family": "not_judged",
       "met": false,
       "evidence_class": "not_carried",
+      "relation": "carries",
       "metric": null,
       "bound": null,
       "quantifier": null,
@@ -559,7 +738,6 @@
       "worst": {},
       "establishes": "nothing: this build does not carry the claim's subject",
       "limitations": [],
-      "relation": "carries",
       "reason": "the seam is closed in this build"
     },
     {
@@ -572,6 +750,7 @@
       "family": "not_judged",
       "met": null,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "relative",
         "unit": "relative"
@@ -607,7 +786,6 @@
         "the verdict covers 2 measured cell(s) and makes no statement between them",
         "the row's measurement is recorded but withheld from the verdict"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/reference_pass.csv",
         "path": "examples/row-types/data/reference_pass.csv",

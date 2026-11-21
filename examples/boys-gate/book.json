@@ -17,7 +17,7 @@
       "run": "papers-b-v5/papers/claims-as-rows/program-demo/gate-v5.3.1/",
       "extraction": "python examples/boys-gate/extract.py --repo <boys> --tag v5.3.1 --transcript <04b-gate-run.log> --out examples/boys-gate",
       "transcribed": "claim id, object, domain scope, route, rows, source and bound from the gate's registrations and rows",
-      "placeholder": "the claim metric is marked 'external'; the claim bound is the first carrying row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
+      "placeholder": "the claim metric is marked 'external'; the claim bound is the first registered row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
       "verdicts": "the seven verdicts are the transcript's, one per row, in book order",
       "anchor_slices": "cut from the tagged source; the index records each full source's SHA-256"
     },
@@ -2273,6 +2273,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 1,
@@ -2291,6 +2292,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 2,
@@ -2309,6 +2311,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 3,
@@ -2327,6 +2330,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "strengthens",
       "record": {
         "file": "run-record.json",
         "row_index": 4,
@@ -2344,6 +2348,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 5,
@@ -2362,6 +2367,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 6,
@@ -2380,6 +2386,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 7,
@@ -2399,6 +2406,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 8,
@@ -2418,6 +2426,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 9,
@@ -2436,6 +2445,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 10,
@@ -2455,6 +2465,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 11,
@@ -2473,6 +2484,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 12,
@@ -2492,6 +2504,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 13,
@@ -2510,6 +2523,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 14,
@@ -2528,6 +2542,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 15,
@@ -2545,6 +2560,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 16,
@@ -2563,6 +2579,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 17,
@@ -2581,6 +2598,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 18,
@@ -2599,6 +2617,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 19,
@@ -2617,6 +2636,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 20,
@@ -2635,6 +2655,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 21,
@@ -2652,6 +2673,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 22,
@@ -2670,6 +2692,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 23,
@@ -2687,6 +2710,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 24,
@@ -2706,6 +2730,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 25,
@@ -2724,6 +2749,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 26,
@@ -2742,6 +2768,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 27,
@@ -2760,6 +2787,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 28,
@@ -2778,6 +2806,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 29,
@@ -2796,6 +2825,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 30,
@@ -2814,6 +2844,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "supports",
       "record": {
         "file": "run-record.json",
         "row_index": 31,
@@ -2832,6 +2863,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "measures",
       "record": {
         "file": "run-record.json",
         "row_index": 32,
@@ -2850,6 +2882,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 33,
@@ -2869,6 +2902,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 34,
@@ -2888,6 +2922,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 35,
@@ -2907,6 +2942,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 36,
@@ -2926,6 +2962,7 @@
         "scope": "stated"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 37,
@@ -2944,6 +2981,7 @@
         "scope": "whole"
       },
       "evidence_class": "measured_error",
+      "relation": "carries",
       "record": {
         "file": "run-record.json",
         "row_index": 38,

@@ -187,6 +187,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "figure_bound": 2e-16,
       "data": {
         "file": "data/airy_ai.csv",
@@ -228,6 +229,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "figure_bound": 2e-16,
       "data": {
         "file": "data/ellint_k.csv",
@@ -269,6 +271,7 @@
       },
       "quantifier": "pointwise",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "data": {
         "file": "data/erf.csv",
         "format": "csv",
@@ -310,6 +313,7 @@
       },
       "quantifier": "pointwise",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "data": {
         "file": "data/gamma.csv",
         "format": "csv",
@@ -351,6 +355,7 @@
       },
       "quantifier": "pointwise",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "data": {
         "file": "data/bessel_j0.csv",
         "format": "csv",
@@ -392,6 +397,7 @@
       },
       "quantifier": "pointwise",
       "evidence_class": "empirical_allowance",
+      "relation": "carries",
       "data": {
         "file": "data/bessel_j1.csv",
         "format": "csv",

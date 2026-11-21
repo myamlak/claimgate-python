@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "boost-airy",
     "title": "Boost.Math 1.92.0: the Airy relative-error sentence",
     "path": "examples/boost-airy/book.json",
-    "sha256": "6fad5a71c1ad074ac6b4de8bc3a2d53793984cd3adb0f8eb4fb1bac61c885f2f"
+    "sha256": "a9121d3bf50eeb34f3fdd1c36039a359b77a20d844874aaf3f033e5d59483d65"
   },
   "root": "examples/boost-airy",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/boost-airy.run.json"
   ],
-  "started_utc": "2026-11-09T18:23:12+00:00",
-  "finished_utc": "2026-11-09T18:23:12+00:00",
-  "duration_s": 0.205862,
+  "started_utc": "2026-11-21T10:29:40+00:00",
+  "finished_utc": "2026-11-21T10:29:40+00:00",
+  "duration_s": 0.176189,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,20 +36,48 @@
     {
       "role": "book",
       "path": "examples/boost-airy/book.json",
-      "sha256": "6fad5a71c1ad074ac6b4de8bc3a2d53793984cd3adb0f8eb4fb1bac61c885f2f",
-      "bytes": 11235
+      "sha256": "a9121d3bf50eeb34f3fdd1c36039a359b77a20d844874aaf3f033e5d59483d65",
+      "bytes": 11351
     },
     {
       "role": "data",
       "path": "examples/boost-airy/data/boost_airy_reference.csv",
-      "sha256": "4efec9f2b07b712e577644f11d64267af544505aceaae1774ad3b686b84c4a16",
-      "bytes": 785603
+      "sha256": "ecb7eb4ce9873794f3b824f5708a36bf88c0d93d5eaf08a37203ac9e33e9e3c2",
+      "bytes": 780904
     },
     {
       "role": "anchor",
       "path": "examples/boost-airy/anchors/doc_excerpts.txt",
-      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
-      "bytes": 2881
+      "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162",
+      "bytes": 2803
+    }
+  ],
+  "claims": [
+    {
+      "id": "boost.math.airy.100eps",
+      "object": "boost::math::airy_ai and boost::math::airy_bi",
+      "evidence_class": "measured_error",
+      "metric": {
+        "kind": "epsilon",
+        "unit": "epsilon",
+        "epsilon": 2.220446049250313e-16
+      },
+      "bound": {
+        "value": 100,
+        "unit": "epsilon",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "boost.airy.ai.a2_grid",
+        "boost.airy.bi.a2_grid",
+        "boost.airy.ai.named",
+        "boost.airy.bi.named"
+      ],
+      "carrying_rows": 4,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -86,7 +114,7 @@
           "file": "anchors/doc_excerpts.txt",
           "mode": "full-source",
           "path": "examples/boost-airy/anchors/doc_excerpts.txt",
-          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+          "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162"
         }
       ]
     },
@@ -111,6 +139,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "epsilon",
         "unit": "epsilon",
@@ -151,7 +180,6 @@
         "the verdict covers 65 measured cell(s) and makes no statement between them",
         "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -169,6 +197,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "epsilon",
         "unit": "epsilon",
@@ -209,7 +238,6 @@
         "the verdict covers 65 measured cell(s) and makes no statement between them",
         "a finite measured set cannot establish a uniform bound; a breach refutes it, a pass establishes conformance on the measured cells only"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -227,6 +255,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "epsilon",
         "unit": "epsilon",
@@ -266,7 +295,6 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",
@@ -284,6 +312,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "measured_error",
+      "relation": "carries",
       "metric": {
         "kind": "epsilon",
         "unit": "epsilon",
@@ -323,7 +352,6 @@
       "limitations": [
         "the verdict covers 3 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/boost_airy_reference.csv",
         "path": "examples/boost-airy/data/boost_airy_reference.csv",

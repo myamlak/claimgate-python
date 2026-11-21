@@ -48,6 +48,38 @@ CONSTANT = re.compile(
     r"^\s*(?:static\s+)?constexpr\s+double\s+([A-Za-z_][A-Za-z0-9_]*)\s*=\s*([^;]+);"
 )
 
+#: The relation each claim bears to its registered row, from the evidence
+#: partition of the accompanying paper (main Table 7, supplement Table S14).
+#: A claim not listed here carries its row: it restates the sentence's
+#: domain, bound and quantifier.  H01 tests a tighter bound, the proxy and
+#: model-only claims support, and P11 is measured without restating.
+NON_CARRYING_CLAIMS = {
+    "H01": "strengthens",
+    "D07": "supports",
+    "P03": "supports",
+    "X03": "supports",
+    "X04": "supports",
+    "X05": "supports",
+    "X06": "supports",
+    "P11": "measures",
+}
+
+#: The relation of each row no registration cites.  The supporting rows stand
+#: beside a registered claim; the retained rows measure objects no enumerated
+#: claim states, and the pairwise drift row measures rather than carries.
+UNREGISTERED_RELATIONS = {
+    "header.double.region_A_and_band": "supports",
+    "LC.half.vacuous_floor": "supports",
+    "LC.packed.bound": "supports",
+    "LC.regionC.domain": "supports",
+    "LC.half.no_scaling_past_38": "measures",
+    "code.half_simd_budget": "measures",
+    "LC.regionB.amplification": "measures",
+    "LC.coeff.rounding": "measures",
+    "code.coverage.argument_range": "measures",
+    "LC.evidence.ctest": "measures",
+}
+
 ESCAPES = {"n": "\n", "t": "\t", "r": "\r", "0": "\0", "\\": "\\", '"': '"', "'": "'"}
 
 
@@ -570,7 +602,7 @@ def main(argv=None) -> int:
         }
         slice_name = sanitize(source_file) + ".slices.json"
         (out / "anchor-slices" / slice_name).write_text(
-            json.dumps(payload, indent=1) + "\n", encoding="utf-8"
+            json.dumps(payload, indent=1) + "\n", encoding="utf-8", newline="\n"
         )
         slice_index[source_file] = {
             "file": slice_name,
@@ -578,7 +610,8 @@ def main(argv=None) -> int:
             "tag": args.tag,
         }
     (out / "anchor-slices" / "index.json").write_text(
-        json.dumps(slice_index, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        json.dumps(slice_index, indent=2, sort_keys=True) + "\n", encoding="utf-8",
+        newline="\n",
     )
 
     # The registrations and their claims.
@@ -622,6 +655,20 @@ def main(argv=None) -> int:
     book_rows = []
     for index, row in enumerate(rows, 1):
         verdict = verdict_by_row[row["id"]]
+        if row["id"] in UNREGISTERED_RELATIONS:
+            relation = UNREGISTERED_RELATIONS[row["id"]]
+        else:
+            relations = {
+                NON_CARRYING_CLAIMS.get(claim_id, "carries")
+                for claim_id, row_ids in rows_by_claim.items()
+                if row["id"] in row_ids
+            }
+            if len(relations) != 1:
+                raise ExtractError(
+                    f"row {row['id']}: cannot derive one relation from its claims "
+                    f"(got {sorted(relations)!r})"
+                )
+            relation = relations.pop()
         item = {
             "id": row["id"],
             "type": "external_record",
@@ -632,6 +679,7 @@ def main(argv=None) -> int:
                 "scope": "stated" if verdict == "met_over_domain" else "whole",
             },
             "evidence_class": "measured_error",
+            "relation": relation,
             "record": {
                 "file": "run-record.json",
                 "row_index": index,
@@ -730,7 +778,7 @@ def main(argv=None) -> int:
         },
     }
     (out / "run-record.json").write_text(
-        json.dumps(run_record, indent=2) + "\n", encoding="utf-8"
+        json.dumps(run_record, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
 
     book = {
@@ -761,7 +809,7 @@ def main(argv=None) -> int:
                 "extraction": "python examples/boys-gate/extract.py --repo <boys> --tag v5.3.1 "
                               "--transcript <04b-gate-run.log> --out examples/boys-gate",
                 "transcribed": "claim id, object, domain scope, route, rows, source and bound from the gate's registrations and rows",
-                "placeholder": "the claim metric is marked 'external'; the claim bound is the first carrying row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
+                "placeholder": "the claim metric is marked 'external'; the claim bound is the first registered row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
                 "verdicts": "the seven verdicts are the transcript's, one per row, in book order",
                 "anchor_slices": "cut from the tagged source; the index records each full source's SHA-256",
             },
@@ -781,7 +829,9 @@ def main(argv=None) -> int:
             "note": "the boys accuracy gate's captured run; claimgate checks its structure and digests",
         },
     }
-    (out / "book.json").write_text(json.dumps(book, indent=2) + "\n", encoding="utf-8")
+    (out / "book.json").write_text(
+        json.dumps(book, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
 
     print(f"book        : {out / 'book.json'}")
     print(f"rows        : {len(book_rows)}")

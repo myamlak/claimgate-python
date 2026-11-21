@@ -109,6 +109,7 @@
       "bound": {"value": 0, "unit": "mismatches"},
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "format": "csv",
@@ -138,6 +139,7 @@
       "bound": {"value": 0, "unit": "mismatches"},
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "format": "csv",
@@ -167,6 +169,7 @@
       "bound": {"value": 0, "unit": "mismatches"},
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "format": "csv",
@@ -196,6 +199,7 @@
       "bound": {"value": 0, "unit": "mismatches"},
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "format": "csv",

@@ -16,7 +16,7 @@ from typing import Any
 from .exact import NumberError, parse_exact
 
 TOOL_NAME = "claimgate"
-TOOL_VERSION = "0.1.0"
+TOOL_VERSION = "0.2.0"
 BOOK_SCHEMA = 1
 RUN_SCHEMA = "claimgate-run-1"
 EXTERNAL_RUN_SCHEMA = "claimgate-external-run-1"
@@ -47,6 +47,10 @@ EVIDENCE_CLASSES = (
 METRIC_KINDS = ("absolute", "relative", "epsilon", "ulp", "ulp_exact", "bit_identity", "scaled", "exact", "external")
 
 QUANTIFIERS = ("pointwise", "uniform", "observed_maximum", "band_maximum")
+
+#: How a row stands to the claim its registration binds it to.  Every row
+#: states one; there is no default.
+RELATIONS = ("carries", "measures", "matches", "supports", "strengthens")
 
 ROW_TYPES = (
     "reference_comparison",
@@ -508,8 +512,15 @@ def validate_book(data: dict[str, Any]) -> list[str]:
                 f"the class establishes {ESTABLISHES.get(evidence, 'nothing')}"
             )
         relation = row.get("relation")
-        if relation is not None and relation not in ("carries", "measures", "matches", "supports"):
-            errors.append(f"{where}: the relation {relation!r} is not known")
+        if relation is None:
+            errors.append(
+                f"{where}: the relation is missing; every row must state one of "
+                f"{', '.join(RELATIONS)}"
+            )
+        elif relation not in RELATIONS:
+            errors.append(
+                f"{where}: the relation {relation!r} is not one of {', '.join(RELATIONS)}"
+            )
         _check_domain(errors, where, row.get("domain"))
         if row.get("claim_id") is not None:
             if not isinstance(row["claim_id"], str):
@@ -567,7 +578,7 @@ def validate_book(data: dict[str, Any]) -> list[str]:
                 row_id for row_id in claim.get("rows", [])
                 if isinstance(claim.get("rows"), list)
                 and row_id in rows
-                and rows[row_id].get("relation", "carries") == "carries"
+                and rows[row_id].get("relation") == "carries"
             ]
             if carrying:
                 row_classes = {rows[row_id].get("evidence_class") for row_id in carrying}

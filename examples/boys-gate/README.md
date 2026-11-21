@@ -47,13 +47,26 @@ the example needs neither: the slices and the run record are deposited here.
 
 * every registration's verbatim sentence lies inside its stated lines of the
   deposited slice;
-* the 13 stated figures occur in their sentences and equal the carrying rows'
+* the 13 stated figures occur in their sentences and equal the bound rows'
   `figure_bound` to one ULP; the other 24 registrations are counted apart;
 * every registration names rows the book holds, and every row is cited or is
   in the gate's own released list with its treatment and reason;
 * the run record's row count, its per-verdict counts and its exit status are
   internally consistent, and every row's declared verdict agrees with the
   record.
+
+## The row relations
+
+Every row states its relation explicitly: 20 carry, 1 strengthens (H01), 10
+support and 7 measure.  The assignments follow the evidence partition in the
+accompanying paper: the deposited H04, P02 and P04 rows carry; the model-only
+X03-X06 and the proxy D07 and P03 support; H01's stronger test is
+`strengthens`; P11 is measured without restating its sentence.  The
+supporting rows the gate releases beside its claims, and the retained rows
+that measure objects no enumerated claim states at this tag, are marked
+`supports` and `measures` respectively.  The ten rows no registration cites
+carry the author's reading as well: the four supporting rows are `supports`
+and the six retained rows are `measures`.
 
 ## What claimgate does not check
 

@@ -3,6 +3,7 @@
 import unittest
 from pathlib import Path
 
+from claimgate.model import TOOL_VERSION
 from claimgate.run import run_book
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -24,6 +25,7 @@ SUMMARY = {
     "rows", "verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent",
     "not_carried", "not_judged", "met", "judged",
 }
+RELATIONS = {"carries", "measures", "matches", "supports", "strengthens"}
 
 
 class ReportShapeTest(unittest.TestCase):
@@ -32,6 +34,7 @@ class ReportShapeTest(unittest.TestCase):
             with self.subTest(example=name):
                 report, _, _ = run_book(EXAMPLES / name / "book.json")
                 self.assertEqual(report["schema"], "claimgate-run-1")
+                self.assertEqual(report["tool"]["version"], TOOL_VERSION)
                 self.assertLessEqual(set(report), TOP_LEVEL)
                 self.assertLessEqual(set(report["checks"]), CHECKS)
                 self.assertLessEqual(set(report["summary"]), SUMMARY)
@@ -42,6 +45,7 @@ class ReportShapeTest(unittest.TestCase):
                 self.assertIn(report["exit_status"], (0, 1, 2))
                 for row in report["rows"]:
                     self.assertLessEqual(set(row), ROW_KEYS)
+                    self.assertIn(row["relation"], RELATIONS)
                     self.assertIn(
                         row["verdict"],
                         ("verified", "met_over_domain", "exceeded", "vacuous",
@@ -57,11 +61,16 @@ class ReportShapeTest(unittest.TestCase):
                     self.assertIn(entry["figure_check"], ("ok", "failed", "absent"))
                     self.assertTrue(entry["rows"])
                 for entry in report["claims"]:
-                    self.assertGreaterEqual(entry["carrying_rows"], 0)
-                    self.assertGreaterEqual(entry["supporting_rows"], 0)
-                    self.assertEqual(
-                        entry["carrying_rows"] + entry["supporting_rows"], len(entry["rows"])
+                    counts = (
+                        entry["carrying_rows"],
+                        entry["stronger_test_rows"],
+                        entry["supporting_rows"],
+                        entry["measuring_rows"],
+                        entry["matching_rows"],
                     )
+                    for count in counts:
+                        self.assertGreaterEqual(count, 0)
+                    self.assertEqual(sum(counts), len(entry["rows"]))
 
 
 if __name__ == "__main__":

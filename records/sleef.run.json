@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "sleef-3.9.0",
     "title": "SLEEF 3.9.0: the scalar u10 error bounds",
     "path": "wider-validation/sleef/book.json",
-    "sha256": "9980675196e1156842f01a4d0585e4ce257a12f501621997b9020f57d091c460"
+    "sha256": "8723c2098bec5f46b5122c2de1ad1fd51499523bedc94059fc795fccd7eb3c9e"
   },
   "root": "wider-validation/sleef",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/sleef.run.json"
   ],
-  "started_utc": "2026-11-09T19:02:10+00:00",
-  "finished_utc": "2026-11-09T19:02:11+00:00",
-  "duration_s": 0.421571,
+  "started_utc": "2026-11-21T10:29:42+00:00",
+  "finished_utc": "2026-11-21T10:29:42+00:00",
+  "duration_s": 0.181998,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,8 +36,8 @@
     {
       "role": "book",
       "path": "wider-validation/sleef/book.json",
-      "sha256": "9980675196e1156842f01a4d0585e4ce257a12f501621997b9020f57d091c460",
-      "bytes": 14756
+      "sha256": "8723c2098bec5f46b5122c2de1ad1fd51499523bedc94059fc795fccd7eb3c9e",
+      "bytes": 14395
     },
     {
       "role": "data",
@@ -88,7 +88,10 @@
         "sleef.sin.u10.row"
       ],
       "carrying_rows": 1,
-      "supporting_rows": 0
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.exp.u10",
@@ -107,7 +110,10 @@
         "sleef.exp.u10.row"
       ],
       "carrying_rows": 1,
-      "supporting_rows": 0
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.log.u10",
@@ -126,7 +132,10 @@
         "sleef.log.u10.row"
       ],
       "carrying_rows": 1,
-      "supporting_rows": 0
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "sleef.erf.u10",
@@ -145,7 +154,10 @@
         "sleef.erf.u10.row"
       ],
       "carrying_rows": 1,
-      "supporting_rows": 0
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -261,6 +273,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "ulp_exact",
         "unit": "ulp"
@@ -297,7 +310,6 @@
       "limitations": [
         "the verdict covers 1048 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/sin.csv",
         "path": "wider-validation/sleef/data/sin.csv",
@@ -315,6 +327,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "ulp_exact",
         "unit": "ulp"
@@ -351,7 +364,6 @@
       "limitations": [
         "the verdict covers 935 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/exp.csv",
         "path": "wider-validation/sleef/data/exp.csv",
@@ -369,6 +381,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "ulp_exact",
         "unit": "ulp"
@@ -405,7 +418,6 @@
       "limitations": [
         "the verdict covers 952 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/log.csv",
         "path": "wider-validation/sleef/data/log.csv",
@@ -423,6 +435,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "ulp_exact",
         "unit": "ulp"
@@ -459,7 +472,6 @@
       "limitations": [
         "the verdict covers 945 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/erf.csv",
         "path": "wider-validation/sleef/data/erf.csv",

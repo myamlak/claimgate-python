@@ -2,7 +2,7 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
@@ -20,11 +20,11 @@
     "wider-validation/mpfr/book.json",
     "--portable",
     "--report",
-    "records/mpfr.run.json"
+    "wider-validation/mpfr/report.json"
   ],
-  "started_utc": "2026-11-09T19:02:13+00:00",
-  "finished_utc": "2026-11-09T19:02:13+00:00",
-  "duration_s": 0.531378,
+  "started_utc": "2026-11-21T10:29:45+00:00",
+  "finished_utc": "2026-11-21T10:29:45+00:00",
+  "duration_s": 0.321314,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -91,7 +91,10 @@
         "mpfr.sin.rz"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 4
+      "stronger_test_rows": 0,
+      "supporting_rows": 4,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.exp.correct_rounding",
@@ -113,7 +116,10 @@
         "mpfr.exp.rz"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 4
+      "stronger_test_rows": 0,
+      "supporting_rows": 4,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.log.correct_rounding",
@@ -135,7 +141,10 @@
         "mpfr.log.rz"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 4
+      "stronger_test_rows": 0,
+      "supporting_rows": 4,
+      "measuring_rows": 0,
+      "matching_rows": 0
     },
     {
       "id": "mpfr.atan.correct_rounding",
@@ -157,7 +166,10 @@
         "mpfr.atan.rz"
       ],
       "carrying_rows": 0,
-      "supporting_rows": 4
+      "stronger_test_rows": 0,
+      "supporting_rows": 4,
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -273,6 +285,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -310,7 +323,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/sin.csv",
         "path": "wider-validation/mpfr/data/sin.csv",
@@ -328,6 +340,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -365,7 +378,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/sin.csv",
         "path": "wider-validation/mpfr/data/sin.csv",
@@ -383,6 +395,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -420,7 +433,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/sin.csv",
         "path": "wider-validation/mpfr/data/sin.csv",
@@ -438,6 +450,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -475,7 +488,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/sin.csv",
         "path": "wider-validation/mpfr/data/sin.csv",
@@ -493,6 +505,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -530,7 +543,6 @@
       "limitations": [
         "the verdict covers 925 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/exp.csv",
         "path": "wider-validation/mpfr/data/exp.csv",
@@ -548,6 +560,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -585,7 +598,6 @@
       "limitations": [
         "the verdict covers 925 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/exp.csv",
         "path": "wider-validation/mpfr/data/exp.csv",
@@ -603,6 +615,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -640,7 +653,6 @@
       "limitations": [
         "the verdict covers 925 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/exp.csv",
         "path": "wider-validation/mpfr/data/exp.csv",
@@ -658,6 +670,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -695,7 +708,6 @@
       "limitations": [
         "the verdict covers 925 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/exp.csv",
         "path": "wider-validation/mpfr/data/exp.csv",
@@ -713,6 +725,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -750,7 +763,6 @@
       "limitations": [
         "the verdict covers 913 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/log.csv",
         "path": "wider-validation/mpfr/data/log.csv",
@@ -768,6 +780,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -805,7 +818,6 @@
       "limitations": [
         "the verdict covers 913 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/log.csv",
         "path": "wider-validation/mpfr/data/log.csv",
@@ -823,6 +835,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -860,7 +873,6 @@
       "limitations": [
         "the verdict covers 913 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/log.csv",
         "path": "wider-validation/mpfr/data/log.csv",
@@ -878,6 +890,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -915,7 +928,6 @@
       "limitations": [
         "the verdict covers 913 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/log.csv",
         "path": "wider-validation/mpfr/data/log.csv",
@@ -933,6 +945,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -970,7 +983,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/atan.csv",
         "path": "wider-validation/mpfr/data/atan.csv",
@@ -988,6 +1000,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -1025,7 +1038,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/atan.csv",
         "path": "wider-validation/mpfr/data/atan.csv",
@@ -1043,6 +1055,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -1080,7 +1093,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/atan.csv",
         "path": "wider-validation/mpfr/data/atan.csv",
@@ -1098,6 +1110,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "supports",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -1135,7 +1148,6 @@
       "limitations": [
         "the verdict covers 919 measured cell(s) and makes no statement between them"
       ],
-      "relation": "supports",
       "data": {
         "file": "data/atan.csv",
         "path": "wider-validation/mpfr/data/atan.csv",

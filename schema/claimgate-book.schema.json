@@ -326,7 +326,7 @@
     },
     "row": {
       "type": "object",
-      "required": ["id", "type", "statement", "subject", "domain", "evidence_class"],
+      "required": ["id", "type", "statement", "subject", "domain", "evidence_class", "relation"],
       "additionalProperties": false,
       "properties": {
         "id": {"type": "string", "minLength": 1},
@@ -342,8 +342,8 @@
         "quantifier": {"$ref": "#/$defs/quantifier"},
         "evidence_class": {"$ref": "#/$defs/evidenceClass"},
         "relation": {
-          "description": "How the row stands to its claim: carries (restates the sentence's domain, bound and quantifier), measures (the same object under another subject), matches (the same object under another subject without carrying the sentence), supports (related evidence). Absent, a row with a claim_id is reported as carrying it.",
-          "enum": ["carries", "measures", "matches", "supports"]
+          "description": "How the row stands to its claim: carries (restates the sentence's domain, bound and quantifier), strengthens (tests a stronger condition, so a pass implies the sentence but a failure does not refute it), measures (the same object under another subject), matches (the same object under another subject without carrying the sentence), supports (related evidence). Required on every row; there is no default.",
+          "enum": ["carries", "measures", "matches", "supports", "strengthens"]
         },
         "figure_bound": {
           "description": "The numeric bound the registration's stated figure is compared with to one ULP. Zero or absent where the row has no directly comparable bound.",

@@ -321,6 +321,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "figure_bound": 1.0,
       "data": {
         "file": "data/sin.csv",
@@ -364,6 +365,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "figure_bound": 1.0,
       "data": {
         "file": "data/exp.csv",
@@ -407,6 +409,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "figure_bound": 1.0,
       "data": {
         "file": "data/log.csv",
@@ -450,6 +453,7 @@
       },
       "quantifier": "uniform",
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "figure_bound": 1.0,
       "data": {
         "file": "data/erf.csv",

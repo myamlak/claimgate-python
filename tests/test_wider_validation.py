@@ -43,6 +43,15 @@ class SleefTest(unittest.TestCase):
         self.assertEqual(checks["figures"]["checked"], 4)
         self.assertEqual(checks["figures"]["failed"], [])
 
+    def test_relations(self):
+        for claim in self.report["claims"]:
+            self.assertEqual(claim["carrying_rows"], 1)
+            for key in ("stronger_test_rows", "supporting_rows", "measuring_rows",
+                        "matching_rows"):
+                self.assertEqual(claim[key], 0, key)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "carries")
+
 
 class GslTest(unittest.TestCase):
     @classmethod
@@ -85,6 +94,17 @@ class GslTest(unittest.TestCase):
             self.assertEqual(row["evidence_class"], "empirical_allowance")
             self.assertTrue(any("not a bound" in line for line in row["limitations"]))
 
+    def test_relations(self):
+        claims = {claim["id"]: claim for claim in self.report["claims"]}
+        self.assertEqual(claims["gsl.specfunc.prec_double"]["carrying_rows"], 2)
+        self.assertEqual(claims["gsl.specfunc.error_estimate"]["carrying_rows"], 4)
+        for claim in self.report["claims"]:
+            for key in ("stronger_test_rows", "supporting_rows", "measuring_rows",
+                        "matching_rows"):
+                self.assertEqual(claim[key], 0, key)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "carries")
+
 
 class MpfrTest(unittest.TestCase):
     @classmethod
@@ -108,7 +128,12 @@ class MpfrTest(unittest.TestCase):
         for claim in self.report["claims"]:
             self.assertEqual(claim["evidence_class"], "certified_bound")
             self.assertEqual(claim["carrying_rows"], 0)
+            self.assertEqual(claim["stronger_test_rows"], 0)
             self.assertEqual(claim["supporting_rows"], 4)
+            self.assertEqual(claim["measuring_rows"], 0)
+            self.assertEqual(claim["matching_rows"], 0)
+        for row in self.report["rows"]:
+            self.assertEqual(row["relation"], "supports")
 
 
 if __name__ == "__main__":

@@ -24,6 +24,7 @@ class CliTest(unittest.TestCase):
         result = cli("--version")
         self.assertEqual(result.returncode, 0)
         self.assertIn("claimgate", result.stdout)
+        self.assertIn("0.2.0", result.stdout)
 
     def test_validate(self):
         result = cli("validate", "examples/row-types/book.json")

@@ -53,7 +53,8 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "supporting_rows"],
+        "description": "The five relation counts are disjoint and cover the claim's rows: carrying_rows + stronger_test_rows + supporting_rows + measuring_rows + matching_rows == the length of rows.",
+        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "stronger_test_rows", "supporting_rows", "measuring_rows", "matching_rows"],
         "additionalProperties": false,
         "properties": {
           "id": {"type": "string"},
@@ -62,8 +63,31 @@
           "metric": {"type": "object"},
           "bound": {"type": "object"},
           "rows": {"type": "array", "items": {"type": "string"}},
-          "carrying_rows": {"type": "integer", "minimum": 0},
-          "supporting_rows": {"type": "integer", "minimum": 0}
+          "carrying_rows": {
+            "description": "Rows explicitly marked carries.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "stronger_test_rows": {
+            "description": "Rows explicitly marked strengthens.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "supporting_rows": {
+            "description": "Rows explicitly marked supports.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "measuring_rows": {
+            "description": "Rows explicitly marked measures.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "matching_rows": {
+            "description": "Rows explicitly marked matches.",
+            "type": "integer",
+            "minimum": 0
+          }
         }
       }
     },
@@ -145,7 +169,7 @@
           "family": {"enum": ["judged_and_met", "judged_and_unmet", "not_judged"]},
           "met": {"type": ["boolean", "null"]},
           "evidence_class": {"type": "string"},
-          "relation": {"type": "string"},
+          "relation": {"$ref": "#/$defs/relation"},
           "metric": {"type": "object"},
           "bound": {"type": "object"},
           "quantifier": {"type": "string"},
@@ -186,6 +210,9 @@
   "$defs": {
     "verdict": {
       "enum": ["verified", "met_over_domain", "exceeded", "vacuous", "evidence_absent", "not_carried", "not_judged"]
+    },
+    "relation": {
+      "enum": ["carries", "measures", "matches", "supports", "strengthens"]
     }
   }
 }

@@ -2,14 +2,14 @@
   "schema": "claimgate-run-1",
   "tool": {
     "name": "claimgate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "writer": "claimgate reference runner"
   },
   "book": {
     "id": "crlibm-sinh",
     "title": "crlibm 1.0beta5: the sinh correct-rounding claim",
     "path": "examples/crlibm-sinh/book.json",
-    "sha256": "2e04f7b201b1c3ad4eea8c32c8023f3d1005e1c10c1e0c9cfe1a8800521703ce"
+    "sha256": "7de03661e8b74bec546ae7fee346e844b32bbee004eeda96af3a8aacb23b66cc"
   },
   "root": "examples/crlibm-sinh",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/crlibm-sinh.run.json"
   ],
-  "started_utc": "2026-11-09T18:23:13+00:00",
-  "finished_utc": "2026-11-09T18:23:13+00:00",
-  "duration_s": 0.056939,
+  "started_utc": "2026-11-21T10:29:41+00:00",
+  "finished_utc": "2026-11-21T10:29:41+00:00",
+  "duration_s": 0.051824,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,20 +36,47 @@
     {
       "role": "book",
       "path": "examples/crlibm-sinh/book.json",
-      "sha256": "2e04f7b201b1c3ad4eea8c32c8023f3d1005e1c10c1e0c9cfe1a8800521703ce",
-      "bytes": 9646
+      "sha256": "7de03661e8b74bec546ae7fee346e844b32bbee004eeda96af3a8aacb23b66cc",
+      "bytes": 9762
     },
     {
       "role": "data",
       "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
-      "sha256": "354d05959eacd1056e1cdb10db3739e3ab4aaf9b15b7bdad39f4bddc30b9ccf8",
-      "bytes": 134083
+      "sha256": "f7447ff40362b7cd44a595fd41d38c7ccc4e2e603d955b52e6e87e70ef4129ee",
+      "bytes": 133660
     },
     {
       "role": "anchor",
       "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
-      "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf",
-      "bytes": 2881
+      "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162",
+      "bytes": 2803
+    }
+  ],
+  "claims": [
+    {
+      "id": "crlibm.sinh.correct_rounding",
+      "object": "sinh_rn, sinh_ru, sinh_rd and sinh_rz",
+      "evidence_class": "finite_grid_conformance",
+      "metric": {
+        "kind": "bit_identity",
+        "unit": "bit identity"
+      },
+      "bound": {
+        "value": 0,
+        "unit": "mismatches",
+        "quantifier": "uniform"
+      },
+      "rows": [
+        "crlibm.sinh.rn",
+        "crlibm.sinh.ru",
+        "crlibm.sinh.rd",
+        "crlibm.sinh.rz"
+      ],
+      "carrying_rows": 4,
+      "stronger_test_rows": 0,
+      "supporting_rows": 0,
+      "measuring_rows": 0,
+      "matching_rows": 0
     }
   ],
   "registrations": [
@@ -83,7 +110,7 @@
           "file": "anchors/doc_excerpts.txt",
           "mode": "full-source",
           "path": "examples/crlibm-sinh/anchors/doc_excerpts.txt",
-          "sha256": "3954a2387742f9343def484b5052d0257cc8095c5ed706ddcaada081b433e2bf"
+          "sha256": "5722bbf71c064097742c6d93b82c5090c283b42c5ff1fd111812b0cbdbc44162"
         }
       ]
     },
@@ -108,6 +135,7 @@
       "family": "judged_and_met",
       "met": true,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -146,7 +174,6 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -164,6 +191,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -202,7 +230,6 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -220,6 +247,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -258,7 +286,6 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",
@@ -276,6 +303,7 @@
       "family": "judged_and_unmet",
       "met": false,
       "evidence_class": "finite_grid_conformance",
+      "relation": "carries",
       "metric": {
         "kind": "bit_identity",
         "unit": "bit identity"
@@ -314,7 +342,6 @@
       "limitations": [
         "the verdict covers 422 measured cell(s) and makes no statement between them"
       ],
-      "relation": "carries",
       "data": {
         "file": "data/crlibm_sinh_reference.csv",
         "path": "examples/crlibm-sinh/data/crlibm_sinh_reference.csv",

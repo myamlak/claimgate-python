@@ -189,10 +189,10 @@ def run_book(
     claim_report = []
     for claim in book.data.get("claims", []):
         row_ids = list(claim.get("rows", []))
-        carrying = [
-            row_id for row_id in row_ids
-            if book.rows[row_id].get("relation", "carries") == "carries"
-        ]
+        by_relation: dict[str, int] = {}
+        for row_id in row_ids:
+            relation = book.rows[row_id]["relation"]
+            by_relation[relation] = by_relation.get(relation, 0) + 1
         claim_report.append(
             {
                 "id": claim["id"],
@@ -201,8 +201,11 @@ def run_book(
                 "metric": claim.get("metric"),
                 "bound": claim.get("bound"),
                 "rows": row_ids,
-                "carrying_rows": len(carrying),
-                "supporting_rows": len(row_ids) - len(carrying),
+                "carrying_rows": by_relation.get("carries", 0),
+                "stronger_test_rows": by_relation.get("strengthens", 0),
+                "supporting_rows": by_relation.get("supports", 0),
+                "measuring_rows": by_relation.get("measures", 0),
+                "matching_rows": by_relation.get("matches", 0),
             }
         )
 

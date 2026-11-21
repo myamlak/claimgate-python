@@ -13,6 +13,7 @@ otherwise.  The script does not need the network: the clone is local.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -154,7 +155,48 @@ def main(argv=None) -> int:
         check(external["failed"] == [], "the boys external run record failed its checks")
         check(boys["summary"]["met"] == 38, "the boys run did not meet 38 of 38")
 
-        # 4. The two pilots reproduce the paper's witnesses.
+        # 4. The deposited records reproduce their digests in this checkout.
+        records = sorted((clone / "records").glob("*.run.json"))
+        records += sorted((clone / "wider-validation").glob("*/report.json"))
+        check(records, "the clone holds no deposited run records")
+        version_result = run(
+            [sys.executable, "-m", "claimgate", "--version"], cwd=clone, env=env
+        )
+        check(version_result.returncode == 0, "the clone's claimgate --version failed")
+        expected_version = version_result.stdout.strip().split()[-1]
+        root = clone.resolve()
+        for record_path in records:
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+            where = record_path.relative_to(clone).as_posix()
+            check(
+                record["tool"]["version"] == expected_version,
+                f"{where}: tool version {record['tool']['version']} is not "
+                f"{expected_version}",
+            )
+            paths = [("book", record["book"]["path"], record["book"]["sha256"], None)]
+            paths += [
+                ("input", entry["path"], entry["sha256"], entry.get("bytes"))
+                for entry in record["inputs"]
+            ]
+            for kind, relative, digest, size in paths:
+                path = (clone / relative).resolve()
+                check(
+                    path.is_relative_to(root),
+                    f"{where}: {kind} {relative!r} escapes the clone",
+                )
+                check(path.is_file(), f"{where}: {kind} {relative!r} is missing")
+                check(
+                    hashlib.sha256(path.read_bytes()).hexdigest() == digest,
+                    f"{where}: {kind} {relative!r} digest does not match",
+                )
+                if size is not None:
+                    check(
+                        path.stat().st_size == size,
+                        f"{where}: {kind} {relative!r} size does not match",
+                    )
+        print(f"records      : {len(records)} deposited records, digests match")
+
+        # 5. The two pilots reproduce the paper's witnesses.
         boost = json.loads((reports / "boost-airy.json").read_text(encoding="utf-8"))
         boost_rows = {row["id"]: row for row in boost["rows"]}
         bi = boost_rows["boost.airy.bi.a2_grid"]["worst"]["value"]
