@@ -17,7 +17,7 @@
       "run": "papers-b-v5/papers/claims-as-rows/program-demo/gate-v5.3.1/",
       "extraction": "python examples/boys-gate/extract.py --repo <boys> --tag v5.3.1 --transcript <04b-gate-run.log> --out examples/boys-gate",
       "transcribed": "claim id, object, domain scope, route, rows, source and bound from the gate's registrations and rows",
-      "placeholder": "the claim metric is marked 'external'; the claim bound is the first carrying row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
+      "placeholder": "the claim metric is marked 'external'; the claim bound is the first registered row's figure_bound, or 0 where the gate states no figure; the claim output representation is the gate's own",
       "verdicts": "the seven verdicts are the transcript's, one per row, in book order",
       "anchor_slices": "cut from the tagged source; the index records each full source's SHA-256"
     },

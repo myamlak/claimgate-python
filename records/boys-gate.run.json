@@ -9,7 +9,7 @@
     "id": "boys-gate-5.3.1",
     "title": "The boys accuracy gate at v5.3.1: registration table and run record",
     "path": "examples/boys-gate/book.json",
-    "sha256": "387e97e0af845c8599e386b4c3a265b11b8376b4472630dc8d0d1b5e76b3023c"
+    "sha256": "bfda292626be438729c957ff8ea0d94bcc689f323f91d6fe021c369a52686d21"
   },
   "root": "examples/boys-gate",
   "command": [
@@ -22,9 +22,9 @@
     "--report",
     "records/boys-gate.run.json"
   ],
-  "started_utc": "2026-11-21T10:21:15+00:00",
-  "finished_utc": "2026-11-21T10:21:15+00:00",
-  "duration_s": 0.021906,
+  "started_utc": "2026-11-21T10:24:05+00:00",
+  "finished_utc": "2026-11-21T10:24:05+00:00",
+  "duration_s": 0.022254,
   "environment": {
     "python": "3.14.7",
     "implementation": "CPython",
@@ -36,8 +36,8 @@
     {
       "role": "book",
       "path": "examples/boys-gate/book.json",
-      "sha256": "387e97e0af845c8599e386b4c3a265b11b8376b4472630dc8d0d1b5e76b3023c",
-      "bytes": 123954
+      "sha256": "bfda292626be438729c957ff8ea0d94bcc689f323f91d6fe021c369a52686d21",
+      "bytes": 123956
     },
     {
       "role": "anchor",
