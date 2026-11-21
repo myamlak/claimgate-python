@@ -602,7 +602,7 @@ def main(argv=None) -> int:
         }
         slice_name = sanitize(source_file) + ".slices.json"
         (out / "anchor-slices" / slice_name).write_text(
-            json.dumps(payload, indent=1) + "\n", encoding="utf-8"
+            json.dumps(payload, indent=1) + "\n", encoding="utf-8", newline="\n"
         )
         slice_index[source_file] = {
             "file": slice_name,
@@ -610,7 +610,8 @@ def main(argv=None) -> int:
             "tag": args.tag,
         }
     (out / "anchor-slices" / "index.json").write_text(
-        json.dumps(slice_index, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        json.dumps(slice_index, indent=2, sort_keys=True) + "\n", encoding="utf-8",
+        newline="\n",
     )
 
     # The registrations and their claims.
@@ -777,7 +778,7 @@ def main(argv=None) -> int:
         },
     }
     (out / "run-record.json").write_text(
-        json.dumps(run_record, indent=2) + "\n", encoding="utf-8"
+        json.dumps(run_record, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
 
     book = {
@@ -828,7 +829,9 @@ def main(argv=None) -> int:
             "note": "the boys accuracy gate's captured run; claimgate checks its structure and digests",
         },
     }
-    (out / "book.json").write_text(json.dumps(book, indent=2) + "\n", encoding="utf-8")
+    (out / "book.json").write_text(
+        json.dumps(book, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
 
     print(f"book        : {out / 'book.json'}")
     print(f"rows        : {len(book_rows)}")

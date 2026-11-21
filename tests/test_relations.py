@@ -43,7 +43,9 @@ class RelationCountTest(unittest.TestCase):
         h01 = self.claims["H01"]
         self.assertEqual(h01["carrying_rows"], 0)
         self.assertEqual(h01["stronger_test_rows"], 1)
-        self.assertEqual(h01["supporting_rows"], 1)
+        self.assertEqual(h01["supporting_rows"], 0)
+        self.assertEqual(h01["measuring_rows"], 0)
+        self.assertEqual(h01["matching_rows"], 0)
         self.assertEqual(self.rows["README.half"]["relation"], "strengthens")
 
     def test_c_explicit_carries_count_as_before(self):
@@ -55,11 +57,26 @@ class RelationCountTest(unittest.TestCase):
     def test_d_supports_and_measures_are_not_carrying(self):
         for claim_id in ("D07", "P03", "P11"):
             self.assertEqual(self.claims[claim_id]["carrying_rows"], 0, claim_id)
+        self.assertEqual(self.claims["P11"]["measuring_rows"], 1)
+        self.assertEqual(self.claims["D07"]["supporting_rows"], 1)
         for claim in self.mpfr["claims"]:
             self.assertEqual(claim["carrying_rows"], 0)
             self.assertEqual(claim["stronger_test_rows"], 0)
             self.assertEqual(claim["supporting_rows"], 4)
+            self.assertEqual(claim["measuring_rows"], 0)
+            self.assertEqual(claim["matching_rows"], 0)
         self.assertTrue(all(row["relation"] == "supports" for row in self.mpfr["rows"]))
+
+    def test_the_five_counts_are_disjoint_and_complete(self):
+        for claim in self.boys["claims"]:
+            counts = (
+                claim["carrying_rows"],
+                claim["stronger_test_rows"],
+                claim["supporting_rows"],
+                claim["measuring_rows"],
+                claim["matching_rows"],
+            )
+            self.assertEqual(sum(counts), len(claim["rows"]), claim["id"])
 
     def test_boys_row_relation_counts(self):
         counts = {}

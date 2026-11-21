@@ -8,7 +8,8 @@ specification:
 * `claimgate-run.schema.json` defines a run report, and the shape of an
   external run record (`claimgate-external-run-1`).
 
-The Python runner in `claimgate/` implements the same rules.  It is the
+The documents describe claimgate 0.2.0.  The Python runner in `claimgate/`
+implements the same rules.  It is the
 reference implementation; a consumer in another language can read the schema
 and produce or consume the same JSON.
 
@@ -148,9 +149,10 @@ bindings, external run), `rows`, `summary` and `exit_status`.
 Each row result carries the verdict, its family, `met`, the evidence class,
 the relation, the metric and bound, the cell and failure counts, the worst
 cell, what the verdict establishes and its limitations.  Each claim result
-carries `carrying_rows` (explicit `carries` only), `stronger_test_rows`
-(explicit `strengthens` only) and `supporting_rows` (every row that is not a
-carry, the stronger tests included).
+carries one disjoint count per relation: `carrying_rows` (`carries`),
+`stronger_test_rows` (`strengthens`), `supporting_rows` (`supports`),
+`measuring_rows` (`measures`) and `matching_rows` (`matches`).  The five sum to
+the number of rows the claim registers, so no row is counted twice.
 
 ## Exit status
 

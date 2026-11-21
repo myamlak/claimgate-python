@@ -16,7 +16,7 @@ from typing import Any
 from .exact import NumberError, parse_exact
 
 TOOL_NAME = "claimgate"
-TOOL_VERSION = "0.1.1"
+TOOL_VERSION = "0.2.0"
 BOOK_SCHEMA = 1
 RUN_SCHEMA = "claimgate-run-1"
 EXTERNAL_RUN_SCHEMA = "claimgate-external-run-1"

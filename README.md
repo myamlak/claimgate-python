@@ -1,6 +1,7 @@
 # claimgate
 
-A reference runner for documented numerical accuracy claims.
+A reference runner for documented numerical accuracy claims.  This is
+claimgate 0.2.0.
 
 A library states an accuracy claim in prose.  claimgate carries that sentence as
 a **registration** (the verbatim text, its file and line anchor, the figure it
@@ -125,10 +126,11 @@ are:
 | `matches` | a measurement of the same object that does not restate the sentence |
 | `supports` | related evidence, not the sentence's numerical object |
 
-The run report counts each claim's `carrying_rows` (explicit `carries` only),
-`stronger_test_rows` (explicit `strengthens` only) and `supporting_rows` (every
-row that is not a carry, which includes the stronger tests).  A `supports` or
-`measures` row is not a carry and is never counted as one.
+The run report counts each claim's five relations separately, and the counts
+are disjoint: `carrying_rows` (`carries`), `stronger_test_rows`
+(`strengthens`), `supporting_rows` (`supports`), `measuring_rows` (`measures`)
+and `matching_rows` (`matches`).  A `supports`, `measures` or `matches` row is
+not a carry and is never counted as one.
 
 ## Metrics and exactness
 

@@ -64,7 +64,9 @@ X03-X06 and the proxy D07 and P03 support; H01's stronger test is
 `strengthens`; P11 is measured without restating its sentence.  The
 supporting rows the gate releases beside its claims, and the retained rows
 that measure objects no enumerated claim states at this tag, are marked
-`supports` and `measures` respectively.
+`supports` and `measures` respectively.  The ten rows no registration cites
+carry the author's reading as well: the four supporting rows are `supports`
+and the six retained rows are `measures`.
 
 ## What claimgate does not check
 

@@ -56,6 +56,8 @@ class BoostAiryTest(unittest.TestCase):
         self.assertEqual(claim["carrying_rows"], 4)
         self.assertEqual(claim["stronger_test_rows"], 0)
         self.assertEqual(claim["supporting_rows"], 0)
+        self.assertEqual(claim["measuring_rows"], 0)
+        self.assertEqual(claim["matching_rows"], 0)
         for row in self.report["rows"]:
             self.assertEqual(row["relation"], "carries")
 
@@ -104,6 +106,9 @@ class CrlibmTest(unittest.TestCase):
         claim = self.report["claims"][0]
         self.assertEqual(claim["carrying_rows"], 4)
         self.assertEqual(claim["stronger_test_rows"], 0)
+        self.assertEqual(claim["supporting_rows"], 0)
+        self.assertEqual(claim["measuring_rows"], 0)
+        self.assertEqual(claim["matching_rows"], 0)
         for row in self.report["rows"]:
             self.assertEqual(row["relation"], "carries")
 
@@ -143,11 +148,31 @@ class BoysGateTest(unittest.TestCase):
         claims = {claim["id"]: claim for claim in self.report["claims"]}
         self.assertEqual(claims["H01"]["carrying_rows"], 0)
         self.assertEqual(claims["H01"]["stronger_test_rows"], 1)
-        self.assertEqual(claims["H01"]["supporting_rows"], 1)
+        self.assertEqual(claims["H01"]["supporting_rows"], 0)
+        self.assertEqual(claims["H01"]["measuring_rows"], 0)
         for claim_id in ("D07", "P03", "P11"):
             self.assertEqual(claims[claim_id]["carrying_rows"], 0, claim_id)
-        self.assertEqual(sum(c["carrying_rows"] for c in self.report["claims"]), 29)
-        self.assertEqual(sum(c["stronger_test_rows"] for c in self.report["claims"]), 1)
+        totals = {
+            key: sum(claim[key] for claim in self.report["claims"])
+            for key in (
+                "carrying_rows", "stronger_test_rows", "supporting_rows",
+                "measuring_rows", "matching_rows",
+            )
+        }
+        self.assertEqual(
+            totals,
+            {
+                "carrying_rows": 29,
+                "stronger_test_rows": 1,
+                "supporting_rows": 6,
+                "measuring_rows": 1,
+                "matching_rows": 0,
+            },
+        )
+        self.assertEqual(
+            sum(totals.values()),
+            sum(len(claim["rows"]) for claim in self.report["claims"]),
+        )
         counts = {}
         for row in self.report["rows"]:
             counts[row["relation"]] = counts.get(row["relation"], 0) + 1
@@ -224,8 +249,11 @@ class RowTypesTest(unittest.TestCase):
         self.assertEqual(summary["not_judged"], 1)
 
     def test_relations(self):
-        self.assertEqual(sum(c["carrying_rows"] for c in self.report["claims"]), 8)
-        self.assertEqual(sum(c["stronger_test_rows"] for c in self.report["claims"]), 0)
+        for claim in self.report["claims"]:
+            self.assertEqual(claim["carrying_rows"], 1)
+            for key in ("stronger_test_rows", "supporting_rows", "measuring_rows",
+                        "matching_rows"):
+                self.assertEqual(claim[key], 0, key)
         for row in self.report["rows"]:
             self.assertEqual(row["relation"], "carries")
 

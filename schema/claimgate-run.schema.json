@@ -53,7 +53,8 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "supporting_rows", "stronger_test_rows"],
+        "description": "The five relation counts are disjoint and cover the claim's rows: carrying_rows + stronger_test_rows + supporting_rows + measuring_rows + matching_rows == the length of rows.",
+        "required": ["id", "object", "evidence_class", "rows", "carrying_rows", "stronger_test_rows", "supporting_rows", "measuring_rows", "matching_rows"],
         "additionalProperties": false,
         "properties": {
           "id": {"type": "string"},
@@ -67,13 +68,23 @@
             "type": "integer",
             "minimum": 0
           },
-          "supporting_rows": {
-            "description": "Rows not marked carries, including the stronger tests.",
+          "stronger_test_rows": {
+            "description": "Rows explicitly marked strengthens.",
             "type": "integer",
             "minimum": 0
           },
-          "stronger_test_rows": {
-            "description": "Rows explicitly marked strengthens; a subset of the supporting rows.",
+          "supporting_rows": {
+            "description": "Rows explicitly marked supports.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "measuring_rows": {
+            "description": "Rows explicitly marked measures.",
+            "type": "integer",
+            "minimum": 0
+          },
+          "matching_rows": {
+            "description": "Rows explicitly marked matches.",
             "type": "integer",
             "minimum": 0
           }
